@@ -1,4 +1,12 @@
 class GratitudePolicy < ApplicationPolicy
+   def index?
+    record.user == user
+  end
+
+  def show?
+    record.user == user
+  end
+
   def create?
     return true
   end
