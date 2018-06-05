@@ -1,4 +1,12 @@
 class CollaborationItemPolicy < ApplicationPolicy
+  def index?
+    @collaboration_items = policy_scope(Collaboration_item).order(created_at: :desc)
+  end
+
+  def show?
+    record.user == user
+  end
+
   def create?
     return true
   end

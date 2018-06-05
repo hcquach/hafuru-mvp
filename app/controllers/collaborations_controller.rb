@@ -1,5 +1,6 @@
 class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:new, :destroy]
+  authorize @collaboration
 
   def new
   end
