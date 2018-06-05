@@ -9,4 +9,7 @@ class User < ApplicationRecord
   # Validations
   validates :email, presence: true, uniqueness: true
 
+  # Upload photo
+  mount_uploader :photo, PhotoUploader
+
 end
