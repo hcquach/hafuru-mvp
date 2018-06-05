@@ -1,10 +1,10 @@
 class CollaborationItemsController < ApplicationController
   before_action :set_collaboration_item, only: [:show, :edit, :update, :destroy]
-  authorize @collaboration_item
+
 
 
   def index
-    @collaboration_items = Collaboration_item.where(user: current_user)
+    @collaboration_items = policy_scope(Collaboration_item).order(created_at: :desc)
   end
 
   def new
@@ -22,6 +22,7 @@ class CollaborationItemsController < ApplicationController
   end
 
   def show
+    authorize @collaboration_item
   end
 
   def edit

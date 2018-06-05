@@ -1,6 +1,13 @@
 class CollaborationsController < ApplicationController
-  before_action :set_collaboration, only: [:new, :destroy]
-  authorize @collaboration
+  before_action :set_collaboration, only: [:new, :show, :destroy]
+
+  def index
+    @collaborations = policy_scope(Collaboration).order(created_at: :desc)
+  end
+
+  def show
+    authorise @collaboration
+  end
 
   def new
   end
