@@ -1,6 +1,6 @@
 class GratitudePolicy < ApplicationPolicy
   def index?
-    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
+    record.user == user
   end
 
   def show?
@@ -21,7 +21,7 @@ class GratitudePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user :user)
+      scope.where(user: user)
     end
   end
 end
