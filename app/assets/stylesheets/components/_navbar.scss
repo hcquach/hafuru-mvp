@@ -1,12 +1,16 @@
 /* Main navbar */
 .navbar-wagon {
-  background-color: transparent;
+  background-color: #9951ff;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.navbar-home {
+  background-color: transparent;
 }
 
 /* Logo */
