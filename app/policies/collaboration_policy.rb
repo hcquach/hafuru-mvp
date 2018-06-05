@@ -1,4 +1,4 @@
-class GratitudePolicy < ApplicationPolicy
+class CollaborationPolicy < ApplicationPolicy
   def create?
     return true
   end
