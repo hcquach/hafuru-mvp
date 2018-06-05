@@ -1,10 +1,8 @@
 class GratitudesController < ApplicationController
   before_action :set_gratitude, only: [:show, :edit, :update, :destroy]
-  authorize @gratitude
-
 
   def index
-    @gratitudes = Gratitude.where(user: current_user)
+    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
   end
 
   def new
@@ -22,6 +20,7 @@ class GratitudesController < ApplicationController
   end
 
   def show
+    authorize(@gratitude)
   end
 
   def edit
