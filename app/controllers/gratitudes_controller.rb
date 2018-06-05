@@ -1,5 +1,6 @@
 class GratitudesController < ApplicationController
   before_action :set_gratitude, only: [:show, :edit, :update, :destroy]
+  authorize @gratitude
 
 
   def index
