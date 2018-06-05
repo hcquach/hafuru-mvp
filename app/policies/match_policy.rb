@@ -1,6 +1,6 @@
 class MatchPolicy < ApplicationPolicy
   def index?
-    @matches = policy_scope(Match).order(created_at: :desc)
+    record.user == user
   end
 
   def show?
@@ -20,7 +20,7 @@ class MatchPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user :user)
+      scope.where(user: user)
     end
   end
 end

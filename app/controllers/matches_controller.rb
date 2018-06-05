@@ -1,12 +1,13 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :destroy]
-  authorize @match
+
 
   def index
-    @matches = Match.where(user: current_user)
+    @matches = policy_scope(Match).order(created_at: :desc)
   end
 
   def show
+    authorize @match
   end
 
   def new
