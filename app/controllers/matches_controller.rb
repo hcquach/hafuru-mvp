@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :destroy]
+  authorize @match
 
   def index
     @matches = Match.where(user: current_user)

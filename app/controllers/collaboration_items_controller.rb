@@ -1,5 +1,6 @@
 class CollaborationItemsController < ApplicationController
   before_action :set_collaboration_item, only: [:show, :edit, :update, :destroy]
+  authorize @collaboration_item
 
 
   def index
