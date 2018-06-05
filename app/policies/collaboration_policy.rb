@@ -1,6 +1,6 @@
 class CollaborationPolicy < ApplicationPolicy
    def index?
-    record.user == user
+    @collaborations = policy_scope(Collaboration).order(created_at: :desc)
   end
 
   def show?

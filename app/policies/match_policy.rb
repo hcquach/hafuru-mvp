@@ -1,4 +1,11 @@
 class MatchPolicy < ApplicationPolicy
+  def index?
+    @matches = policy_scope(Match).order(created_at: :desc)
+  end
+
+  def show?
+    record.user == user
+  end
   def create?
     return true
   end

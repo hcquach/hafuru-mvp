@@ -1,6 +1,6 @@
 class GratitudePolicy < ApplicationPolicy
-   def index?
-    record.user == user
+  def index?
+    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
   end
 
   def show?
