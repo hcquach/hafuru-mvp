@@ -3,7 +3,7 @@ class CollaborationItemsController < ApplicationController
 
 
   def index
-    @collaboration_items = Gratitude_item.where(user: current_user)
+    @collaboration_items = Collaboration_item.where(user: current_user)
   end
 
   def new
@@ -43,11 +43,11 @@ class CollaborationItemsController < ApplicationController
 
   private
 
-  def set_gratitude
+  def set_collaboration_item
     @collaboration_item = Collaboration_item.find(params[:id])
   end
 
-  def gratitude_params
+  def collaboration_item_params
     params.require(:collaboration_item).permit(:collaboration_id, :matched_user_gratitude_id, :matching_user_gratitude_id)
   end
 end
