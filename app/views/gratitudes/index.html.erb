@@ -1,3 +1,19 @@
 <% @gratitudes.each do |gratitude| %>
   <%= gratitude.title %>
 <% end %>
+
+<div class="board-wrapper">
+
+  <div class="board-stats">
+    <%= @gratitudes.count %><br>Grateful & Awesome stuffs
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-4">
+      <div class="card-gratitude"></div>
+    </div>
+
+  </div>
+
+</div>
