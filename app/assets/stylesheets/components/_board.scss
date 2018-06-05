@@ -1,0 +1,41 @@
+.board-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 100px;
+
+  .board-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #9951ff;
+    height: 800px;
+    width: 600px;
+    margin: 0px 0px 0px 35px;
+    color: white;
+    padding: 20px;
+  }
+
+  .board-count {
+    font-size: 100px;
+  }
+
+  .board-photos {
+    margin-right: 20px;
+  }
+
+  .gratitude-photo {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .top-right {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+  }
+
+}

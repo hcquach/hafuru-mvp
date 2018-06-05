@@ -1,19 +1,61 @@
-<% @gratitudes.each do |gratitude| %>
-  <%= gratitude.title %>
-<% end %>
-
 <div class="board-wrapper">
 
-  <div class="board-stats">
-    <%= @gratitudes.count %><br>Grateful & Awesome stuffs
+  <div class="board-stats text-center">
+    <div class="board-count"><%= @gratitudes.count %></div>
+    <h2>Gratitude<br>&<br>Awesome stuffs</h2>
   </div>
 
-  <div class="row">
-
-    <div class="col-xs-12 col-md-4">
-      <div class="card-gratitude"></div>
-    </div>
-
+  <div class="board-photos">
+    <% @gratitudes.each do |gratitude| %>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4" style="padding: 0px">
+        <div class="gratitude-photo">
+          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+          <div class="gratitude-title top-right">
+            <p>#<%= gratitude.title %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-
 </div>
+
