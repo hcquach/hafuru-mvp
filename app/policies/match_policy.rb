@@ -1,21 +1,22 @@
 class MatchPolicy < ApplicationPolicy
   def index?
-    record.user == user
+   return true
   end
 
   def show?
-    record.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
+
   def create?
     return true
   end
 
   def update?
-    record.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   def destroy?
-    record.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   class Scope < Scope

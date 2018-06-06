@@ -14,6 +14,25 @@ class MatchesController < ApplicationController
   end
 
   def create
+    @match = Match.new
+    @gratitude = Gratitude.find(params[:gratitude_id])
+    gratitudes_to_match = Gratitude.joins(:user).where("users.id != ? AND collaboration_id is ? AND match_status = ?", current_user.id, nil, false)
+    matched_gratitude = gratitudes_to_match.find do |gratitude|
+      gratitude.category_id == @gratitude.category_id
+    end
+    @match.matching_gratitude = @gratitude
+    @match.matched_gratitude = matched_gratitude
+    if @match.save
+      matched_gratitude.match_status = true
+      matched_gratitude.save
+      @gratitude.match_status = true
+      @gratitude.save
+      redirect_to gratitude_match_path(@gratitude, @match)
+    else
+      flash[:notice] = "No Match, try another Gratitude"
+      redirect_to gratitudes_path
+    end
+    authorize @match
   end
 
   def destroy
@@ -30,6 +49,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:macth).permit(:matched_gratitude_id, :matching_gratitude_id)
+    params.require(:match).permit(:matched_gratitude_id, :matching_gratitude_id)
   end
 end
