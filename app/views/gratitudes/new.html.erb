@@ -10,7 +10,7 @@ Hafuru - Create Gratitude
         <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
           <%= f.input :title, class: "label-input" %>
           <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
-          <%= f.input :category, class: "label-input" %>
+          <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
           <%= f.input :photo, class: "label-input" %>
           <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
           <div class="create-btn">
