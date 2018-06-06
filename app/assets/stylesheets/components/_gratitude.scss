@@ -4,7 +4,8 @@
   justify-content: center;
   display-items: center;
   flex-direction: column;
-  margin-top: 50px;
+  margin: 100px 50px 50px 50px;
+  background-color: white;
 
   .gratitude-container {
   display: flex;
@@ -43,6 +44,7 @@
     display: flex;
     margin: 20px;
     flex-direction: column;
+    text-align: left;
   }
 
   .btn {
@@ -55,8 +57,8 @@
     justify-content: center;
   }
 
-  #month {
-    font-size: 50px;
+  #day {
+    font-size: 100px;
   }
 
   h2 {

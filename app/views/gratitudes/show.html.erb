@@ -7,7 +7,7 @@
       <div class="gratitude-info">
         <div class="gratitude-date">
           <p><%= @gratitude.updated_at.strftime("%b") %> <%= @gratitude.updated_at.year %></p>
-          <div id="month"><%= @gratitude.updated_at.day %></div>
+          <div id="day"><%= @gratitude.updated_at.day %></div>
         </div>
         <div class="gratitude-title">
           <h2>Grateful for<br>#<%= @gratitude.title %></h2>
@@ -26,6 +26,7 @@
       <%= link_to "Edit" %>
       <%= link_to "Delete" %>
       <%= link_to "Match" %>
+      <%= link_to "Remember" %>
     </div>
 
     </div>

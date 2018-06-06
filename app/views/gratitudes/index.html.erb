@@ -9,53 +9,27 @@
     <% @gratitudes.each do |gratitude| %>
       <div class="col-xs-12 col-md-4" style="padding: 0px">
         <div class="gratitude-photo">
+          <%= link_to gratitude_path(gratitude) do %>
           <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
           <div class="gratitude-title top-right">
             <p>#<%= gratitude.title %></p>
           </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4" style="padding: 0px">
-        <div class="gratitude-photo">
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
+          <div class="gratitude-description overlay">
+            <p>#<%= gratitude.description %></p>
           </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4" style="padding: 0px">
-        <div class="gratitude-photo">
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4" style="padding: 0px">
-        <div class="gratitude-photo">
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4" style="padding: 0px">
-        <div class="gratitude-photo">
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-4" style="padding: 0px">
-        <div class="gratitude-photo">
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
-          </div>
+          <% end %>
         </div>
       </div>
     <% end %>
+    <div class="col-xs-12 col-md-4" style="padding: 0px">
+      <%= link_to new_gratitude_path do %>
+      <div class="gratitude-photo add-new-gratitude">
+        <div class="add-new-title", style="">
+          <p>Add New</p>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
