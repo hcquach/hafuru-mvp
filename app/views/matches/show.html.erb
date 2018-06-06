@@ -1,2 +1,38 @@
 
-<h1>you have got a match</h1>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 match">
+          <% matching_gratitude = Gratitude.find(@match.matching_gratitude_id) %>
+          <% category_m = Category.find(matching_gratitude.category_id) %>
+          <h3><%= category_m.name %></h3>
+      <div class="group-match">
+        <div class="profile-match">
+          <% user_matching = User.find(matching_gratitude.user_id) %>
+          <%= cl_image_tag user_matching.photo , height: 100, width: 120, crop: :fill %>
+          <h4><%= user_matching.username  %></h4>
+          <%= cl_image_tag matching_gratitude.photo , height: 100, width: 120, crop: :fill %>
+          <h4><%= matching_gratitude.title %></h4>
+          <p><%= matching_gratitude.description %></p>
+
+        </div>
+        <div class="profile-match">
+          <% matched_gratitude = Gratitude.find(@match.matched_gratitude_id) %>
+          <% user_matched = User.find(matched_gratitude.user_id) %>
+          <%= cl_image_tag user_matched.photo , height: 100, width: 120, crop: :fill %>
+          <h4><%= user_matched.username  %></h4>
+          <%= cl_image_tag matched_gratitude.photo , height: 100, width: 120, crop: :fill %>
+          <h4><%= matched_gratitude.title %></h4>
+          <p><%= matched_gratitude.description %></p>
+
+        </div>
+      </div>
+      <div class="buttons">
+        <%= link_to "collaborate", collaborations_path, class: "btn btn-primary" %>
+        <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
+      </div>
+    </div>
+  </div>
+</div>
