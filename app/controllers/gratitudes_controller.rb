@@ -12,6 +12,8 @@ class GratitudesController < ApplicationController
 
   def create
     @gratitude = Gratitude.new(gratitude_params)
+    @gratitude.user = current_user
+    authorize(@gratitude)
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
     else
@@ -36,6 +38,7 @@ class GratitudesController < ApplicationController
   end
 
   def destroy
+    authorize(@gratitude)
     if @gratitude.user == current_user
       @gratitude.destroy
       redirect_to gratitudes_path

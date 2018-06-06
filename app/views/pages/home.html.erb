@@ -1,4 +1,4 @@
-<% content_for(:navbar_class, "navbar-home") %>
+<% content_for(:navbar_class, "navbar-transparent") %>
 
 <!-- Banner -->
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://res.cloudinary.com/le-wagon-hcquach/image/upload/v1528120306/friends-backpacking-together_4460x4460.jpg');">
@@ -49,7 +49,25 @@
     <p>"Today I'm counting my blessings, not my problems"</p>
   </div>
 
-  <div class="gratitude-form">
-    <h2>Try for yourself</h2>
+  <div class="home-form">
+      <h2>Try for yourself</h2>
+    <form id="contact-form" action="/gratitudes" method='post'>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <p>Today I'm
+        <label for="title">grateful</label> for
+        <input type="text" name="gratitude[title]" id="title" minlength="3" required></p>
+      <p>
+        <label for="description">Because</label>
+        <input type="text" name="gratitude[description]" id="description" class="expanding"></p>
+      <p>
+        <label for="category">Category</label>
+        <input type="text" name="gratitude[category_id]" id="category" class="expanding"></p>
+      <p>
+        <button type="submit">
+          Create
+        </button>
+      </p>
+    </form>
+
   </div>
 </div>

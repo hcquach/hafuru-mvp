@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #9951ff;
+    background-color: $first-global-color;
     height: 100vh;
     width: 300px;
     margin: 0px 0px 0px 35px;
@@ -45,10 +45,13 @@
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: $first-global-color;
   }
 
   .gratitude-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-size: 20px;
     position: absolute;
@@ -59,7 +62,7 @@
     text-align: center;
   }
 
-  .gratitude-photo:hover {
+  .gratitude-photo:hover .overlay {
     opacity: 1;
   }
 
