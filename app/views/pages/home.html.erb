@@ -59,9 +59,15 @@
       <p>
         <label for="description">Because</label>
         <input type="text" name="gratitude[description]" id="description" class="expanding"></p>
-      <p>
-        <label for="category">Category</label>
-        <input type="text" name="gratitude[category_id]" id="category" class="expanding"></p>
+
+      <p><label for="category">Category</label>
+        <select name="gratitude[category]">
+          <% Category.all.each do |cat| %>
+            <option value="<%= cat %>"><%= cat.name %></option>
+          <% end %>
+        </select>
+      </p>
+
       <p>
         <button type="submit">
           Create
