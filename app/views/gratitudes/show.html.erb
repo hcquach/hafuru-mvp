@@ -7,7 +7,7 @@
       <div class="gratitude-info">
         <div class="gratitude-date">
           <p><%= @gratitude.updated_at.strftime("%b") %> <%= @gratitude.updated_at.year %></p>
-          <div id="month"><%= @gratitude.updated_at.day %></div>
+          <div id="day"><%= @gratitude.updated_at.day %></div>
         </div>
         <div class="gratitude-title">
           <h2>Grateful for<br>#<%= @gratitude.title %></h2>
@@ -24,7 +24,9 @@
     <div class="gratitude-button-container">
       <%= link_to "Board" %>
       <%= link_to "Edit" %>
-      <%= link_to "Delete" %>
+      <%= link_to "Delete", gratitude_path(@gratitude), method: :delete %>
+      <%= link_to "Match" %>
+      <%= link_to "Remember" %>
       <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create %>
     </div>
 
