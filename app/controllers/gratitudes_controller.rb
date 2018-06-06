@@ -7,16 +7,19 @@ class GratitudesController < ApplicationController
 
   def new
     @gratitude = Gratitude.new
+    authorize(@gratitude)
   end
 
   def create
     @gratitude = Gratitude.new(gratitude_params)
+    authorize(@gratitude)
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
     else
       flash[:alert] = "Please try again"
       render :new
     end
+
   end
 
   def show
