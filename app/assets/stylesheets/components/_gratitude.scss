@@ -1,0 +1,66 @@
+.gratitude-wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  display-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+
+  .gratitude-container {
+  display: flex;
+  justify-content: center;
+  display-items: center;
+  flex-direction: row;
+  }
+
+  .gratitude-info {
+    display:flex;
+    justify-content: space-between;
+    display-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 30px;
+    width: 200px;
+  }
+
+  .gratitude-date {
+    margin-top: 30px;
+  }
+
+  .gratitude-photo {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .top-right {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+}
+
+  .gratitude-button-container {
+    display: flex;
+    margin: 20px;
+    flex-direction: column;
+  }
+
+  .btn {
+    margin: 0px 20px;
+  }
+
+  .gratitude-description {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+  }
+
+  #month {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+}

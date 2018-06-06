@@ -1,5 +1,4 @@
 class Gratitude < ApplicationRecord
-  # Upload photo
   mount_uploader :photo, PhotoUploader
 
   belongs_to :category, optional: true
