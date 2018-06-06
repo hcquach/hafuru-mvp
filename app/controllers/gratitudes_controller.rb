@@ -20,6 +20,7 @@ class GratitudesController < ApplicationController
       flash[:alert] = "Please try again"
       render :new
     end
+
   end
 
   def show
