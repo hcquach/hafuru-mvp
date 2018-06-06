@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  height: 100vh;
+  margin-top: 50px;
+  margin-left: 3vw;
 }
 
 .testimonials {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
   flex-direction: column;
   background-color: black;
   color: white;

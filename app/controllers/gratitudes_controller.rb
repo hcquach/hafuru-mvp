@@ -24,10 +24,12 @@ class GratitudesController < ApplicationController
   end
 
   def show
+    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
     authorize(@gratitude)
   end
 
   def edit
+    authorize(@gratitude)
   end
 
   def update
