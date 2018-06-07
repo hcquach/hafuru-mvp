@@ -12,13 +12,6 @@ class CollaborationItemsController < ApplicationController
   end
 
   def create
-    @collaboration_item = Collaboration_item.new(collaboration_item_params)
-    if @collaboration_item.save
-      redirect_to collaboration_item_path(@collaboration_item)
-    else
-      flash[:alert] = "Please try again"
-      render :new
-    end
   end
 
   def show
@@ -37,10 +30,8 @@ class CollaborationItemsController < ApplicationController
   end
 
   def destroy
-    if @collaboration_item.user == current_user
-      @collaboration_item.destroy
-      redirect_to collaboration_items_path
-    end
+    @collaboration_item.destroy
+    redirect_to collaboration_path(@collaboration)
   end
 
   private

@@ -32,8 +32,8 @@ Hafuru - #Grateful
         </div>
       </div>
       <div class="buttons">
-        <%= link_to "collaborate", collaborations_path, class: "btn btn-primary" %>
-        <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
+        <%= link_to "Collaborate", collaboration_path(@match.collaboration), class: "btn btn-primary" %>
+        <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match), method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
       </div>
     </div>
   </div>

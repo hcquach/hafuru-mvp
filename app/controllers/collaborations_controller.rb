@@ -6,7 +6,8 @@ class CollaborationsController < ApplicationController
   end
 
   def show
-    authorise @collaboration
+    authorize @collaboration
+    @gratitude = Gratitude.new
   end
 
   def new
@@ -16,9 +17,9 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
-    if @collaboration.user == current_user
-      @collaboration.destroy
-    end
+    @collaboration.destroy
+    authorize @collaboration
+    redirect_to gratitudes_path
   end
 
   private
