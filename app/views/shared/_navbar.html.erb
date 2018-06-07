@@ -10,11 +10,13 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My Dashboard", gratitudes_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My Matches", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Grateful Board", gratitudes_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Add Gratitude", new_gratitude_path, class: "navbar-wagon-item navbar-wagon-link" %>
+<!--       <%= link_to "My Matches", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %> -->
 
-      <div class="dropdown">
+      <!-- To put back when notifications ok -->
+      <!-- <div class="dropdown">
       <button class="fa fa-bell dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id: "navbar-wagon-menu">
          <span class="fa fa-comment"></span>
           <span class="num">2</span>
@@ -26,25 +28,25 @@
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
           </ul>
-      </div>
+      </div> -->
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.photo.nil? %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-          <%= image_tag "default.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>

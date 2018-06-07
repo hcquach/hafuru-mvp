@@ -2,7 +2,7 @@
 Hafuru - Welcoming Gratefulness
 <% end %>
 
-<% content_for(:navbar_class, "navbar-transparent") %>
+<% content_for(:navbar_class, "navbar-home") %>
 
 <!-- Banner -->
 <div class="home-container">
@@ -60,7 +60,8 @@ Hafuru - Welcoming Gratefulness
 
     <div class="home-form text-center">
       <br>
-      <form id="letter-form">
+      <form id="letter-form", action="/gratitudes" method="post">
+         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <h2>Today,</h2>
         <p>I'm
           <label for="title">grateful</label> for

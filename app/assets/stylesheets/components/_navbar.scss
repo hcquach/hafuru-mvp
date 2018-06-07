@@ -7,7 +7,20 @@
   align-items: center;
   justify-content: space-between;
   transition: 0.5s background-color ease;
+}
+
+.navbar-home {
   margin-top: 60px;
+
+  .navbar-wagon-link {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 14px;
+  }
+  .navbar-wagon-link:hover {
+    color: #da552f;
+    text-decoration: none;
+  }
 }
 
 .navbar-wagon-black {
@@ -80,11 +93,13 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: black;
+  background-color: $first-global-color;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* To add back when notifications ok
 button.fa-bell {
   position: relative;
   font-size: 1.5em;
@@ -106,3 +121,4 @@ span.num {
   color: #fff;
   right: 2px;
 }
+*/
