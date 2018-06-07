@@ -7,17 +7,14 @@ class CollaborationsController < ApplicationController
 
   def show
     authorize @collaboration
+    @gratitude = Gratitude.new
+    # authorize @gratitude
   end
 
   def new
   end
 
   def create
-    @collaboration = Collaboration.new
-    @collaboration.match = Match.find(params[:match_id])
-    @collaboration.save
-    redirect_to collaboration_path(@collaboration)
-    authorize @collaboration
   end
 
   def destroy

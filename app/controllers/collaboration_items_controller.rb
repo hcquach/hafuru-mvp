@@ -12,18 +12,17 @@ class CollaborationItemsController < ApplicationController
   end
 
   def create
-    @collaboration_item = Collaboration_item.new
-    @collaboration_item.collaboration_id = Collaboration.find(params[:id])
-    # @collaboration_item.collaboration = Collaboration.find(params[:collaboration_id])
-    if @collaboration_item.collaboration.match.matching_gratitude
-      @collaboration_item.matching_user_gratiude_id = @collaboration_item.collaboration.match.matching_gratitude
-    else
-      @collaboration_item.matched_user_gratitude_id = @collaboration_item.collaboration.match.matched_gratitude
-    end
+    # @collaboration_item = Collaboration_item.new
+    # @collaboration_item.collaboration_id = Collaboration.find(params[:id])
 
-    @collaboration_item.save
-    redirect_to collaboration_path(@collaboration)
-    authorize @collaboration_item
+    # if @collaboration_item.collaboration.match.matching_gratitude
+    #   @collaboration_item.matching_user_gratiude_id = @collaboration_item.collaboration.match.matching_gratitude
+    # else
+    #   @collaboration_item.matched_user_gratitude_id = @collaboration_item.collaboration.match.matched_gratitude
+    # end
+
+    # @collaboration_item.save
+    # redirect_to collaboration_path(@collaboration)
   end
 
   def show

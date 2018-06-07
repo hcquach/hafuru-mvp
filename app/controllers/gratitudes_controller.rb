@@ -7,6 +7,7 @@ class GratitudesController < ApplicationController
 
   def new
     @gratitude = Gratitude.new
+    authorize @gratitude
   end
 
   def create

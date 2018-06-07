@@ -1,43 +1,70 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.match.matching_gratitude.photo, crop: :fill %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
         <div class="card-category">Matching</div>
         <div class="card-description">
           <h2><%= @collaboration.match.matching_gratitude.title  %></h2>
           <p><%= @collaboration.match.matching_gratitude.description  %></p>
         </div>
         <%=  @collaboration.match.matching_gratitude.user.username %>
-        <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
         <%= link_to gratitude_path(@collaboration.match.matching_gratitude), class: "card-link"  %>
       </div>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.match.matched_gratitude.photo, crop: :fill %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
         <div class="card-category">Matched</div>
         <div class="card-description">
           <h2><%= @collaboration.match.matched_gratitude.title  %></h2>
           <p><%= @collaboration.match.matched_gratitude.description  %></p>
         </div>
         <%=  @collaboration.match.matched_gratitude.user.username %>
-        <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
         <%= link_to gratitude_path(@collaboration.match.matched_gratitude), class: "card-link"  %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="link-item">
-        <% if current_user == @collaboration.match.matching_gratitude.user # && @collaboration.collaboration_item.matching_user_gratitude_id == nil %>
-          <%= link_to "Create Gratitude", collaboration_collaboration_items_path(@collaboration), method: :post %>
-        <% else %>
-          <%= link_to "Edit Gratitude", edit_collaboration_collaboration_item_path(@collaboration, @collaboration_item) , class: "btn btn-warning"%>
-          <%= link_to "Delete Gratitude", collaboration_collaboration_item_path(@collaboration, @collaboration_item), method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}  %>
-        <% end %>
+    <% @collaboration.collaboration_items.each do |item| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="link-item">
+          <% if item.matching_user_gratitude_id == nil && item.collaboration.match.matching_gratitude.user == current_user %>
+            <%= render partial: "gratitudes/form" ,
+              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+            <% item.matching_user_gratitude_id = @gratitude %>
+            <% elsif item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
+            <div class="card-category">Matching</div>
+            <div class="card-description">
+              <h2><%= item.matching_user_gratitude.title  %></h2>
+              <p><%= item.matching_user_gratitude.description  %></p>
+            </div>
+            <%=  item.matching_user_gratitude.user.username %>
+            <%= link_to gratitude_path(item.matching_user_gratitude), class: "card-link"  %>
+            </div>
+            <% end %>
+            <% if item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user &&  item.matched_user_gratitude_id == nil %>
+            <p>please wait for your match to add his/her gratitude before adding yours </p>
+            <% end %>
+          <% if item.matched_user_gratitude_id == nil && item.collaboration.match.matched_gratitude.user == current_user %>
+            <%= render partial: "gratitudes/form" ,
+              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+            <% item.matched_user_gratitude_id = @gratitude %>
+            <% elsif item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%#= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
+              <div class="card-category">Matched</div>
+              <div class="card-description">
+                <h2><%= item.matched_user_gratitude.title  %></h2>
+                <p><%= item.matched_user_gratitude.description  %></p>
+              </div>
+              <%=  item.matched_user_gratitude.user.username %>
+              <%= link_to gratitude_path(item.matched_user_gratitude), class: "card-link"  %>
+            </div>
+          <% end %>
+          <% if item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user &&  item.matching_user_gratitude_id == nil %>
+            <p>please wait for your match to add his/her gratitude before adding yours </p>
+            <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-    </div>
+    <% end %>
   </div>
 </div>
 
 <div class="buttons-collaborations">
-  <%= link_to "Leave", collaboration_path(@collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
+  <%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'}%>
 </div>
