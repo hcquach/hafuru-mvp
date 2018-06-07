@@ -8,16 +8,8 @@ Hafuru - Create Gratitude
   <div class="left">
     <div class="col-sm-12 col-xs-6 col-lg-12">
     <h1>Create a Gratitude</h1>
-    <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
-
-     <%= f.input :title, class: "label-input" %>
-
-        <%= f.input :description, :as => :text, :input_html => { :rows => 5 }, class: "label-input" %>
-        <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
-        <%= f.input :photo, class: "label-input" %>
-        <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
-    <%= f.submit "Create" %>
-    <% end %>
-  </div>
+    <%= render partial: "gratitudes/form",
+        locals: { collaboration_id: nil, grat_path: @gratitude } %>
   </div>
 </div>
+
