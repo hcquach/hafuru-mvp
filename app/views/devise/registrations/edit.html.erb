@@ -1,6 +1,9 @@
 <%= content_for(:title) do %>
 Hafuru - Account
 <% end %>
+<div id="edit-box">
+  <div class="display-item">
+     <div class="col-sm-12 col-xs-6 col-lg-12">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -25,8 +28,15 @@ Hafuru - Account
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+</div>
+<div class="spare-items">
+    <div class="col-lg-8">
+  <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<br>
+  <%= link_to "Back", :back %>
+</div>
+</div>
+</div>
 
-<%= link_to "Back", :back %>
