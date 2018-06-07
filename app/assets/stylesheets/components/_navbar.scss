@@ -7,7 +7,19 @@
   align-items: center;
   justify-content: space-between;
   transition: 0.5s background-color ease;
+}
+
+.navbar-home {
   margin-top: 60px;
+
+  .navbar-wagon-link {
+    color: white;
+    font-size: 14px;
+  }
+  .navbar-wagon-link:hover {
+    color: #da552f;
+    text-decoration: none;
+  }
 }
 
 .navbar-wagon-black {
@@ -47,7 +59,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: white;
+  color: black;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
