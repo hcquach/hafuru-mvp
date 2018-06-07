@@ -7,27 +7,33 @@ class GratitudesController < ApplicationController
 
   def new
     @gratitude = Gratitude.new
-    authorize @gratitude
+    authorize(@gratitude)
   end
 
   def create
     @gratitude = Gratitude.new(gratitude_params)
+    @gratitude.user = current_user
+    authorize(@gratitude)
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
     else
       flash[:alert] = "Please try again"
       render :new
     end
+
   end
 
   def show
+    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
     authorize(@gratitude)
   end
 
   def edit
+    authorize(@gratitude)
   end
 
   def update
+    authorize(@gratitude)
     if @gratitude.update(gratitude_params)
       redirect_to gratitude_path(@gratitude)
     else
@@ -36,6 +42,7 @@ class GratitudesController < ApplicationController
   end
 
   def destroy
+    authorize(@gratitude)
     if @gratitude.user == current_user
       @gratitude.destroy
       redirect_to gratitudes_path

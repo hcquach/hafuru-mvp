@@ -1,27 +1,47 @@
 /* Main navbar */
 .navbar-wagon {
-  background-color: #9951ff;
-  transition: all 0.3s ease;
-  height: 70px;
-  padding: 0px 30px;
+  background-color: transparent;
+  height: 50px;
+  padding: 0px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: 0.5s background-color ease;
 }
 
 .navbar-home {
-  background-color: transparent;
+  margin-top: 60px;
+
+  .navbar-wagon-link {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 14px;
+  }
+  .navbar-wagon-link:hover {
+    color: #da552f;
+    text-decoration: none;
+  }
+}
+
+.navbar-wagon-black {
+  background-color: black;
+  color: white;
+}
+
+.navbar-wagon-red {
+  background-color: #F51054;
+  color: white;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  height: 40px;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -73,8 +93,32 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: white;
+  background-color: $first-global-color;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* To add back when notifications ok
+button.fa-bell {
+  position: relative;
+  font-size: 1.5em;
+  color: grey;
+  cursor: pointer;
+  margin: 0;
+}
+span.fa-comment {
+  position: absolute;
+  font-size: 0.6em;
+  top: -4px;
+  color: red;
+  right: -4px;
+}
+span.num {
+  position: absolute;
+  font-size: 0.3em;
+  top: 1px;
+  color: #fff;
+  right: 2px;
+}
+*/

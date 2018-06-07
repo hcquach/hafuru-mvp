@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2018_06_06_012048) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "photo"
-    t.integer "membership_cents", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,3 +1,6 @@
+<%= content_for(:title) do %>
+Hafuru - #Grateful
+<% end %>
 <% if policy(@gratitude).show? %>
 
   <div class="gratitude-wrapper">
@@ -7,7 +10,7 @@
       <div class="gratitude-info">
         <div class="gratitude-date">
           <p><%= @gratitude.updated_at.strftime("%b") %> <%= @gratitude.updated_at.year %></p>
-          <div id="month"><%= @gratitude.updated_at.day %></div>
+          <div id="day"><%= @gratitude.updated_at.day %></div>
         </div>
         <div class="gratitude-title">
           <h2>Grateful for<br>#<%= @gratitude.title %></h2>
@@ -22,10 +25,11 @@
       </div>
 
     <div class="gratitude-button-container">
-      <%= link_to "Board" %>
-      <%= link_to "Edit" %>
-      <%= link_to "Delete" %>
-      <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create %>
+      <%= link_to "Board", gratitudes_path, class: "gratitude-button" %>
+      <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "gratitude-button" %>
+      <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "gratitude-button" %>
+      <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
+      <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, class: "gratitude-button" %>
     </div>
 
     </div>

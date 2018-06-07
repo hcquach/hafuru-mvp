@@ -7,8 +7,16 @@ class GratitudePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def new?
+    return true
+  end
+
   def create?
     return true
+  end
+
+  def edit?
+    record.user == user
   end
 
   def update?

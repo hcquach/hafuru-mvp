@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  margin-top: 50px;
+  margin-left: 3vw;
 }
 
 .testimonials {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
   flex-direction: column;
   background-color: black;
   color: white;
@@ -16,6 +17,7 @@
   text-align: center;
   font-style: oblique;
   width: 40%;
+  opacity: 0.8;
 }
 
 .gratitude-form {
