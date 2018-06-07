@@ -18,6 +18,7 @@ Hafuru - #Grateful
       </div>
 
       <div class="gratitude-photo">
+
         <%= cl_image_tag @gratitude.photo, height: 400, width: 500, crop: :fill %>
         <div class="gratitude-title top-right">
           <h2>#<%= @gratitude.category.name %></h2>
