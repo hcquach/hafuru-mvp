@@ -10,8 +10,6 @@ class Match < ApplicationRecord
 
   def configure_collaboration
     collaboration = Collaboration.create(match: self)
-    authorize @collaboration
     CollaborationItem.create(collaboration: collaboration)
-    authorize @collaboration_item
   end
 end
