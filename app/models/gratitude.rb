@@ -7,5 +7,6 @@ class Gratitude < ApplicationRecord
 
   # Validations
   validates :title, presence: true
+  validates :category, presence: true
 
 end
