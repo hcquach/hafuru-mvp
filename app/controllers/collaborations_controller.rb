@@ -8,7 +8,6 @@ class CollaborationsController < ApplicationController
   def show
     authorize @collaboration
     @gratitude = Gratitude.new
-    # authorize @gratitude
   end
 
   def new
