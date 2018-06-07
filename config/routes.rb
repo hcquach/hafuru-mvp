@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   get 'credits', to: 'pages#credits', as: :credits
   get 'shop', to: 'pages#shop', as: :shop
+  get 'about', to: 'pages#about', as: :about
 end
