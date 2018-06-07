@@ -29,8 +29,8 @@ class MatchesController < ApplicationController
       @gratitude.save
       redirect_to gratitude_match_path(@gratitude, @match)
     else
-      flash[:notice] = "No Match, try another Gratitude"
       redirect_to gratitudes_path
+      flash[:alert] = "No Match, try another Gratitude"
     end
     authorize @match
   end
