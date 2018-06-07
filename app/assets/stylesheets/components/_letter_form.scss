@@ -1,10 +1,11 @@
 #letter-form {
   max-width: 90%;
-  margin: 0 auto;
+  margin: 25px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: $body-bg;
 }
 
 label {
