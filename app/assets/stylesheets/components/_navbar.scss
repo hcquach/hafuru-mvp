@@ -39,8 +39,8 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -96,4 +96,25 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+button.fa-bell {
+  position: relative;
+  font-size: 1.5em;
+  color: grey;
+  cursor: pointer;
+  margin: 0;
+}
+span.fa-comment {
+  position: absolute;
+  font-size: 0.6em;
+  top: -4px;
+  color: red;
+  right: -4px;
+}
+span.num {
+  position: absolute;
+  font-size: 0.3em;
+  top: 1px;
+  color: #fff;
+  right: 2px;
 }
