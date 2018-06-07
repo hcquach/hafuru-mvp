@@ -6,19 +6,24 @@ class CollaborationsController < ApplicationController
   end
 
   def show
-    authorise @collaboration
+    authorize @collaboration
   end
 
   def new
   end
 
   def create
+    @collaboration = Collaboration.new
+    @collaboration.match = Match.find(params[:match_id])
+    @collaboration.save
+    redirect_to collaboration_path(@collaboration)
+    authorize @collaboration
   end
 
   def destroy
-    if @collaboration.user == current_user
-      @collaboration.destroy
-    end
+    @collaboration.destroy
+    authorize @collaboration
+    redirect_to gratitudes_path
   end
 
   private

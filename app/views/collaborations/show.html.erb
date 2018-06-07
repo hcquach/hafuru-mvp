@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.match.matching_gratitude.photo, crop: :fill %>');">
+        <div class="card-category">Matching</div>
+        <div class="card-description">
+          <h2><%= @collaboration.match.matching_gratitude.title  %></h2>
+          <p><%= @collaboration.match.matching_gratitude.description  %></p>
+        </div>
+        <%=  @collaboration.match.matching_gratitude.user.username %>
+        <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+        <%= link_to gratitude_path(@collaboration.match.matching_gratitude), class: "card-link"  %>
+      </div>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.match.matched_gratitude.photo, crop: :fill %>');">
+        <div class="card-category">Matched</div>
+        <div class="card-description">
+          <h2><%= @collaboration.match.matched_gratitude.title  %></h2>
+          <p><%= @collaboration.match.matched_gratitude.description  %></p>
+        </div>
+        <%=  @collaboration.match.matched_gratitude.user.username %>
+        <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+        <%= link_to gratitude_path(@collaboration.match.matched_gratitude), class: "card-link"  %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="link-item">
+        <% if current_user == @collaboration.match.matching_gratitude.user # && @collaboration.collaboration_item.matching_user_gratitude_id == nil %>
+          <%= link_to "Create Gratitude", collaboration_collaboration_items_path(@collaboration), method: :post %>
+        <% else %>
+          <%= link_to "Edit Gratitude", edit_collaboration_collaboration_item_path(@collaboration, @collaboration_item) , class: "btn btn-warning"%>
+          <%= link_to "Delete Gratitude", collaboration_collaboration_item_path(@collaboration, @collaboration_item), method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}  %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <!-- insert <div class="card"> -->
+    </div>
+  </div>
+</div>
+
+<div class="buttons-collaborations">
+  <%= link_to "Leave", collaboration_path(@collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
+</div>

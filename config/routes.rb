@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :gratitudes  do
     resources :matches, only: [ :index, :show, :create, :destroy ]
   end
-  resources :collaborations, only: [ :create, :destroy ] do
+  resources :collaborations, only: [ :show, :create, :destroy ] do
     resources :collaboration_items
   end
 

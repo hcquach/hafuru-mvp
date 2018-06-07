@@ -1,22 +1,22 @@
 class CollaborationPolicy < ApplicationPolicy
    def index?
-    record.match.matching_gratitude.user == user || record.match.matched_gratitude.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   def show?
-    record.match.matching_gratitude.user == user || record.match.matched_gratitude.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   def create?
-    return true
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   def update?
-    record.match.matching_gratitude.user == user || record.match.matched_gratitude.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   def destroy?
-    record.match.matching_gratitude.user == user || record.match.matched_gratitude.user == user
+    record.matching_gratitude.user == user || record.matched_gratitude.user == user
   end
 
   class Scope < Scope

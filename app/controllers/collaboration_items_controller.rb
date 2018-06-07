@@ -12,13 +12,18 @@ class CollaborationItemsController < ApplicationController
   end
 
   def create
-    @collaboration_item = Collaboration_item.new(collaboration_item_params)
-    if @collaboration_item.save
-      redirect_to collaboration_item_path(@collaboration_item)
+    @collaboration_item = Collaboration_item.new
+    @collaboration_item.collaboration_id = Collaboration.find(params[:id])
+    # @collaboration_item.collaboration = Collaboration.find(params[:collaboration_id])
+    if @collaboration_item.collaboration.match.matching_gratitude
+      @collaboration_item.matching_user_gratiude_id = @collaboration_item.collaboration.match.matching_gratitude
     else
-      flash[:alert] = "Please try again"
-      render :new
+      @collaboration_item.matched_user_gratitude_id = @collaboration_item.collaboration.match.matched_gratitude
     end
+
+    @collaboration_item.save
+    redirect_to collaboration_path(@collaboration)
+    authorize @collaboration_item
   end
 
   def show
@@ -37,10 +42,8 @@ class CollaborationItemsController < ApplicationController
   end
 
   def destroy
-    if @collaboration_item.user == current_user
-      @collaboration_item.destroy
-      redirect_to collaboration_items_path
-    end
+    @collaboration_item.destroy
+    redirect_to collaboration_path(@collaboration)
   end
 
   private
