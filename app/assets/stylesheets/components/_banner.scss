@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 .banner {
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   color: white;
   text-align: center;
-  height: 80vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  height: calc(100vh - 100px);
+  width: 94vw;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
+  margin-left: 3vw;
 }
 
 .banner h1, p {

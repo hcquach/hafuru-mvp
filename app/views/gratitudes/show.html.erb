@@ -25,11 +25,10 @@ Hafuru - #Grateful
       </div>
 
     <div class="gratitude-button-container">
-      <%= link_to "Board" %>
-      <%= link_to "Edit" %>
+      <%= link_to "Board", gratitudes_path %>
+      <%= link_to "Edit", edit_gratitude_path(@gratitude) %>
       <%= link_to "Delete", gratitude_path(@gratitude), method: :delete %>
-      <%= link_to "Match" %>
-      <%= link_to "Remember" %>
+      <%= link_to "Remember", gratitude_path(@gratitudes.sample) %>
       <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create %>
     </div>
 
