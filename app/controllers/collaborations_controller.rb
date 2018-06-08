@@ -2,7 +2,8 @@ class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:new, :show, :destroy]
 
   def index
-    @collaborations = policy_scope(Collaboration).order(created_at: :desc)
+    @matching_collaborations = policy_scope(current_user.matching_collaborations).order(created_at: :desc)
+    @matched_collaborations = policy_scope(current_user.matched_collaborations).order(created_at: :desc)
   end
 
   def show
