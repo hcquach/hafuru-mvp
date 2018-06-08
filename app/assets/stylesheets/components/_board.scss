@@ -25,6 +25,9 @@
   .board-photos {
     margin-right: 20px;
     margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .gratitude-photo {
