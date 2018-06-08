@@ -37,6 +37,10 @@ class MatchesController < ApplicationController
 
   def destroy
     if @match.user == current_user
+      matching_gratitude.match_status = false
+      matching_gratitude.save
+      matched_gratitude.match_status = false
+      matched_gratitude.save
       @match.destroy
       redirect_to matches_path
     end

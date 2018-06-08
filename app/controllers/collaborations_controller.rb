@@ -18,9 +18,11 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
-    @collaboration.destroy
-    authorize @collaboration
-    redirect_to gratitudes_path
+    if @collaboration.match.matching_gratitude.user == current_user || @collaboration.match.matched_gratitude.user == current_user
+      @collaboration.destroy
+      authorize @collaboration
+      redirect_to gratitudes_path
+    end
   end
 
   private
