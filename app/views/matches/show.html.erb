@@ -22,7 +22,9 @@
             <div class="match-card-title card-bottom-left">
               <p>#<%= matching_gratitude.title %></p>
             </div>
-            <img class="match-card-user card-top-right" src="<%= cl_image_tag user_matching.photo %>">
+            <div class="match-card-user card-top-right">
+              <%= cl_image_tag user_matching.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+            </div>
             <div class="match-card-username card-top-right">
               <p><%= user_matching.username %></p>
             </div>
@@ -39,7 +41,10 @@
             <div class="match-card-title card-bottom-left">
               <p>#<%= matched_gratitude.title %></p>
             </div>
-            <img class="match-card-user card-top-right" src="<%= cl_image_tag user_matched.photo %>">
+            <div class="match-card-user card-top-right">
+              <%= cl_image_tag user_matched.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+            </div>
+
             <div class="match-card-username card-top-right">
               <p><%= user_matched.username %></p>
             </div>
