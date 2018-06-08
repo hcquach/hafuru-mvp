@@ -47,6 +47,14 @@
   width: 400px;
   position: relative;
 
+  .match-card-user {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    border-radius: 50%;
+  }
+
   .card-top-right {
     position: absolute;
     top: 10px;
@@ -61,8 +69,8 @@
 
   .match-card-username {
     position: absolute;
-    top: 30px;
-    right: 15px;
+    top: 60px;
+    right: 10px;
     color: white;
   }
 
