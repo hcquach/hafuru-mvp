@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :gratitudes, dependent: :destroy
+  has_many :matches, through: :gratitudes
 
   # Validations
   validates :email, presence: true, uniqueness: true
@@ -12,4 +13,11 @@ class User < ApplicationRecord
   # Upload photo
   mount_uploader :photo, PhotoUploader
 
+  def matching_collaborations
+    Collaboration.where("match_id in (?)", Match.where("matching_gratitude_id in (?)", gratitudes.map(&:id)).select(:id))
+  end
+
+  def matched_collaborations
+    Collaboration.where("match_id in (?)", Match.where("matched_gratitude_id in (?)", gratitudes.map(&:id)).select(:id))
+  end
 end

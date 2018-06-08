@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :matches, only: [:show]
 
-  resources :collaborations, only: [ :show, :create, :destroy ] do
+  resources :collaborations, only: [ :index, :show, :create, :destroy ] do
     resources :collaboration_items
   end
 
