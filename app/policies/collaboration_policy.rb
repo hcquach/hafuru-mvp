@@ -1,6 +1,6 @@
 class CollaborationPolicy < ApplicationPolicy
-   def index?
-    record.matching_gratitude.user == user || record.matched_gratitude.user == user
+  def index?
+    return true
   end
 
   def show?
@@ -21,7 +21,7 @@ class CollaborationPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      scope.where("id in (?)", user.matching_collaborations.select(&:id) + user.matched_collaborations.select(&:id))
     end
   end
 end

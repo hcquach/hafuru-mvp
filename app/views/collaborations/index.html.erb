@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="collaborations">
+    <div class="row">
+      <div class="col-xs-6">
+        <ul>
+        <% @matching_collaborations.each do |collaboration| %>
+        <li>
+          <% gratitude = collaboration.matching_gratitude %>
+            <div class="product">
+              <div class="product-image hidden-xs">
+                <%= link_to collaboration_path(collaboration) do %>
+                <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+                <% end %>
+              </div>
+
+              <div class='product-body'>
+                <h3><%= gratitude.category.name  %></h3>
+                <p><%=   %><%= collaboration.status %></p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-share"></i></a></li>
+                <li><a href=""><i class="fa fa-star"></i></a></li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <ul>
+        <% @matched_collaborations.each do |collaboration| %>
+        <li>
+          <% gratitude = collaboration.matched_gratitude %>
+            <div class="product">
+              <div class="product-image hidden-xs">
+                <%= link_to collaboration_path(collaboration) do %>
+                <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+                <% end %>
+              </div>
+
+              <div class='product-body'>
+                <h3><%= gratitude.category.name  %></h3>
+                <p><%=   %><%= collaboration.status %></p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><a href=""><i class="fa fa-heart"></i></a></li>
+                <li><a href=""><i class="fa fa-share"></i></a></li>
+                <li><a href=""><i class="fa fa-star"></i></a></li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
