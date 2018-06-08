@@ -15,6 +15,7 @@ Hafuru - Welcoming Gratefulness
   </div>
 </div>
 
+<!-- Quotes and Form -->
 <div class="home-container">
   <div class="container-testimonials-form">
     <div class="testimonials">
@@ -24,7 +25,7 @@ Hafuru - Welcoming Gratefulness
             <p class="quote__body">Loading&hellip;</p>
           </blockquote>
         <div class="cta">
-           <button class="button new-quote animated">Get Inspired</button>
+          <button class="button new-quote animated">Get Inspired</button>
         </div>
       </div>
     </div>
@@ -33,39 +34,36 @@ Hafuru - Welcoming Gratefulness
     </div>
   </div>
 
-      <div class="home-form text-center">
-        <div class="form-inner-container">
-        <form id="letter-form", action="/gratitudes" method="post">
-           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-          <p>Today I'm
-            <label for="title">grateful</label> for
-            <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required></p>
-          <p>
-            <label for="description">Because</label><br>
-            <input type="text" name="gratitude[description]" id="description" placeholder="(it made me smile)" required>
-          </p>
-          <p><label for="category">Category</label>
-            <select name="gratitude[category_id]", style="color: grey">
-              <% Category.all.each do |cat| %>
-                <option value="<%= cat.id %>"><%= cat.name %></option>
-              <% end %>
-            </select>
-          </p>
-          <p>
-          <!-- <button type="submit">
-              <small>Create</small>
-          </button> -->
-            <div class="cta">
-             <button type= "submit" class="button new-quote animated">Create</button>
-           </div>
-          </div>
-           <div class="quote-self-footer">
-            <p>To your inner self with <i class="fas fa-heart"></i></p>
-          </div>
-          </div>
-          </p>
-        </form>
+  <div class="home-form text-center">
+    <div class="form-inner-container">
+    <form id="letter-form", action="/gratitudes" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <p>Today I'm
+        <label for="title">grateful</label> for
+        <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required></p>
+      <p>
+        <label for="description">Because</label><br>
+        <input type="text" name="gratitude[description]" id="description" placeholder="(it made me smile)" required>
+      </p>
+      <p><label for="category">Category</label>
+        <select name="gratitude[category_id]", style="color: grey">
+          <% Category.all.each do |cat| %>
+            <option value="<%= cat.id %>"><%= cat.name %></option>
+          <% end %>
+        </select>
+      </p>
+      <p>
+        <div class="cta">
+         <button type= "submit" class="button new-quote animated">Create</button>
+       </div>
+      </p>
+      </div>
+       <div class="quote-self-footer">
+        <p>To your inner self with <i class="fas fa-heart"></i></p>
+      </div>
+      </div>
+    </form>
   </div>
 </div>
-
+  </div>
 </div>
