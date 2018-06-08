@@ -1,6 +1,7 @@
 <%= content_for(:title) do %>
 Hafuru - #Grateful
 <% end %>
+
 <% if policy(@gratitude).show? %>
 
   <div class="gratitude-wrapper">
@@ -29,7 +30,9 @@ Hafuru - #Grateful
       <%= link_to "Board", gratitudes_path, class: "gratitude-button" %>
       <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "gratitude-button" %>
       <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "gratitude-button" %>
-      <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
+      <div class="edit-form">
+        <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
+      </div>
       <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, class: "gratitude-button" %>
     </div>
 
@@ -39,6 +42,6 @@ Hafuru - #Grateful
       <p><%= @gratitude.description %></p>
     </div>
 
-    </div>
+  </div>
 
 <% end %>
