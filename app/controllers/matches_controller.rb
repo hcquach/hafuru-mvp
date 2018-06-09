@@ -39,6 +39,7 @@ class MatchesController < ApplicationController
     if @match.user == current_user
       matching_gratitude.match_status = false
       matching_gratitude.save
+      byebug
       matched_gratitude.match_status = false
       matched_gratitude.save
       @match.destroy
