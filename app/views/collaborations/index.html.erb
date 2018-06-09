@@ -19,9 +19,7 @@
                 <p><%=   %><%= collaboration.status %></p>
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                <li><a href=""><i class="fa fa-share"></i></a></li>
-                <li><a href=""><i class="fa fa-star"></i></a></li>
+                <li><%= link_to collaboration_path(collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'} do %><i class="fa fa-trash" aria-hidden="true"></i><% end %></li>
               </ul>
             </div>
           </li>
@@ -46,9 +44,7 @@
                 <p><%=   %><%= collaboration.status %></p>
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                <li><a href=""><i class="fa fa-share"></i></a></li>
-                <li><a href=""><i class="fa fa-star"></i></a></li>
+                <li><%= link_to collaboration_path(collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'} do %><i class="fa fa-trash" aria-hidden="true"></i><% end %></li>
               </ul>
             </div>
           </li>

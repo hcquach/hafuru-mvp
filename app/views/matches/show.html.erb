@@ -59,7 +59,7 @@
 
   <div class="match-buttons">
     <div class="cta">
-      <%= link_to "Collaborate", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", class: "button new-quote animated" %>
+      <%= link_to "Collaborate", collaboration_path(@match.collaboration), class: "button new-quote animated" %>
     </div>
     <div class="cta">
     <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match), method: :delete, class: "button animated button-cancel", :data => {:confirm => 'Are you sure?'}%>
