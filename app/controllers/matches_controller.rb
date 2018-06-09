@@ -36,14 +36,14 @@ class MatchesController < ApplicationController
   end
 
   def destroy
-    if @match.user == current_user
-      matching_gratitude.match_status = false
-      matching_gratitude.save
-      byebug
-      matched_gratitude.match_status = false
-      matched_gratitude.save
+    authorize @match
+    if @match.matching_gratitude.user == current_user || @match.matched_gratitude.user == current_user
+      @match.matching_gratitude.match_status = false
+      @match.matching_gratitude.save
+      @match.matched_gratitude.match_status = false
+      @match.matched_gratitude.save
       @match.destroy
-      redirect_to matches_path
+      redirect_to gratitudes_path
     end
   end
 
