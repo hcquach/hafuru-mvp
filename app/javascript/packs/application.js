@@ -1,8 +1,12 @@
 import "bootstrap";
+import { bindSweetAlertButtonDemo } from '../components/sweetalerts';
+bindSweetAlertButtonDemo();
 import { loadDynamicBannerText } from '../components/banner';
 // initUpdateNavbarOnScroll();
 // import { initUpdateNavbarOnScroll } from '../components/navbar';
 loadDynamicBannerText();
+
+
 
 // Wrap all the code in a IIFE to prevent the global scope pollution;
 ;(function() {
