@@ -19,7 +19,7 @@ class GratitudesController < ApplicationController
     end
     authorize(@gratitude)
     if @gratitude.save
-      sleep(4)
+      sleep(2)
       redirect_to gratitude_path(@gratitude)
     else
       flash[:alert] = "Please try again"
