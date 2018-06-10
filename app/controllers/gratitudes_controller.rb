@@ -14,7 +14,8 @@ class GratitudesController < ApplicationController
   def create
     @gratitude = Gratitude.new(gratitude_params)
     @gratitude.user = current_or_guest_user
-    if @gratitude.photo.blank?
+
+    if @gratitude.photo.blank? && @gratitude.photo.nil?
     @gratitude.remote_photo_url = @gratitude.category.photo_url
     end
     authorize(@gratitude)
