@@ -4,9 +4,9 @@ import swal from 'sweetalert';
   if (swalButton) { // protect other pages
     swalButton.addEventListener('click', () => {
       swal({
-        title: "A nice alert",
-        text: "This is a great alert, isn't it?",
-        icon: "success"
+        title: "Loading",
+        icon: "success",
+        button: false,
       });
     });
   }

@@ -1,5 +1,5 @@
 <% content_for(:navbar_class, "navbar-transparent") %>
-<%= javascript_pack_tag 'application' %>
+
 <%= content_for(:title) do %>
 Hafuru - Create Gratitude
 <% end %>
@@ -10,8 +10,6 @@ Hafuru - Create Gratitude
     <h1>Create a Gratitude</h1>
     <%= render partial: "gratitudes/form",
         locals: { collaboration_id: nil, grat_path: @gratitude } %>
-
-<button id="sweet-alert-demo" class="btn btn-primary" onclick="bindSweetAlertButtonDemo();">Click me!</button>
 
   </div>
 </div>
