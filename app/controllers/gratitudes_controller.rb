@@ -1,5 +1,6 @@
 class GratitudesController < ApplicationController
   before_action :set_gratitude, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :create
 
   def index
     @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
@@ -12,7 +13,10 @@ class GratitudesController < ApplicationController
 
   def create
     @gratitude = Gratitude.new(gratitude_params)
-    @gratitude.user = current_user
+    @gratitude.user = current_or_guest_user
+    if @gratitude.photo.blank?
+    @gratitude.remote_photo_url = @gratitude.category.photo_url
+    end
     authorize(@gratitude)
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
@@ -33,6 +37,7 @@ class GratitudesController < ApplicationController
   end
 
   def update
+    authorize(@gratitude)
     if @gratitude.update(gratitude_params)
       redirect_to gratitude_path(@gratitude)
     else

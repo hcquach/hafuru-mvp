@@ -1,11 +1,13 @@
 .gratitude-wrapper {
   display: flex;
-  height: 100vh;
+  height: calc(100vh - 100px);
+  width: 94vw;
+  margin-top: 50px;
+  margin-left: 3vw;
   justify-content: center;
   display-items: center;
   flex-direction: column;
-  margin: 100px 50px 50px 50px;
-  background-color: white;
+  background-color: $first-global-color;
 
   .gratitude-container {
   display: flex;
@@ -22,6 +24,7 @@
     text-align: center;
     margin: 30px;
     width: 200px;
+    color: white;
   }
 
   .gratitude-date {
@@ -45,6 +48,12 @@
     margin: 20px;
     flex-direction: column;
     text-align: left;
+
+    .gratitude-button {
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+    }
+
   }
 
   .btn {
@@ -55,6 +64,8 @@
     display: flex;
     margin: 20px;
     justify-content: center;
+    color: white;
+    text-align: center;
   }
 
   #day {

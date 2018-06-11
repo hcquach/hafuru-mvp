@@ -12,10 +12,42 @@
   justify-content: center;
   margin-top: 50px;
   margin-left: 3vw;
-}
 
-.banner h1, p {
-  font-family: 'Open Sans', sans-serif;
+  .button {
+  display: inline-block;
+  background: none;
+  border: 0;
+  font: 300 81.25%/1 Open Sans, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  padding: 16px 24px;
+  background-color: #ccc;
+  color: white;
+  border-radius: 3px;
+  }
+
+  .button.new-quote {
+    background-color: white;
+    color: $body-bg;
+  }
+
+  a, a:visited {
+    display: inline-block;
+    padding: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    color: #8aa651;
+    opacity: 0.9;
+  }
+
+  a:hover {
+    opacity: 1;
+  }
+
+  .animated {
+    transition: all 500ms ease;
+  }
+
 }
 
 .banner h1 {

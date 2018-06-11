@@ -1,40 +1,69 @@
 <%= content_for(:title) do %>
-Hafuru - #Grateful
+  Hafuru - Match
 <% end %>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4 match">
-          <% matching_gratitude = Gratitude.find(@match.matching_gratitude_id) %>
-          <% category_m = Category.find(matching_gratitude.category_id) %>
-          <h3><%= category_m.name %></h3>
-      <div class="group-match">
-        <div class="profile-match">
-          <% user_matching = User.find(matching_gratitude.user_id) %>
-          <%= cl_image_tag user_matching.photo , height: 100, width: 120, crop: :fill %>
-          <h4><%= user_matching.username  %></h4>
-          <%= cl_image_tag matching_gratitude.photo , height: 100, width: 120, crop: :fill %>
-          <h4><%= matching_gratitude.title %></h4>
-          <p><%= matching_gratitude.description %></p>
 
-        </div>
-        <div class="profile-match">
-          <% matched_gratitude = Gratitude.find(@match.matched_gratitude_id) %>
-          <% user_matched = User.find(matched_gratitude.user_id) %>
-          <%= cl_image_tag user_matched.photo , height: 100, width: 120, crop: :fill %>
-          <h4><%= user_matched.username  %></h4>
-          <%= cl_image_tag matched_gratitude.photo , height: 100, width: 120, crop: :fill %>
-          <h4><%= matched_gratitude.title %></h4>
-          <p><%= matched_gratitude.description %></p>
+<% matching_gratitude = Gratitude.find(@match.matching_gratitude_id) %>
+<% category_m = Category.find(matching_gratitude.category_id) %>
+<% user_matching = User.find(matching_gratitude.user_id) %>
+<% matched_gratitude = Gratitude.find(@match.matched_gratitude_id) %>
+<% user_matched = User.find(matched_gratitude.user_id) %>
 
+<div class="match-container">
+
+  <div class="match-title text-center">
+    <h1>You've got a match on #<%= category_m.name %>!</h1>
+  </div>
+
+  <div class="match-cards">
+
+    <div class="col-xs-12 col-md-6">
+      <div class="match-single-card">
+          <div class="match-single-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path matching_gratitude.photo, height: 300, width: 400, crop: :fill  %>');">
+            <div class="match-card-title card-bottom-left">
+              <p>#<%= matching_gratitude.title %></p>
+            </div>
+            <div class="match-card-user card-top-right">
+              <%= cl_image_tag user_matching.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+            </div>
+            <div class="match-card-username card-top-right">
+              <p><%= user_matching.username %></p>
+            </div>
+          </div>
+          <div class="match-single-description">
+            <p><%= matching_gratitude.description %></p>
+          </div>
         </div>
       </div>
-      <div class="buttons">
-        <%= link_to "collaborate", collaborations_path, class: "btn btn-primary" %>
-        <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'Are you sure?'}%>
+
+    <div class="col-xs-12 col-md-6">
+      <div class="match-single-card">
+          <div class="match-single-photo" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path matched_gratitude.photo, height: 300, width: 400, crop: :fill  %>');">
+            <div class="match-card-title card-bottom-left">
+              <p>#<%= matched_gratitude.title %></p>
+            </div>
+            <div class="match-card-user card-top-right">
+              <%= cl_image_tag user_matched.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+            </div>
+
+            <div class="match-card-username card-top-right">
+              <p><%= user_matched.username %></p>
+            </div>
+          </div>
+          <div class="match-single-description">
+            <p><%= matched_gratitude.description %></p>
+          </div>
+        </div>
       </div>
+
+  </div>
+
+  <div class="match-buttons">
+    <div class="cta">
+      <%= link_to "Collaborate", collaboration_path(@match.collaboration), class: "button new-quote animated" %>
+    </div>
+    <div class="cta">
+    <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match), method: :delete, class: "button animated button-cancel", :data => {:confirm => 'Are you sure?'}%>
     </div>
   </div>
+
 </div>

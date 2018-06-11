@@ -4,21 +4,123 @@
   flex-direction: row;
   margin-top: 50px;
   margin-left: 3vw;
+
+  blockquote,p,cite {
+    display: block;
+    margin: 0;
+    padding: 0;
+    font-style: normal;
+  }
+
+  a, a:visited {
+    display: inline-block;
+    padding: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    color: #8aa651;
+  }
+
+  .animated {
+    transition: all 500ms ease;
+  }
+
+  /**
+   * Layout
+   */
+  .page {
+    padding-top: 7.5rem;
+    padding-bottom: 6.5rem;
+    background-color: #8aa651;
+  }
+
+  .page-footer {
+    background: white;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .quotes-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .cta {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+/**
+ * Button
+ */
+.button {
+  display: inline-block;
+  background: none;
+  border: 0;
+  font: 300 81.25%/1 Open Sans, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  padding: 16px 24px;
+  background-color: #ccc;
+  color: white;
+  border-radius: 3px;
+}
+
+.button.new-quote {
+  background-color: white;
+  color: $body-bg;
+}
+
+  /**
+   * Quote Component
+   */
+  .quote {
+    max-width: 648px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    quotes: "“" "”" "‘" "’";
+  }
+
+  .quote::before {
+    font-size: 20px;
+    line-height: 1.5rem;
+    content: open-quote;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .quote__body {
+    font-weight: bold;
+    font-size: 90%;
+    letter-spacing: 0.085em;
+  }
+
+  .quote__cite {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 100%;
+    letter-spacing: 0.085em
+  }
+
 }
 
 .testimonials {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: black;
-  color: white;
-  padding: 20px;
+  background-color: white;
+  padding: 25px 20px;
   text-align: center;
   font-style: oblique;
   width: 40%;
   opacity: 0.8;
 }
+
+.quote-hafuru-footer {
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+  }
 
 .gratitude-form {
   width: 60%;

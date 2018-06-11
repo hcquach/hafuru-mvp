@@ -27,18 +27,23 @@ class MatchesController < ApplicationController
       matched_gratitude.save
       @gratitude.match_status = true
       @gratitude.save
-      redirect_to gratitude_match_path(@gratitude, @match)
+      redirect_to match_path(@match)
     else
-      flash[:notice] = "No Match, try another Gratitude"
       redirect_to gratitudes_path
+      flash[:alert] = "No Match, try another Gratitude"
     end
     authorize @match
   end
 
   def destroy
-    if @match.user == current_user
+    authorize @match
+    if @match.matching_gratitude.user == current_user || @match.matched_gratitude.user == current_user
+      @match.matching_gratitude.match_status = false
+      @match.matching_gratitude.save
+      @match.matched_gratitude.match_status = false
+      @match.matched_gratitude.save
       @match.destroy
-      redirect_to matches_path
+      redirect_to gratitudes_path
     end
   end
 

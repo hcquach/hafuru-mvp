@@ -7,7 +7,21 @@
   align-items: center;
   justify-content: space-between;
   transition: 0.5s background-color ease;
+  margin-top: 10px;
+}
+
+.navbar-home {
   margin-top: 60px;
+
+  .navbar-wagon-link {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 14px;
+  }
+  .navbar-wagon-link:hover {
+    color: #da552f;
+    text-decoration: none;
+  }
 }
 
 .navbar-wagon-black {
@@ -27,8 +41,8 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -49,6 +63,7 @@
 .navbar-wagon-link {
   color: white;
   font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -80,8 +95,32 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: black;
+  background-color: $first-global-color;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* To add back when notifications ok
+button.fa-bell {
+  position: relative;
+  font-size: 1.5em;
+  color: grey;
+  cursor: pointer;
+  margin: 0;
+}
+span.fa-comment {
+  position: absolute;
+  font-size: 0.6em;
+  top: -4px;
+  color: red;
+  right: -4px;
+}
+span.num {
+  position: absolute;
+  font-size: 0.3em;
+  top: 1px;
+  color: #fff;
+  right: 2px;
+}
+*/

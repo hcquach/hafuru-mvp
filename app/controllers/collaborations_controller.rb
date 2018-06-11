@@ -2,11 +2,13 @@ class CollaborationsController < ApplicationController
   before_action :set_collaboration, only: [:new, :show, :destroy]
 
   def index
-    @collaborations = policy_scope(Collaboration).order(created_at: :desc)
+    @matching_collaborations = policy_scope(current_user.matching_collaborations).order(created_at: :desc)
+    @matched_collaborations = policy_scope(current_user.matched_collaborations).order(created_at: :desc)
   end
 
   def show
-    authorise @collaboration
+    authorize @collaboration
+    @gratitude = Gratitude.new
   end
 
   def new
@@ -16,8 +18,14 @@ class CollaborationsController < ApplicationController
   end
 
   def destroy
-    if @collaboration.user == current_user
+    authorize @collaboration
+    if @collaboration.match.matching_gratitude.user == current_user || @collaboration.match.matched_gratitude.user == current_user
+      @collaboration.match.matching_gratitude.match_status = false
+      @collaboration.match.matching_gratitude.save
+      @collaboration.match.matched_gratitude.match_status = false
+      @collaboration.match.matched_gratitude.save
       @collaboration.destroy
+      redirect_to gratitudes_path
     end
   end
 

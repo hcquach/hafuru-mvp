@@ -18,7 +18,7 @@ Hafuru - #Gratefulness
             <p>#<%= gratitude.title %></p>
           </div>
           <div class="gratitude-description overlay">
-            <p>#<%= gratitude.description %></p>
+            <p><%= gratitude.description %></p>
           </div>
           <% end %>
         </div>
@@ -27,12 +27,15 @@ Hafuru - #Gratefulness
     <div class="col-xs-12 col-md-4" style="padding: 0px">
       <%= link_to new_gratitude_path do %>
       <div class="gratitude-photo add-new-gratitude">
-        <div class="add-new-title", style="">
+        <div class="add-new-title">
           <p>Add New</p>
         </div>
       </div>
       <% end %>
     </div>
   </div>
+  <div class="cta">
+      <%= link_to "My Collaborations", collaborations_path, class: "button new-quote animated" %>
+    </div>
 </div>
 

@@ -2,7 +2,7 @@
 Hafuru - Welcoming Gratefulness
 <% end %>
 
-<% content_for(:navbar_class, "navbar-transparent") %>
+<% content_for(:navbar_class, "navbar-home") %>
 
 <!-- Banner -->
 <div class="home-container">
@@ -10,82 +10,60 @@ Hafuru - Welcoming Gratefulness
     <div class="banner-content">
       <h1>Hafuru</h1>
       <p><span id="banner-typed-text"></span></p>
-      <a class="btn btn-primary btn-lg">Start now</a>
+      <%= link_to "Start now", new_user_session_path, class: "button new-quote animated" %>
     </div>
   </div>
 </div>
 
-  <!-- Carousel -->
-  <div class="home-container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active cover">
-          <img src="http://res.cloudinary.com/dpdu9kl83/image/upload/v1528208572/Screen_Shot_2018-06-05_at_23.22.01.png" alt="Gratitude 1">
-      </div>
-      <div class="item">
-         <img src="http://res.cloudinary.com/dpdu9kl83/image/upload/v1528208572/Screen_Shot_2018-06-05_at_23.22.01.png" alt="Gratitude 2">
-      </div>
-
-      <div class="item">
-         <img src="http://res.cloudinary.com/dpdu9kl83/image/upload/v1528208572/Screen_Shot_2018-06-05_at_23.22.01.png" alt="Gratitude 3">
-      </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-    </div>
-  </div>
-</div>
-
+<!-- Quotes and Form -->
 <div class="home-container">
-
   <div class="container-testimonials-form">
     <div class="testimonials">
-      <p>"A grateful heart is a magnet for miracles"</p>
-      <p>"Grateful turns what we have into enough"</p>
-      <p>"Today I'm counting my blessings, not my problems"</p>
+      <div class="page animated" style="background:#8aa651">
+        <div class="quotes-container">
+          <blockquote class="quote">
+            <p class="quote__body">Loading&hellip;</p>
+          </blockquote>
+        <div class="cta">
+          <button class="button new-quote animated">Get Inspired</button>
+        </div>
+      </div>
     </div>
+    <div class="quote-hafuru-footer">
+      <p>From Hafuru with <i class="fas fa-heart"></i></p>
+    </div>
+  </div>
 
-    <div class="home-form text-center">
-      <br>
-      <form id="letter-form">
-        <h2>Today,</h2>
-        <p>I'm
-          <label for="title">grateful</label> for
-          <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required></p>
-        <p>
-          <label for="description">Because</label><br>
-          <input type="text" name="gratitude[description]" id="description" placeholder="(it made my day better)" required>
-        </p>
-        <p><label for="category">Category</label>
-            <select name="gratitude[category_id]">
-              <% Category.all.each do |cat| %>
-                <option value="<%= cat.id %>"><%= cat.name %></option>
-              <% end %>
-            </select>
-          </p>
-        <p>
-          <button type="submit">
-            <svg version="1.1" class="send-icn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100px" height="36px" viewBox="0 0 100 36" enable-background="new 0 0 100 36" xml:space="preserve">
-              <path d="M100,0L100,0 M23.8,7.1L100,0L40.9,36l-4.7-7.5L22,34.8l-4-11L0,30.5L16.4,8.7l5.4,15L23,7L23.8,7.1z M16.8,20.4l-1.5-4.3
-        l-5.1,6.7L16.8,20.4z M34.4,25.4l-8.1-13.1L25,29.6L34.4,25.4z M35.2,13.2l8.1,13.1L70,9.9L35.2,13.2z" />
-            </svg>
-            <small>Create</small>
-          </button>
-        </p>
-      </form>
-    </div>
+  <div class="home-form text-center">
+    <div class="form-inner-container">
+    <form id="letter-form", action="/gratitudes" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <p>Today I'm
+        <label for="title">grateful</label> for
+        <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required></p>
+      <p>
+        <label for="description">Because</label><br>
+        <input type="text" name="gratitude[description]" id="description" placeholder="(it made me smile)" required>
+      </p>
+      <p><label for="category">Category</label>
+        <select name="gratitude[category_id]", style="color: grey">
+          <% Category.all.each do |cat| %>
+            <option value="<%= cat.id %>"><%= cat.name %></option>
+          <% end %>
+        </select>
+      </p>
+      <p>
+        <div class="cta">
+         <button type= "submit" class="button new-quote animated">Create</button>
+       </div>
+      </p>
+      </div>
+       <div class="quote-self-footer">
+        <p>To your inner self with <i class="fas fa-heart"></i></p>
+      </div>
+      </div>
+    </form>
+  </div>
+</div>
   </div>
 </div>

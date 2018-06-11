@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
 
    def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :photo])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :photo])
   end
 
   def after_sign_in_path_for(resource)
@@ -64,7 +65,6 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
-    byebug
     guest_gratitudes = guest_user.gratitudes.all
     guest_gratitudes.each do |gratitude|
       gratitude.user_id = current_user.id

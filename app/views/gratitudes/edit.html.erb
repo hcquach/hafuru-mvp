@@ -4,20 +4,18 @@
 Hafuru - Edit Gratitude
 <% end %>
 
-<div class="form-container">
-  <h2>Edit gratitude</h2>
-    <div class="row text-center" style="width: 100%">
-      <div class="col-sm-12 col-md-4 col-md-offset-4">
-        <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
-          <%= f.input :title, class: "label-input" %>
-          <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
-          <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
-          <%= f.input :photo, class: "label-input" %>
-          <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
-          <div class="create-btn">
-          <%= f.submit "Save", class: "btn btn-primary btn-lg btn-block" %>
-          </div>
-        <% end %>
-      </div>
+<div id="edit-gratitude-box">
+  <div class="col-xs-12 col-md-4 col-md-offset-4">
+  <h1>Edit Gratitude</h1>
+  <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
+    <%= f.input :title, class: "label-input" %>
+    <%= f.input :description, :as => :text, :input_html => { :rows => 5 }, class: "label-input" %>
+    <div class="edit-category-photo">
+      <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
+      <%= f.input :photo, class: "label-input" %>
+      <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
     </div>
+    <%= f.submit "Edit" %>
+  <% end %>
+  </div>
 </div>
