@@ -16,18 +16,14 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new
     @gratitude = Gratitude.find(params[:gratitude_id])
-    gratitudes_to_match = Gratitude.joins(:user).where("users.id != ? AND collaboration_id is ? AND match_status = ?", current_user.id, nil, false)
-    matched_gratitude = gratitudes_to_match.find do |gratitude|
-      gratitude.category_id == @gratitude.category_id
-    end
+    matched_gratitude_pg = Gratitude.joins(:user).where("users.id != ? AND collaboration_id is ? AND match_status = ?", current_user.id, nil, false).search_by_title(@gratitude.title)
     @match.matching_gratitude = @gratitude
-    @match.matched_gratitude = matched_gratitude
-    # binding.pry
+    @match.matched_gratitude = matched_gratitude_pg.first
     if @match.save!
-      matched_gratitude.match_status = true
-      matched_gratitude.save
-      @gratitude.match_status = true
-      @gratitude.save
+      @match.matched_gratitude.match_status = true
+      @match.matched_gratitude.save!
+      @match.matching_gratitude.match_status = true
+      @match.matching_gratitude.save!
       redirect_to match_path(@match)
     else
       redirect_to gratitudes_path
