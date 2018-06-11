@@ -33,10 +33,9 @@ Hafuru - #Grateful
       <div class="edit-form">
         <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
       </div>
-      <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, class: "gratitude-button" %>
+      <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, data: { sweet_confirm: "Are you sure?" }, class: "gratitude-button" %>
     </div>
-
-    </div>
+  </div>
 
     <div class="gratitude-description">
       <p><%= @gratitude.description %></p>

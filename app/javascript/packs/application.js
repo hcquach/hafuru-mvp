@@ -1,4 +1,27 @@
 import "bootstrap";
+import { addSweetAlertButton } from '../components/sweetalerts';
+addSweetAlertButton();
+
+$('a[data-sweet-confirm]').on('click', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+
+  var $link = $(this);
+
+  swal({
+    title: $link.data('isConfirm'),
+    text: "You won't be able to revert this!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then(function() {
+    $link.trigger('click.rails');
+  }, function(dismiss) {})
+});
+
+
 import { loadDynamicBannerText } from '../components/banner';
 import '../components/select2';
 import '../components/category_choice';
@@ -112,3 +135,22 @@ loadDynamicBannerText();
     }(); // <- look at this!
 
 })();
+
+    swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this imaginary file!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonClass: "btn-danger",
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel plx!",
+    closeOnConfirm: false,
+    closeOnCancel: false
+},
+function(isConfirm) {
+    if (isConfirm) {
+        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    } else {
+        swal("Cancelled", "Your imaginary file is safe :)", "error");
+    }
+});

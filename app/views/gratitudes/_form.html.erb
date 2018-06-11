@@ -1,3 +1,4 @@
+
 <%= simple_form_for( grat_path, html: {class: 'form-horizontal' }) do |f| %>
   <%= f.input :title, class: "label-input" %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
@@ -5,6 +6,6 @@
   <%= f.input :photo, class: "label-input" %>
   <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
   <div class="create-btn">
-    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block" %>
+    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert" %>
   </div>
 <% end %>

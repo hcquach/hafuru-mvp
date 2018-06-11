@@ -14,11 +14,13 @@ class GratitudesController < ApplicationController
   def create
     @gratitude = Gratitude.new(gratitude_params)
     @gratitude.user = current_or_guest_user
+
     if @gratitude.photo.blank?
     @gratitude.remote_photo_url = @gratitude.category.photo_url
     end
     authorize(@gratitude)
     if @gratitude.save
+      sleep(3)
       redirect_to gratitude_path(@gratitude)
     else
       flash[:alert] = "Please try again"
@@ -37,6 +39,7 @@ class GratitudesController < ApplicationController
   end
 
   def update
+    sleep(3)
     authorize(@gratitude)
     if @gratitude.update(gratitude_params)
       redirect_to gratitude_path(@gratitude)
