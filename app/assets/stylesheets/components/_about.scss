@@ -1,3 +1,22 @@
 .container {
   background-color: white;
+  margin: 120px;
+  color: #565656;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#trying {
+  background-color: #A4E4E5;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 1020px;
+}
+
