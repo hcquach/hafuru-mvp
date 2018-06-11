@@ -4,7 +4,8 @@
 Hafuru - Create Gratitude
 <% end %>
 
-<div class="col-xs-12 col-md-6 col-md-offset-3">
+<div class="form-container">
+<div class="col-xs-12 col-md-8 col-md-offset-2">
 <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
   <%= f.input :title, class: "label-input" %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
@@ -15,19 +16,17 @@ Hafuru - Create Gratitude
 
     <div class="category-choices">
 
-        <% Category.all.sort.each do |category| %>
+      <% Category.all.sort.each do |category| %>
 
-          <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
+        <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
+        <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
+          <%= category.name %>
+          <i class="fas <%= category.icon %>"></i>
+        </label>
 
-          <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
-            <%= category.name %>
-            <i class="fas <%= category.icon %>"></i>
-          </label>
-
-        <% end %>
+      <% end %>
 
        </div>
-
   </fieldset>
 
   <%= f.input :photo, class: "label-input" %>
@@ -37,5 +36,7 @@ Hafuru - Create Gratitude
     <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert" %>
   </div>
 <% end %>
+
+</div>
 
 </div>

@@ -1,7 +1,8 @@
 import "bootstrap";
-import { addSweetAlertButton, editSweetAlertButton } from '../components/sweetalerts';
+import { addSweetAlertButton, editSweetAlertButton , deleteSweetAlertButton } from '../components/sweetalerts';
 addSweetAlertButton();
 editSweetAlertButton();
+deleteSweetAlertButton();
 
 
 

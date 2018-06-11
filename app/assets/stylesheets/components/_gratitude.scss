@@ -2,7 +2,7 @@
   display: flex;
   height: calc(100vh - 100px);
   width: 94vw;
-  margin-top: 50px;
+  margin-top: 70px;
   margin-left: 3vw;
   justify-content: center;
   display-items: center;
@@ -41,17 +41,28 @@
     position: absolute;
     top: 0px;
     right: 30px;
-}
+  }
 
   .gratitude-button-container {
     display: flex;
     margin: 20px;
     flex-direction: column;
+    justify-content: space-between;
     text-align: left;
 
     .gratitude-button {
       color: white;
       font-family: 'Open Sans', sans-serif;
+    }
+
+    .gratitude-options {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .edit-delete-options {
+      display: flex;
+      flex-direction: column;
     }
 
   }
