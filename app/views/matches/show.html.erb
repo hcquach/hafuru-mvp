@@ -23,8 +23,12 @@
               <p>#<%= matching_gratitude.title %></p>
             </div>
             <div class="match-card-user card-top-right">
-              <%= cl_image_tag user_matching.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
-            </div>
+              <% if user_matching.photo.blank? %>
+                <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu" , height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+              <% else %>
+                <%= cl_image_tag user_matching.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+              <% end %>
+              </div>
             <div class="match-card-username card-top-right">
               <p><%= user_matching.username %></p>
             </div>
@@ -42,7 +46,11 @@
               <p>#<%= matched_gratitude.title %></p>
             </div>
             <div class="match-card-user card-top-right">
-              <%= cl_image_tag user_matched.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+              <% if user_matched.photo.blank? %>
+                <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu" , height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+              <% else %>
+                <%= cl_image_tag user_matched.photo, height: 50, width: 50, :gravity=>"face", :radius=>"max", :crop=>"thumb" %>
+              <% end %>
             </div>
 
             <div class="match-card-username card-top-right">

@@ -51,7 +51,7 @@ Hafuru - Welcoming Gratefulness
       <br>
       <p>
         <label for="category">Category</label>
-        <select name="gratitude[category_id]", class="select2">
+        <select name="gratitude[category_id]">
           <% Category.all.sort.each do |cat| %>
             <option value="<%= cat.id %>"><%= cat.name %></option>
           <% end %>
