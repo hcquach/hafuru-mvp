@@ -13,5 +13,18 @@ import swal from 'sweetalert';
     }
   }
 
+  function editSweetAlertButton() {
+  const swalButtonEdit = document.getElementById('edit-sweet-alert');
+  if (swalButtonEdit) { // protect other pages
+    swalButtonEdit.addEventListener('click', () => {
+      swal({
+        title: 'Updated',
+        icon: "success",
+        width: 700,
+        padding: 150,
+        });
+      });
+    }
+  }
 
-export { addSweetAlertButton };
+export { addSweetAlertButton, editSweetAlertButton };
