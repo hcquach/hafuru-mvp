@@ -4,14 +4,11 @@ addSweetAlertButton();
 editSweetAlertButton();
 deleteSweetAlertButton();
 
-
-
 import { loadDynamicBannerText } from '../components/banner';
-import '../components/select2';
-import '../components/category_choice';
-// initUpdateNavbarOnScroll();
-// import { initUpdateNavbarOnScroll } from '../components/navbar';
 loadDynamicBannerText();
+
+// import '../components/select2';
+import '../components/category_choice';
 
 // Wrap all the code in a IIFE to prevent the global scope pollution;
 ;(function() {
@@ -119,22 +116,3 @@ loadDynamicBannerText();
     }(); // <- look at this!
 
 })();
-
-    swal({
-    title: "Are you sure?",
-    text: "You will not be able to recover this imaginary file!",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonClass: "btn-danger",
-    confirmButtonText: "Yes, delete it!",
-    cancelButtonText: "No, cancel plx!",
-    closeOnConfirm: false,
-    closeOnCancel: false
-},
-function(isConfirm) {
-    if (isConfirm) {
-        swal("Deleted!", "Your imaginary file has been deleted.", "success");
-    } else {
-        swal("Cancelled", "Your imaginary file is safe :)", "error");
-    }
-});
