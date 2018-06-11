@@ -27,4 +27,15 @@ import swal from 'sweetalert';
     }
   }
 
-export { addSweetAlertButton, editSweetAlertButton };
+  function deleteSweetAlertButton() {
+    const swalButtonDelete = document.getElementById('delete-sweet');
+      swalButtonDelete.addEventListener('click', () => {
+         swal({
+        title: 'Deleted',
+        icon: "success",
+        width: 700,
+        padding: 150,
+        });
+      });
+    }
+export { addSweetAlertButton, editSweetAlertButton, deleteSweetAlertButton };
