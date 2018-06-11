@@ -6,6 +6,6 @@
   <%= f.input :photo, class: "label-input" %>
   <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
   <div class="create-btn">
-    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert" %>
+    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert", remote: true %>
   </div>
 <% end %>
