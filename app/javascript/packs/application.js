@@ -1,6 +1,7 @@
 import "bootstrap";
-import { addSweetAlertButton } from '../components/sweetalerts';
+import { addSweetAlertButton, editSweetAlertButton } from '../components/sweetalerts';
 addSweetAlertButton();
+editSweetAlertButton();
 
 $('a[data-sweet-confirm]').on('click', function(e) {
   e.preventDefault();
