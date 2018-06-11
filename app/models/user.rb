@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :gratitudes, dependent: :destroy
   has_many :matches, through: :gratitudes
+  has_many :messages, dependent: :destroy
 
   # Validations
   validates :email, presence: true, uniqueness: true
