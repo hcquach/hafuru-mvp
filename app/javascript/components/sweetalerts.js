@@ -1,14 +1,17 @@
 import swal from 'sweetalert';
-  function bindSweetAlertButtonDemo() {
-  const swalButton = document.getElementById('sweet-alert-demo');
-  if (swalButton) { // protect other pages
-    swalButton.addEventListener('click', () => {
+  function addSweetAlertButton() {
+  const swalButtonCreate = document.getElementById('create-sweet-alert');
+  if (swalButtonCreate) { // protect other pages
+    swalButtonCreate.addEventListener('click', () => {
       swal({
-        title: "Loading",
+        title: 'Created',
         icon: "success",
-        button: false,
+        width: 700,
+        padding: 150,
+        });
       });
-    });
+    }
   }
-}
-export { bindSweetAlertButtonDemo };
+
+
+export { addSweetAlertButton };
