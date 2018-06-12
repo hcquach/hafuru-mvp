@@ -10,8 +10,11 @@ class Gratitude < ApplicationRecord
   validates :category, presence: true
 
   include PgSearch
-    pg_search_scope :search_by_title,
+    pg_search_scope :global_search,
       against: [ :title ],
+      associated_against: {
+        category: [ :name ]
+      },
       using: {
         tsearch: { prefix: true }
       }
