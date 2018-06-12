@@ -4,39 +4,47 @@
 Hafuru - Create Gratitude
 <% end %>
 
-<div class="form-container">
-<div class="col-xs-12 col-md-8 col-md-offset-2">
-<%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
-  <%= f.input :title, class: "label-input" %>
-  <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
+<div class="global-form-wrapper", style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/tokyo'); background-size: cover;">
 
-  <fieldset class="form-group">
+  <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
+    <div class="form-container">
+      <div class="title-description-photo">
+        <%= f.input :title, class: "label-input", label: "Today I'm grateful for" %>
+        <%= f.input :description, :as => :text, :input_html => { :rows => 1 }, class: "label-input", label: "Because" %>
+        <%= f.input :photo, class: "label-input" %>
+        <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
+        <div id="stamp">
+          <%= image_tag("stamp.png", height: '100', width: '100') %>
+        </div>
+      </div>
 
-    <input type="hidden" name="gratitude[category_id]" value="">
+      <div class="category-send">
+        <div class="category">
+          <fieldset class="form-group">
+            <input type="hidden" name="gratitude[category_id]" value="">
+              <div class="category-choices">
+                <% Category.all.sort.each do |category| %>
+                <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
+                  <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
+                    <%= category.name %>
+                    <i class="fas <%= category.icon %>"></i>
+                  </label>
+                <% end %>
+              </div>
+          </fieldset>
+        </div>
 
-    <div class="category-choices">
+        <div class="message-button">
+          <div class="form-message">
+            <p>To my inner self with <i class="fas fa-heart"></i></p>
+          </div>
+          <div class="create-btn">
+            <%= f.submit "Create", class: "button new-quote animated", id: "create-sweet-alert" %>
+          </div>
+        </div>
 
-      <% Category.all.sort.each do |category| %>
-
-        <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
-        <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
-          <%= category.name %>
-          <i class="fas <%= category.icon %>"></i>
-        </label>
-
-      <% end %>
-
-       </div>
-  </fieldset>
-
-  <%= f.input :photo, class: "label-input" %>
-  <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
-
-  <div class="create-btn">
-    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert" %>
-  </div>
-<% end %>
-
+      </div>
+    </div>
+  <% end %>
 </div>
 
-</div>

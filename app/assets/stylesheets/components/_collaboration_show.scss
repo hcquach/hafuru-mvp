@@ -21,6 +21,8 @@
 
   .photos-container {
     margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
   }
 
   .chat-header {
@@ -61,6 +63,14 @@
 
   .card-collab-item {
     display: flex;
+    position: relative;
+
+    .top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
   }
 
 }
