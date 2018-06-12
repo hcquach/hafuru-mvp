@@ -7,16 +7,16 @@ class CollaborationItem < ApplicationRecord
   before_create :update_collaboration_status
 
   def update_collaboration_status
-    if collaboration.collaboration_items.count == 30
-      collaboration.status = 0
+    if collaboration.collaboration_items.count >= 30
+      collaboration.status = 4
     elsif collaboration.collaboration_items.count >= 20
-      collaboration.status = 1
+      collaboration.status = 3
     elsif collaboration.collaboration_items.count >= 10
       collaboration.status = 2
     elsif collaboration.collaboration_items.count >= 5
-      collaboration.status = 3
+      collaboration.status = 1
     elsif collaboration.collaboration_items.count >= 0
-      collaboration.status = 4
+      collaboration.status = 0
     end
     collaboration.save
   end
