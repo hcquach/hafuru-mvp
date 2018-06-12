@@ -69,7 +69,60 @@
           </div>
       </div>
 
+          <% @collaboration.collaboration_items.each do |item| %>
 
+      <div class="card-collab-item">
+
+        <% if item.matching_user_gratitude_id  && item.matched_user_gratitude_id %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
+          <div class="card-category">Matching</div>
+          <div class="card-description">
+            <h2><%= item.matching_user_gratitude.title  %></h2>
+            <p><%= item.matching_user_gratitude.description  %></p>
+          </div>
+          <%=  item.matching_user_gratitude.user.username %>
+          <%= link_to gratitude_path(item.matching_user_gratitude), class: "card-link"  %>
+        </div>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
+          <div class="card-category">Matched</div>
+          <div class="card-description">
+            <h2><%= item.matched_user_gratitude.title  %></h2>
+            <p><%= item.matched_user_gratitude.description  %></p>
+          </div>
+          <%=  item.matched_user_gratitude.user.username %>
+          <%= link_to gratitude_path(item.matched_user_gratitude), class: "card-link"  %>
+        </div>
+       <% elsif item.matching_user_gratitude_id.nil? && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
+
+          <%= render partial: "gratitudes/form" ,
+              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+
+      <% elsif item.matching_user_gratitude_id && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
+        <% if item.matching_user_gratitude.user == current_user %>
+          <%= render partial: "ready_matching", locals: {item: item} %>
+          <p>please wait for your match to add his/her gratitude before adding yours </p>
+        <% else %>
+          <%= render partial: "ready_matching", locals: {item: item} %>
+          <%= render partial: "gratitudes/form" ,
+              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <% end %>
+
+      <% elsif item.matching_user_gratitude_id == nil && item.matched_user_gratitude_id && @collaboration.collaboration_items.count < 30 %>
+
+        <% if item.matched_user_gratitude.user == current_user %>
+          <%= render partial: "ready_matched", locals: {item: item} %>
+          <p>please wait for your match to add his/her gratitude before adding yours </p>
+        <% else %>
+          <%= render partial: "ready_matched", locals: {item: item} %>
+          <%= render partial: "gratitudes/form" ,
+              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <% end %>
+      <% end %>
+
+
+      </div>
+
+<% end %>
 
     </div>
 
