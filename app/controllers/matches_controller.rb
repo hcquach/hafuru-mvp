@@ -22,8 +22,7 @@ class MatchesController < ApplicationController
     end
     @match.matching_gratitude = @gratitude
     @match.matched_gratitude = matched_gratitude
-    # binding.pry
-    if @match.save!
+    if @match.save
       matched_gratitude.match_status = true
       matched_gratitude.save
       @gratitude.match_status = true

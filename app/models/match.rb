@@ -6,12 +6,13 @@ class Match < ApplicationRecord
 
   validates :matching_gratitude, presence: true
   validates :matched_gratitude, presence: true
-  after_create :configure_collaboration
+  after_create :create_collaboration
   before_destroy :turn_off_match_status
 
-  def configure_collaboration
-    puts "------------------------------- configure_collaboration"
+  def create_collaboration
+    puts "------------------------------- create_collaboration"
     collaboration = Collaboration.create!(match: self)
+    CollaborationItem.create!(collaboration: collaboration,matching_user_gratitude: matching_gratitude, matched_user_gratitude: matched_gratitude)
     CollaborationItem.create!(collaboration: collaboration)
   end
 

@@ -4,6 +4,7 @@ class Collaboration < ApplicationRecord
   delegate :turn_off_match_status, :matched_gratitude, :matching_gratitude, to: :match
 
   has_many :collaboration_items, dependent: :destroy
+  has_many :gratitudes, dependent: :destroy
   before_validation :configure_chat_room
   before_destroy :turn_off_match_status
 

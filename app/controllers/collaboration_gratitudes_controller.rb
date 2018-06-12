@@ -14,6 +14,9 @@ class CollaborationGratitudesController < ApplicationController
         @collaboration_item.matched_user_gratitude_id = @gratitude.id
       end
       @collaboration_item.save
+      if @collaboration_item.matching_user_gratitude && @collaboration_item.matched_user_gratitude
+        CollaborationItem.create!(collaboration: @collaboration)
+      end
       redirect_to collaboration_path(@collaboration)
     else
       flash[:alert] = "try again"
