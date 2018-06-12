@@ -28,14 +28,22 @@ if (swalButtonEdit) { // protect other pages
 }
 
 function deleteSweetAlertButton() {
-const swalButtonDelete = document.getElementById('delete-sweet');
- if (swalButtonDelete) { // protect other pages
+  const swalButtonDelete = document.getElementById('delete-sweet');
+  const deleteButton = document.getElementById('delete-hidden');
+  if (swalButtonDelete) { // protect other pages
      swalButtonDelete.addEventListener('click', () => {
-      swal(
-          'Delete!',
-          'It has been been deleted',
-          'success'
-      );
+      swal("Are you sure?", {
+      buttons: {
+        cancel: "Cancel",
+        delete: true
+      },
+    })
+    .then((value) => {
+      switch (value) {
+        case "delete":
+        deleteButton.click();
+      }
+    });
     });
    }
  }
