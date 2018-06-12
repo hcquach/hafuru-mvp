@@ -1,8 +1,9 @@
 import "bootstrap";
-import { addSweetAlertButton, editSweetAlertButton , deleteSweetAlertButton } from '../components/sweetalerts';
+import { addSweetAlertButton, editSweetAlertButton , deleteSweetAlertButton, matchSweetAlertButton } from '../components/sweetalerts';
 addSweetAlertButton();
 editSweetAlertButton();
 deleteSweetAlertButton();
+matchSweetAlertButton();
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
