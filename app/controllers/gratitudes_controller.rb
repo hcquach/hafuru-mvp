@@ -39,6 +39,7 @@ class GratitudesController < ApplicationController
 
   def update
     authorize(@gratitude)
+    sleep(2)
     if @gratitude.update(gratitude_params)
       redirect_to gratitude_path(@gratitude)
     else
