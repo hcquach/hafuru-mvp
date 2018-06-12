@@ -9,9 +9,14 @@ class CollaborationItemsController < ApplicationController
 
   def new
     @collaboration_item = Collaboration_item.new
+    authorize @collaboration_item
   end
 
   def create
+    # @collaboration_item = CollaborationItem.new
+    # @collaboration = Collaboration.find(params[:collaboration_id])
+    # @collaboration_item.
+    # authorize @collaboration_item
   end
 
   def show
