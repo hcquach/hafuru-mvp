@@ -1,5 +1,83 @@
+.collab-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+
+  h1, h2, p {
+    color: white;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+   h2 {
+    font-size: 25px;
+  }
+
+  .collab-items-container {
+    margin-top: 40px;
+  }
+
+  .photos-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .chat-header {
+    opacity: 0.9;
+    background-color: #37BED5;
+  }
+
+  .messages {
+    background-image: url('http://wallvie.com/wp-content/uploads/2017/02/best-free-background-wallpaper-widescreen-high-quality-for-laptop-.jpg');
+    background-size: cover;
+    opacity: 0.8;
+    height: 90vh;
+    border: none;
+  }
+
+  .create-message {
+    opacity: 0.8;
+  }
+
+  .chat-collab {
+    height: 100vh;
+  }
+
+  .left-bar-collab {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 20px;
+  }
+
+  .collab-items-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    text-align: center;
+    margin: 0px 20px;
+  }
+
+  .card-collab-item {
+    display: flex;
+    position: relative;
+
+    .top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+  }
+
+}
+
 .card {
-  height: 175px;
+  height: 200px;
+  width: 150px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
