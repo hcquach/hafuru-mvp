@@ -10,7 +10,7 @@ class Collaboration < ApplicationRecord
   def configure_chat_room
     puts "------------------------------ configure_chat_room"
     unless self.chat_room
-      self.chat_room = ChatRoom.create!(name: "ChatRoom : #{matching_gratitude.user.username}/#{matched_gratitude.user.username}")
+      self.chat_room = ChatRoom.create!(name: "ChatRoom: #{matching_gratitude.user.username}/#{matched_gratitude.user.username}")
     end
   end
 

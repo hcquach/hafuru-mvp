@@ -162,7 +162,7 @@ puts
 puts "Category Added completed"
 
 url_eightteen = "https://images.unsplash.com/photo-1509966756634-9c23dd6e6815?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=670298bf5d0b94c29ec68504d7ba36b8&auto=format&fit=crop&w=2510&q=80"
-category_eightteen = Category.new(name: "Coding")
+category_eightteen = Category.new(name: "Coding (New!)")
 category_eightteen.remote_photo_url = url_eightteen
 category_eightteen.icon = "fa-laptop"
 category_eightteen.save
