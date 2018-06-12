@@ -3,6 +3,10 @@
   justify-content: center;
   margin-top: 70px;
 
+  h1, h2, p {
+    color: white;
+  }
+
   h1 {
     font-size: 30px;
   }
@@ -13,6 +17,10 @@
 
   .collab-items-container {
     margin-top: 40px;
+  }
+
+  .photos-container {
+    margin-top: 10px;
   }
 
   .chat-header {
@@ -51,14 +59,15 @@
     margin: 0px 20px;
   }
 
-  h1, h2, p {
-    color: white;
+  .card-collab-item {
+    display: flex;
   }
 
 }
 
 .card {
-  height: 175px;
+  height: 200px;
+  width: 150px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
