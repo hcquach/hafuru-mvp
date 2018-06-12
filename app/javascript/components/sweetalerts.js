@@ -46,7 +46,7 @@ function matchSweetAlertButton() {
   if (swalButtonMatch) { // protect other pages
     swalButtonMatch.addEventListener('click', () => {
       swal({
-      title: 'Matching',
+      title: 'Matching...',
       icon: "warning",
       closeOnClickOutside: false,
       width: 700,
