@@ -19,7 +19,7 @@ class MatchesController < ApplicationController
     matched_gratitude_pg = Gratitude.joins(:user).where("users.id != ? AND collaboration_id is ? AND match_status = ?", current_user.id, nil, false).search_by_title(@gratitude.title)
     @match.matching_gratitude = @gratitude
     @match.matched_gratitude = matched_gratitude_pg.first
-    sleep(4)
+    sleep(3)
     if @match.save
       @match.matched_gratitude.match_status = true
       @match.matched_gratitude.save!
