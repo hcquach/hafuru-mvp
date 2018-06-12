@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REDISCLOUD_URL'] %>
+  url: redis://rediscloud:XWh5X8SlFSD3kXqckA4Gjsk1QZjEVdft@redis-17786.c2.eu-west-1-3.ec2.cloud.redislabs.com:17786
   channel_prefix: hafuru-mvp_production
