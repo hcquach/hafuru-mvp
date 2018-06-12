@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   post 'collaboration_items/:collaboration_item_id/gratitudes', to: 'collaboration_gratitudes#create', as: :collaboration_item_gratitudes
   get 'credits', to: 'pages#credits', as: :credits
   get 'shop', to: 'pages#shop', as: :shop
+  get 'about', to: 'pages#about', as: :about
 end
