@@ -18,6 +18,7 @@ Hafuru - Welcoming Gratefulness
 <!-- Quotes and Form -->
 <div class="home-container">
   <div class="container-testimonials-form">
+
     <div class="testimonials">
       <div class="page animated" style="background:#8aa651">
         <div class="quotes-container">
@@ -40,14 +41,18 @@ Hafuru - Welcoming Gratefulness
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <p>Today I'm
         <label for="title">grateful</label> for
-        <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required></p>
+        <input type="text" name="gratitude[title]" id="title" minlength="3" placeholder="(coffee, music, sun)" required>
+      </p>
+      <br>
       <p>
         <label for="description">Because</label><br>
         <input type="text" name="gratitude[description]" id="description" placeholder="(it made me smile)" required>
       </p>
-      <p><label for="category">Category</label>
-        <select name="gratitude[category_id]", style="color: grey">
-          <% Category.all.each do |cat| %>
+      <br>
+      <p>
+        <label for="category">Category</label>
+        <select name="gratitude[category_id]">
+          <% Category.all.sort.each do |cat| %>
             <option value="<%= cat.id %>"><%= cat.name %></option>
           <% end %>
         </select>
@@ -55,15 +60,14 @@ Hafuru - Welcoming Gratefulness
       <p>
         <div class="cta">
          <button type= "submit" class="button new-quote animated">Create</button>
-       </div>
+        </div>
       </p>
-      </div>
-       <div class="quote-self-footer">
-        <p>To your inner self with <i class="fas fa-heart"></i></p>
-      </div>
-      </div>
     </form>
+    </div>
+    <div class="quote-self-footer">
+      <p>To your inner self with <i class="fas fa-heart"></i></p>
+    </div>
   </div>
-</div>
+
   </div>
 </div>

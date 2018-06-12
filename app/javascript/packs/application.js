@@ -1,8 +1,14 @@
 import "bootstrap";
+import { addSweetAlertButton, editSweetAlertButton , deleteSweetAlertButton } from '../components/sweetalerts';
+addSweetAlertButton();
+editSweetAlertButton();
+deleteSweetAlertButton();
+
 import { loadDynamicBannerText } from '../components/banner';
-// initUpdateNavbarOnScroll();
-// import { initUpdateNavbarOnScroll } from '../components/navbar';
 loadDynamicBannerText();
+
+// import '../components/select2';
+import '../components/category_choice';
 
 // Wrap all the code in a IIFE to prevent the global scope pollution;
 ;(function() {
@@ -13,6 +19,18 @@ loadDynamicBannerText();
       "quote": "A grateful heart is a magnet for miracles."
     }, {
       "quote": "Grateful turns what we have into enough."
+    }, {
+      "quote": "Happiness is the spiritual experience of living every minute with love, grace, and gratitude."
+    }, {
+      "quote": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle."
+    }, {
+      "quote": "You simply will not be the same person two months from now after consciously giving thanks each day for the abundance that exists in your life."
+    }, {
+      "quote": "The more you use gratitude every day, the greater the good you will bring into your life."
+    }, {
+      "quote": "When we focus on our gratitude, the tide of disappointment goes out and the tide of love rushes in."
+    }, {
+      "quote": "To speak gratitude is courteous and pleasant, to enact gratitude is generous and noble, but to live gratitude is to touch heaven."
     }, {
       "quote": "Today I'm counting my blessings, not my problems"
     }],

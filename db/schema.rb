@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_012048) do
+ActiveRecord::Schema.define(version: 2018_06_11_040549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "photo"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "icon"
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,6 +46,8 @@ ActiveRecord::Schema.define(version: 2018_06_06_012048) do
     t.bigint "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chat_room_id"
+    t.index ["chat_room_id"], name: "index_collaborations_on_chat_room_id"
     t.index ["match_id"], name: "index_collaborations_on_match_id"
   end
 
@@ -66,6 +75,16 @@ ActiveRecord::Schema.define(version: 2018_06_06_012048) do
     t.index ["matching_gratitude_id"], name: "index_matches_on_matching_gratitude_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "chat_room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -86,8 +105,11 @@ ActiveRecord::Schema.define(version: 2018_06_06_012048) do
   end
 
   add_foreign_key "collaboration_items", "collaborations"
+  add_foreign_key "collaborations", "chat_rooms"
   add_foreign_key "collaborations", "matches"
   add_foreign_key "gratitudes", "categories"
   add_foreign_key "gratitudes", "collaborations"
   add_foreign_key "gratitudes", "users"
+  add_foreign_key "messages", "chat_rooms"
+  add_foreign_key "messages", "users"
 end

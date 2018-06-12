@@ -1,3 +1,82 @@
+<div class="collab-wrap">
+  <div class="left-bar-collab">
+    <div class="left-title-collab">
+    </div>
+
+    <div class="chat-collab">
+      <div class="col-xs-12">
+        <% @chat_room = ChatRoom.find(@collaboration.chat_room_id) %>
+        <div class="chat-header text-center">
+          <h4>Collaborate with
+            <%= @collaboration.match.matching_gratitude.user == current_user ? @collaboration.match.matched_gratitude.user.username.capitalize : @collaboration.match.matching_gratitude.user.username.capitalize %>
+          </h4>
+        </div>
+        <div class="messages">
+          <% @chat_room.messages.each do |message| %>
+            <%= render partial: "messages/message", locals: { message: message, user_is_messages_author: message.user == current_user } %>
+          <% end %>
+        </div>
+        <div id="create-message">
+          <%= simple_form_for [ @chat_room, Message.new ], remote: true do |f| %>
+            <%= f.input :content, label: false %>
+          <% end %>
+        </div>
+      </div>
+      <% content_for :after_js do %>
+        <script>
+          scrollLastMessageIntoView();
+          App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
+            { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
+            {
+              received: (data) => {
+                if (data.current_user_id !== <%= current_user.id %>) {
+                  const messagesContainer = document.querySelector('.messages');
+                  messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+                  scrollLastMessageIntoView();
+                }
+              }
+            });
+        </script>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="collab-items-container">
+    <div class="collab-title">
+      <h1>30-day Challenge on #<%= @collaboration.match.matching_gratitude.category.name %></h1>
+    </div>
+    <div class="collab-subtitle">
+      <h2><%= @collaboration.match.matching_gratitude.user.username.capitalize %> X <%= @collaboration.match.matched_gratitude.user.username.capitalize %></h2>
+    </div>
+
+    <div class="photos-container">
+
+      <div class="card-collab-item">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, height: 200, width: 150, crop: :fill %>');">
+            <div class="card-description">
+              <p><%= @collaboration.match.matching_gratitude.title  %></p>
+            </div>
+          </div>
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, height: 200, width: 150, crop: :fill %>');">
+            <div class="card-description">
+              <p><%= @collaboration.match.matched_gratitude.title  %></p>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
@@ -61,6 +140,36 @@
             <% end %>
         </div>
       </div>
+    <% end %>
+    <div class="col-sm-6 col-sm-offset-3">
+      <% @chat_room = ChatRoom.find(@collaboration.chat_room_id) %>
+      <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div>
+      <div class="messages">
+        <% @chat_room.messages.each do |message| %>
+          <%= render partial: "messages/message", locals: { message: message, user_is_messages_author: message.user == current_user } %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @chat_room, Message.new ], remote: true do |f| %>
+          <%= f.input :content, label: false %>
+        <% end %>
+      </div>
+    </div>
+    <% content_for :after_js do %>
+      <script>
+        scrollLastMessageIntoView();
+        App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
+          { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
+          {
+            received: (data) => {
+              if (data.current_user_id !== <%= current_user.id %>) {
+                const messagesContainer = document.querySelector('.messages');
+                messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+                scrollLastMessageIntoView();
+              }
+            }
+          });
+      </script>
     <% end %>
   </div>
 </div>

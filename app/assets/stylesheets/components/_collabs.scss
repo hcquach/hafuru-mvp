@@ -1,0 +1,44 @@
+.collabs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 100px;
+
+  h1, p {
+    color: white;
+  }
+
+  .collabs-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 0px 40px;
+  }
+
+  .single-collab-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    height: 60vh;
+    margin: 20px;
+  }
+
+  .collab-photo {
+    margin: 5px 0px;
+    position: relative;
+    color: white;
+    text-align: center;
+
+    .top-right {
+      position: absolute;
+      top: 0px;
+      right: 40px;
+    }
+  }
+  .collab-delete {
+    text-align: right;
+    margin-right: 15px;
+  }
+}

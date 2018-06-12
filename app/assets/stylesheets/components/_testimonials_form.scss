@@ -20,6 +20,10 @@
     color: #8aa651;
   }
 
+  p {
+    font-size: 20px;
+  }
+
   .animated {
     transition: all 500ms ease;
   }
@@ -90,8 +94,9 @@
 
   .quote__body {
     font-weight: bold;
-    font-size: 90%;
+    font-size: 20px;
     letter-spacing: 0.085em;
+    margin-left: 10px;
   }
 
   .quote__cite {

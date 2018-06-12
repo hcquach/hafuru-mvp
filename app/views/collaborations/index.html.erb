@@ -1,57 +1,60 @@
-<div class="container">
-  <div class="collaborations">
-    <div class="row">
-      <div class="col-xs-6">
-        <h2>Collaborations that you are matching in</h2>
-        <ul>
-        <% @matching_collaborations.each do |collaboration| %>
-        <li>
-          <% gratitude = collaboration.matching_gratitude %>
-            <div class="product">
-              <div class="product-image hidden-xs">
-                <%= link_to collaboration_path(collaboration) do %>
-                <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
-                <% end %>
-              </div>
+<div class="collabs-container">
 
-              <div class='product-body'>
-                <h3><%= gratitude.category.name  %></h3>
-                <p><%=   %><%= collaboration.status %></p>
-              </div>
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><%= link_to collaboration_path(collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'} do %><i class="fa fa-trash" aria-hidden="true"></i><% end %></li>
-              </ul>
-            </div>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-      <div class="col-xs-6">
-        <h2>Collaborations that you have been matched in</h2>
-        <ul>
-        <% @matched_collaborations.each do |collaboration| %>
-        <li>
-          <% gratitude = collaboration.matched_gratitude %>
-            <div class="product">
-              <div class="product-image hidden-xs">
-                <%= link_to collaboration_path(collaboration) do %>
-                <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
-                <% end %>
-              </div>
+  <div class="collabs-title text-center">
+    <h1>My Collabs</h1>
+  </div>
 
-              <div class='product-body'>
-                <h3><%= gratitude.category.name  %></h3>
-                <p><%=   %><%= collaboration.status %></p>
+  <div class="collabs-wrapper">
+
+  <% @matching_collaborations.each do |collaboration| %>
+    <% gratitude = collaboration.matching_gratitude %>
+    <div class="col-xs-12 col-md-4">
+      <div class="single-collab-container">
+        <div class="collab-photo">
+            <%= link_to collaboration_path(collaboration) do %>
+              <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+              <div class="category-title top-right">
+                <p>#<%= gratitude.title %></p>
               </div>
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><%= link_to collaboration_path(collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'} do %><i class="fa fa-trash" aria-hidden="true"></i><% end %></li>
-              </ul>
-            </div>
-          </li>
-        <% end %>
-        </ul>
+            <% end %>
+        </div>
+        <div class="collab-title">
+          <%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
+        </div>
+
+        <div class="collab-delete">
+          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, data: { sweet_confirm: "Are you sure?" } %>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <% end %>
 
+  <% @matched_collaborations.each do |collaboration| %>
+    <% gratitude = collaboration.matched_gratitude %>
+    <div class="col-xs-12 col-md-4">
+
+      <div class="single-collab-container">
+        <div class="collab-photo top-right">
+            <%= link_to collaboration_path(collaboration) do %>
+              <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+              <div class="category-title top-right">
+                <p>#<%= gratitude.title %></p>
+              </div>
+            <% end %>
+        </div>
+        <div class="collab-title">
+          <strong>
+          <%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
+          <strong>
+        </div>
+
+        <div class="collab-delete">
+          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, data: { sweet_confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+
+</div>

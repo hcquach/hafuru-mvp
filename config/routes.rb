@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     resources :collaboration_items
   end
 
+  resources :chat_rooms, only: [ :show ] do
+    resources :messages, only: [ :create ]
+  end
+
   post 'collaboration_items/:collaboration_item_id/gratitudes', to: 'collaboration_gratitudes#create', as: :collaboration_item_gratitudes
   get 'credits', to: 'pages#credits', as: :credits
   get 'shop', to: 'pages#shop', as: :shop
