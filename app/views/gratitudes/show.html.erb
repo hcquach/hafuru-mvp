@@ -31,12 +31,12 @@ Hafuru - #Grateful
         <%= link_to "Board", gratitudes_path, class: "gratitude-button" %>
         <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "gratitude-button" %>
         <% unless @gratitude.match_status %>
-          <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "gratitude-button" %>
+          <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "gratitude-button", id: "match-sweet" %>
         <% end %>
       </div>
       <div class="edit-delete-options">
         <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
-        <%= link_to "Delete", gratitude_path(@gratitude), remote: false, method: :delete,  data: {confirm: "Delete?"}, id: "delete-sweet", class: "gratitude-button" %>
+        <%= link_to "Delete", gratitude_path(@gratitude), remote: false, method: :delete,  data: {confirm: "Delete?"}, id: "delete-sweet", class: "gratitude-button", id: "delete-sweet" %>
       </div>
     </div>
   </div>

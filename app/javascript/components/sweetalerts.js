@@ -40,4 +40,19 @@ function deleteSweetAlertButton() {
     });
   }
 }
-export { addSweetAlertButton, editSweetAlertButton, deleteSweetAlertButton };
+
+function matchSweetAlertButton() {
+  const swalButtonMatch = document.getElementById('match-sweet');
+  if (swalButtonMatch) { // protect other pages
+    swalButtonMatch.addEventListener('click', () => {
+      swal({
+      title: 'Matching',
+      icon: "warning",
+      closeOnClickOutside: false,
+      width: 700,
+      padding: 150,
+      });
+    });
+  }
+}
+export { addSweetAlertButton, editSweetAlertButton, deleteSweetAlertButton, matchSweetAlertButton };
