@@ -73,6 +73,34 @@
 
   }
 
+  .form-show-collab {
+    height: 200px;
+    width: 300px;
+
+    .collab-show {
+      display: flex;
+    }
+
+    .title-description {
+      display: flex;
+    }
+
+    .cat-photo-create {
+      display: flex;
+    }
+
+    label, p {
+      color: black;
+      font-size: 8px;
+    }
+
+    .form-control, .form-group {
+      width: 50%;
+      margin: 0px;
+    }
+
+  }
+
 }
 
 .card {

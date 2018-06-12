@@ -1,11 +1,16 @@
-
 <%= simple_form_for( grat_path, html: {class: 'form-horizontal' }) do |f| %>
-  <%= f.input :title, class: "label-input" %>
-  <%= f.input :description, :as => :text, :input_html => { :rows => 7 }, class: "label-input" %>
-  <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
-  <%= f.input :photo, class: "label-input" %>
-  <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
-  <div class="create-btn">
-    <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert", remote: true %>
+  <div class="collab-show">
+    <div class="title-description">
+      <%= f.input :title, class: "label-input" %>
+      <%= f.input :description, :as => :text, :input_html => { :rows => 1 }, class: "label-input" %>
+    </div>
+  </div>
+  <div class="cat-photo-create">
+    <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
+    <%= f.input :photo, class: "label-input" %>
+    <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
+    <div class="create-btn">
+      <%= f.submit "Create", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert", remote: true %>
+    </div>
   </div>
 <% end %>
