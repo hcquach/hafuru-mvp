@@ -23,6 +23,8 @@ gem "pundit"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -28,16 +28,33 @@ if (swalButtonEdit) { // protect other pages
 }
 
 function deleteSweetAlertButton() {
-  const swalButtonDelete = document.getElementById('delete-sweet');
-  if (swalButtonDelete) { // protect other pages
-    swalButtonDelete.addEventListener('click', () => {
+const swalButtonDelete = document.getElementById('delete-sweet');
+ if (swalButtonDelete) { // protect other pages
+     swalButtonDelete.addEventListener('click', () => {
+      swal(
+          'Delete!',
+          'It has been been deleted',
+          'success'
+      );
+    });
+   }
+ }
+
+
+function matchSweetAlertButton() {
+  const swalButtonMatch = document.getElementById('match-sweet');
+  if (swalButtonMatch) { // protect other pages
+    swalButtonMatch.addEventListener('click', () => {
       swal({
-      title: 'Deleted',
-      icon: "success",
+      title: 'Matching....',
+      icon: "warning",
+      closeOnClickOutside: false,
       width: 700,
       padding: 150,
       });
     });
   }
 }
-export { addSweetAlertButton, editSweetAlertButton, deleteSweetAlertButton };
+
+
+export { addSweetAlertButton, editSweetAlertButton, deleteSweetAlertButton, matchSweetAlertButton };
