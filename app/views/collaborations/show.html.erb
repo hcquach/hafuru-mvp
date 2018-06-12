@@ -53,6 +53,9 @@
 
       <div class="card-collab-item">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, height: 200, width: 150, crop: :fill %>');">
+            <div class="card-day-count top-left">
+              <p>Day <%= @collaboration.collaboration_items.count %></p>
+            </div>
             <div class="card-description">
               <p><%= @collaboration.match.matching_gratitude.title  %></p>
             </div>
@@ -64,116 +67,66 @@
           </div>
       </div>
 
-    <div class="card-collab-item"></div>
-
-
-    </div>
-
-  </div>
-
-
-</div>
-
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
-        <div class="card-category">Matching</div>
-        <div class="card-description">
-          <h2><%= @collaboration.match.matching_gratitude.title  %></h2>
-          <p><%= @collaboration.match.matching_gratitude.description  %></p>
-        </div>
-        <%=  @collaboration.match.matching_gratitude.user.username %>
-        <%= link_to gratitude_path(@collaboration.match.matching_gratitude), class: "card-link"  %>
-      </div>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
-        <div class="card-category">Matched</div>
-        <div class="card-description">
-          <h2><%= @collaboration.match.matched_gratitude.title  %></h2>
-          <p><%= @collaboration.match.matched_gratitude.description  %></p>
-        </div>
-        <%=  @collaboration.match.matched_gratitude.user.username %>
-        <%= link_to gratitude_path(@collaboration.match.matched_gratitude), class: "card-link"  %>
-      </div>
-    </div>
     <% @collaboration.collaboration_items.each do |item| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="link-item">
-          <% if item.matching_user_gratitude_id == nil && item.collaboration.match.matching_gratitude.user == current_user %>
-            <%= render partial: "gratitudes/form" ,
-              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
-            <% item.matching_user_gratitude_id = @gratitude %>
-            <% elsif item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
-            <div class="card-category">Matching</div>
+
+      <div class="card-collab-item">
+
+        <% if item.matching_user_gratitude_id == nil && item.collaboration.match.matching_gratitude.user == current_user %>
+          <%= render partial: "gratitudes/form" ,
+            locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+          <% item.matching_user_gratitude_id = @gratitude %>
+        <% elsif item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
+
+            <div class="card-day-count top-left">
+              <p>Day <%= @collaboration.collaboration_items.count %></p>
+            </div>
+
             <div class="card-description">
-              <h2><%= item.matching_user_gratitude.title  %></h2>
-              <p><%= item.matching_user_gratitude.description  %></p>
+              <p><%= item.matching_user_gratitude.title  %></p>
             </div>
-            <%=  item.matching_user_gratitude.user.username %>
-            <%= link_to gratitude_path(item.matching_user_gratitude), class: "card-link"  %>
+          </div>
+        <% end %>
+
+        <% if item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user &&  item.matched_user_gratitude_id == nil %>
+            <div class="card">
+              <p>please wait for your match to add his/her gratitude before adding yours </p>
             </div>
-            <% end %>
-            <% if item.matching_user_gratitude_id != nil && item.collaboration.match.matching_gratitude.user == current_user &&  item.matched_user_gratitude_id == nil %>
-            <p>please wait for your match to add his/her gratitude before adding yours </p>
-            <% end %>
-          <% if item.matched_user_gratitude_id == nil && item.collaboration.match.matched_gratitude.user == current_user %>
-            <%= render partial: "gratitudes/form" ,
-              locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
-            <% item.matched_user_gratitude_id = @gratitude %>
-            <% elsif item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
-              <div class="card-category">Matched</div>
-              <div class="card-description">
-                <h2><%= item.matched_user_gratitude.title  %></h2>
-                <p><%= item.matched_user_gratitude.description  %></p>
-              </div>
-              <%=  item.matched_user_gratitude.user.username %>
-              <%= link_to gratitude_path(item.matched_user_gratitude), class: "card-link"  %>
+        <% end %>
+
+        <% if item.matched_user_gratitude_id == nil && item.collaboration.match.matched_gratitude.user == current_user %>
+          <%= render partial: "gratitudes/form" ,
+            locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+          <% item.matched_user_gratitude_id = @gratitude %>
+
+        <% elsif item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
+            <div class="card-day-count top-left">
+              <p>Day <%= @collaboration.collaboration_items.count %></p>
+            </div>
+            <div class="card-description">
+              <p><%= item.matched_user_gratitude.title  %></p>
+            </div>
+          </div>
+        <% end %>
+
+          <% if item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user &&  item.matching_user_gratitude_id == nil %>
+            <div class="card">
+              <p>please wait for your match to add his/her gratitude before adding yours </p>
             </div>
           <% end %>
-          <% if item.matched_user_gratitude_id != nil && item.collaboration.match.matched_gratitude.user == current_user &&  item.matching_user_gratitude_id == nil %>
-            <p>please wait for your match to add his/her gratitude before adding yours </p>
-            <% end %>
-        </div>
+
       </div>
+
     <% end %>
-    <div class="col-sm-6 col-sm-offset-3">
-      <% @chat_room = ChatRoom.find(@collaboration.chat_room_id) %>
-      <div class="chat-header"><h4>#<%= @chat_room.name %></h4></div>
-      <div class="messages">
-        <% @chat_room.messages.each do |message| %>
-          <%= render partial: "messages/message", locals: { message: message, user_is_messages_author: message.user == current_user } %>
-        <% end %>
-      </div>
-      <div id="create-message">
-        <%= simple_form_for [ @chat_room, Message.new ], remote: true do |f| %>
-          <%= f.input :content, label: false %>
-        <% end %>
-      </div>
+
+
+
+
     </div>
-    <% content_for :after_js do %>
-      <script>
-        scrollLastMessageIntoView();
-        App['chat_room_<%= @chat_room.id %>'] = App.cable.subscriptions.create(
-          { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
-          {
-            received: (data) => {
-              if (data.current_user_id !== <%= current_user.id %>) {
-                const messagesContainer = document.querySelector('.messages');
-                messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
-                scrollLastMessageIntoView();
-              }
-            }
-          });
-      </script>
-    <% end %>
+
   </div>
+
 </div>
 
 <div class="buttons-collaborations">
