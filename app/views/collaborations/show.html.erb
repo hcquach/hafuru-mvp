@@ -57,14 +57,16 @@
               <p><%= @collaboration.match.matching_gratitude.title  %></p>
             </div>
           </div>
-
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, height: 200, width: 150, crop: :fill %>');">
             <div class="card-description">
               <p><%= @collaboration.match.matched_gratitude.title  %></p>
             </div>
           </div>
-
       </div>
+
+    <div class="card-collab-item"></div>
+
+
     </div>
 
   </div>
