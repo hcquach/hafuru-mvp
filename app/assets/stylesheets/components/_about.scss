@@ -1,7 +1,6 @@
 .container {
-  background-color: white;
   margin: 120px;
-  color: #565656;
+  color: #838383;
 }
 
 .row {
@@ -13,10 +12,34 @@
   margin-bottom: 25px;
 }
 
-#trying {
-  background-color: #A4E4E5;
+.wrap {
+  background-color: white;
   margin-top: 50px;
   margin-bottom: 50px;
   width: 1020px;
 }
 
+.about {
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.about p {
+  margin-top: 50px;
+}
+
+.about h2 {
+  margin-top: 50px;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+.team h2 {
+  margin-bottom: 60px;
+}
+
+.member {
+  margin-bottom: 40px;
+}
