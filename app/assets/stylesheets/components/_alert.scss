@@ -3,7 +3,10 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
+  position: relative;
+  bottom: 70px;
+  margin: 70px;
+  padding: 10px;
   text-align: center;
   color: white;
 }

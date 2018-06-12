@@ -36,7 +36,7 @@ Hafuru - #Grateful
       </div>
       <div class="edit-delete-options">
         <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
-        <%= link_to "Delete", gratitude_path(@gratitude), remote: false, method: :delete,  data: {confirm: "Delete?"}, id: "delete-sweet", class: "gratitude-button", id: "delete-sweet" %>
+        <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, data: { confirm: "Are you sure you want to delete?" }, remote: false, class: "gratitude-button", id: "delete-sweet" %>
       </div>
     </div>
   </div>
