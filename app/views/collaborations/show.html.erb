@@ -127,3 +127,10 @@
   </div>
 
 </div>
+
+<div class="buttons-collaborations">
+  <%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'}%>
+</div>
+<div class="buttons-collaborations">
+  <%= link_to "All my Colaborations", collaborations_path, class: "btn btn-success" %>
+</div>
