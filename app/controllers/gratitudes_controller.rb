@@ -21,6 +21,7 @@ class GratitudesController < ApplicationController
     authorize(@gratitude)
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
+      flash[:notice] = "Gratitude added successfully"
     else
       flash[:alert] = "Please try again"
       render :new
@@ -41,8 +42,10 @@ class GratitudesController < ApplicationController
     authorize(@gratitude)
     sleep(2)
     if @gratitude.update(gratitude_params)
+      flash[:notice] = "Gratitude updated successfully"
       redirect_to gratitude_path(@gratitude)
     else
+      flash[:alert] = "Gratitude have not beed updated"
       render :edit
     end
   end
