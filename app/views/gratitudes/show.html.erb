@@ -24,30 +24,26 @@ Hafuru - #Grateful
         <div class="gratitude-subtitle">
           <h2 style="background-color: rgba(10, 10, 10, 0.3); padding: 10px 5px; margin: 20px 0px; border-radius: 2px">#<%= @gratitude.category.name %></h2>
         </div>
+        <div class="edit-delete-opt">
+          <%= link_to "<i class='fas fa-pencil-alt'></i>".html_safe, edit_gratitude_path(@gratitude), class: "gratitude-button" %>
+          <a id="delete-sweet" class="gratitude-button" href="#"><i class="fas fa-trash-alt"></i></a>
+          <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
+        </div>
       </div>
 
     <div class="gratitude-button-container">
+      <div class="gratitude-description">
+        <h2 style="text-align: center">Because</h2><br><p><%= @gratitude.description %></p>
+      </div>
       <div class="gratitude-options">
-        <%= link_to "Board", gratitudes_path, class: "gratitude-button" %>
-        <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "gratitude-button" %>
+        <%= link_to "Board", gratitudes_path, class: "button new-quote animated btn-board" %>
+        <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "button new-quote animated btn-remember" %>
         <% unless @gratitude.match_status %>
-          <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "gratitude-button", id: "match-sweet" %>
+          <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "button new-quote animated btn-match", id: "match-sweet" %>
         <% end %>
       </div>
-      <div class="edit-delete-options">
-        <%= link_to "Edit", edit_gratitude_path(@gratitude), class: "gratitude-button" %>
-        <a id="delete-sweet" class="gratitude-button" href="#">Delete</a>
-        <%= link_to "Delete", gratitude_path(@gratitude), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
-      </div>
     </div>
-  </div>
-
-
-
-    <div class="gratitude-description">
-      <p><%= @gratitude.description %></p>
     </div>
-
   </div>
 
 <% end %>
