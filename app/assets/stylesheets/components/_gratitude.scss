@@ -1,9 +1,7 @@
 .gratitude-wrapper {
   display: flex;
-  height: calc(100vh - 100px);
-  width: 94vw;
-  margin-top: 70px;
-  margin-left: 3vw;
+  height: 115vh;
+  width: 100vw;
   justify-content: center;
   display-items: center;
   flex-direction: column;
@@ -23,7 +21,7 @@
     flex-direction: column;
     text-align: center;
     margin: 30px;
-    width: 200px;
+    width: 15%;
     color: white;
   }
 
@@ -35,6 +33,13 @@
     position: relative;
     text-align: center;
     color: white;
+  }
+
+   .gratitude-subtitle {
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
   }
 
   .top-right {
@@ -49,6 +54,7 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
+    width: 15%;
 
     .gratitude-button {
       color: white;

@@ -15,9 +15,9 @@ Hafuru - #Gratefulness
       <div class="col-xs-12 col-md-4" style="padding: 0px">
         <div class="gratitude-photo">
           <%= link_to gratitude_path(gratitude) do %>
-            <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-            <div class="gratitude-title top-right">
-              <p>#<%= gratitude.title %></p>
+            <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill, :background=>"#659DBD", :radius=>5 %>
+            <div class="gratitude-title">
+              <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= gratitude.title %></p>
             </div>
             <div class="gratitude-description overlay">
               <p><%= gratitude.description %></p>

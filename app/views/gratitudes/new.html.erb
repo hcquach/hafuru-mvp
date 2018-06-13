@@ -9,10 +9,16 @@ Hafuru - Create Gratitude
   <%= simple_form_for(@gratitude, html: {class: 'form-horizontal' }) do |f| %>
     <div class="form-container">
       <div class="title-description-photo">
-        <%= f.input :title, class: "label-input", label: "Today I'm grateful for" %>
-        <%= f.input :description, :as => :text, :input_html => { :rows => 1 }, class: "label-input", label: "Because" %>
-        <%= f.input :photo, class: "label-input" %>
-        <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
+        <div class="gratitude-form-title">
+          <%= f.input :title, :as => :text, class: "label-input", label: "Today I'm grateful for" %>
+        </div>
+        <div class="gratitude-form-description">
+          <%= f.input :description, :as => :text, :input_html => { :rows => 2 }, class: "label-input", label: "Because" %>
+        </div>
+        <div class="gratitude-form-photo">
+          <%= f.input :photo, class: "label-input" %>
+          <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
+        </div>
         <div id="stamp">
           <%= image_tag("stamp.png", height: '100', width: '100') %>
         </div>
@@ -36,9 +42,9 @@ Hafuru - Create Gratitude
 
         <div class="message-button">
           <div class="form-message">
-            <p>To my inner self with <i class="fas fa-heart"></i></p>
+            <p>To:<br>My inner self with <i class="fas fa-heart"></i></p>
           </div>
-          <div class="create-btn">
+          <div class="create-edit-btn">
             <%= f.submit "Create", class: "button new-quote animated", id: "create-sweet-alert" %>
           </div>
         </div>

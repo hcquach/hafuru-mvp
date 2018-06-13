@@ -20,8 +20,8 @@ Hafuru - #Grateful
 
       <div class="gratitude-photo">
 
-        <%= cl_image_tag @gratitude.photo, height: 400, width: 500, crop: :fill %>
-        <div class="gratitude-title top-right">
+        <%= cl_image_tag @gratitude.photo, height: 400, width: 500, crop: :fill, :background=>"#659DBD", :radius=>5 %>
+        <div class="gratitude-subtitle">
           <h2 style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= @gratitude.category.name %></h2>
         </div>
       </div>
