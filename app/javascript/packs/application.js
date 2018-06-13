@@ -19,6 +19,10 @@ loadDynamicBannerText();
 // import '../components/select2';
 import '../components/category_choice';
 
+// Navbar on scroll
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();
+
 // Wrap all the code in a IIFE to prevent the global scope pollution;
 ;(function() {
   "use strict";
