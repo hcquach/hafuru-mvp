@@ -5,17 +5,19 @@
 }
 
 .category-choice {
-  flex: 0 0 11%;
+  flex: 0 0 15%;
   background-color: $light-gray;
   opacity: 0.4;
   padding: 10px 0;
   text-align: center;
   font-size: 10px;
   margin: 5px;
+
   &:hover {
     opacity: 1;
     cursor: pointer;
   }
+
   &.active {
     opacity: 1;
     background-color: $blue;

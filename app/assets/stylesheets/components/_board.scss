@@ -38,6 +38,7 @@
     width: 300px;
     height: 200px;
     margin-bottom: 20px;
+    border-radius: 2px;
   }
 
   .overlay {
@@ -55,13 +56,13 @@
 
   .gratitude-add {
     position: absolute;
-    background-color: rgba(250, 250, 250, 0.8);
-    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    top: 10px;
     right: 10px;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
-    font-size: 35px;
+    font-size: 20px;
     text-align: center;
   }
 
@@ -71,6 +72,9 @@
 
   .gratitude-title {
     color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
   }
 
   .gratitude-description {
@@ -97,23 +101,22 @@
     right: 20px;
   }
 
-  .add-new-gratitude {
-    text-align: center;
-    height: 50px;
-    width: 50px;
-    background-color: white;
-    border-radius: 50%;
-    margin: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.7;
-  }
+  // .add-new-gratitude {
+  //   text-align: center;
+  //   height: 50px;
+  //   width: 50px;
+  //   border-radius: 50%;
+  //   margin: 0px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   opacity: 0.7;
+  // }
 
-  .add-new-title {
-    text-align: center;
-    color: $body-bg;
-    font-size: 20px;
-  }
+  // .add-new-title {
+  //   text-align: center;
+  //   color: $body-bg;
+  //   font-size: 20px;
+  // }
 
 }
