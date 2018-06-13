@@ -1,12 +1,52 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
+<% if flash[:signed_in] %>
+  <div id="signed_in_alert">
   </div>
 <% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
+<% if flash[:signed_out] %>
+  <div id="signed_out_alert">
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div id="error">
+  </div>
+<% end %>
+<% if flash[:notice] %>
+  <div id="notice">
+  </div>
+<% end %>
+<% if flash[:alert] %>
+  <div id="alert">
+  </div>
+<% end %>
+<% if flash[:noticematch] %>
+  <div id="noticematch">
+  </div>
+<% end %>
+<% if flash[:alertmatch] %>
+  <div id="alertmatch">
+  </div>
+<% end %>
+<% if flash[:noticegratitude] %>
+  <div id="noticegratitude">
+  </div>
+<% end %>
+<% if flash[:alertgratitude] %>
+  <div id="alertgratitude">
+  </div>
+<% end %>
+<% if flash[:noticeupdategratitude] %>
+  <div id="noticeupdategratitude">
+  </div>
+<% end %>
+<% if flash[:alertupdategratitude] %>
+  <div id="alertupdategratitude">
+  </div>
+<% end %>
+<% if flash[:alertcollaborationitem] %>
+  <div id="alertcollaborationitem">
+  </div>
+<% end %>
+<% if flash[:noticecollaborationitem] %>
+  <div id="noticecollaborationitem">
   </div>
 <% end %>
