@@ -23,6 +23,21 @@ import '../components/category_choice';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
+
+function scrollLastMessageIntoView() {
+  var messages = document.querySelectorAll('.message');
+  var lastMessage = messages[messages.length - 1];
+  console.log("Are we in there");
+  console.log(messages);
+  console.log(lastMessage);
+
+  if (lastMessage !== undefined) {
+    lastMessage.scrollIntoView();
+  }
+}
+
+window.scrollLastMessageIntoView = scrollLastMessageIntoView;
+
 // Wrap all the code in a IIFE to prevent the global scope pollution;
 ;(function() {
   "use strict";
