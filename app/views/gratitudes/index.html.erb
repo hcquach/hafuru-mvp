@@ -4,36 +4,34 @@ Hafuru - #Gratefulness
 <div class="board-wrapper">
 
   <div class="board-stats text-center">
-    <div class="board-count"><%= @gratitudes.count %></div>
-    <h2>Gratitude<br>&<br>Awesome stuffs</h2>
+    <div class="board-count">
+      <%= @gratitudes.count %>
+    </div>
+    <h2>Gratitudes<br>&<br>Awesome stuffs</h2>
   </div>
+
   <div class="board-photos">
     <% @gratitudes.each do |gratitude| %>
       <div class="col-xs-12 col-md-4" style="padding: 0px">
         <div class="gratitude-photo">
           <%= link_to gratitude_path(gratitude) do %>
-          <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
-          <div class="gratitude-title top-right">
-            <p>#<%= gratitude.title %></p>
-          </div>
-          <div class="gratitude-description overlay">
-            <p><%= gratitude.description %></p>
-          </div>
+            <%= cl_image_tag gratitude.photo, height: 200, width: 300, crop: :fill %>
+            <div class="gratitude-title top-right">
+              <p>#<%= gratitude.title %></p>
+            </div>
+            <div class="gratitude-description overlay">
+              <p><%= gratitude.description %></p>
+            </div>
+            <% if gratitude == @gratitudes.last %>
+              <%= link_to new_gratitude_path do %>
+                <div class="gratitude-add">
+                  <p>+</p>
+                </div>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>
     <% end %>
-
-    <div class="col-xs-12 col-md-4" style="padding: 0px">
-      <%= link_to new_gratitude_path do %>
-      <div class="gratitude-photo add-new-gratitude">
-        <div class="add-new-title">
-          <p>Add New</p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
   </div>
-
 </div>
