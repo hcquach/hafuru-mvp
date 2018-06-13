@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="cat-photo-create">
-    <%= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
+    <%#= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
     <%= f.input :photo, class: "label-input" %>
     <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
     <div class="create-btn">

@@ -6,6 +6,7 @@ class CollaborationGratitudesController < ApplicationController
     @collaboration_item = CollaborationItem.find(params[:collaboration_item_id])
     @collaboration = @collaboration_item.collaboration
     @gratitude.collaboration_id = @collaboration.id
+    @gratitude.category = @collaboration.matching_gratitude.category
     @gratitude.user = current_user
     if @gratitude.save
       if current_user == @collaboration.match.matching_gratitude.user

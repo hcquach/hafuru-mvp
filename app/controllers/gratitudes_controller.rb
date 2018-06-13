@@ -14,11 +14,16 @@ class GratitudesController < ApplicationController
   def create
     @gratitude = Gratitude.new(gratitude_params)
     @gratitude.user = current_or_guest_user
-
-    if @gratitude.photo.blank?
-    @gratitude.remote_photo_url = @gratitude.category.photo_url
-    end
     authorize(@gratitude)
+
+    if @gratitude.category.nil?
+      flash[:categoryerror] = "Yo"
+      render :new
+      return
+    elsif @gratitude.photo.blank?
+      @gratitude.remote_photo_url = @gratitude.category.photo_url
+    end
+
     if @gratitude.save
       redirect_to gratitude_path(@gratitude)
       flash[:noticegratitude] = "Yo"
@@ -40,7 +45,10 @@ class GratitudesController < ApplicationController
 
   def update
     authorize(@gratitude)
-    sleep(2)
+    same_category = @gratitude.category
+    if params[:category_id].nil?
+      params[:category_id] = same_category
+    end
     if @gratitude.update(gratitude_params)
       flash[:noticeupdategratitude] = "Yo"
       redirect_to gratitude_path(@gratitude)

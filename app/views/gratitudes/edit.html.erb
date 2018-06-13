@@ -27,13 +27,19 @@ Hafuru - Edit Gratitude
       <div class="category-send">
         <div class="category">
           <fieldset class="form-group">
-            <input type="hidden" name="gratitude[category_id]" value="">
+            <input type="hidden" name="gratitude[category_id]" value="<%= @gratitude.category.id %>">
               <div class="category-choices">
                 <% Category.all.sort.each do |category| %>
-                <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
-                  <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
+                  <input class="hidden" type="radio" value="<%= category.id %>" name="gratitude[category_id]" id="gratitude_category_id_<%= category.id %>">
+                  <% if @gratitude.category == category %>
+                    <label class="category-choice collection_radio_buttons active" for="gratitude_category_id_<%= category.id %>">
                     <%= category.name %>
                     <i class="fas <%= category.icon %>"></i>
+                  <% else %>
+                     <label class="category-choice collection_radio_buttons" for="gratitude_category_id_<%= category.id %>">
+                    <%= category.name %>
+                    <i class="fas <%= category.icon %>"></i>
+                  <% end %>
                   </label>
                 <% end %>
               </div>
@@ -45,7 +51,7 @@ Hafuru - Edit Gratitude
             <p>To:<br>My inner self with <i class="fas fa-heart"></i></p>
           </div>
           <div class="create-edit-btn">
-            <%= f.submit "Edit", class: "button new-quote animated" %>
+            <%= f.submit "Save", class: "button new-quote animated" %>
           </div>
         </div>
 
@@ -53,4 +59,3 @@ Hafuru - Edit Gratitude
     </div>
   <% end %>
 </div>
-

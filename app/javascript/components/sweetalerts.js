@@ -18,8 +18,22 @@ function deleteSweetAlertButton() {
       }
     });
     });
-   }
- }
+  }
+}
+
+function categoryError() {
+  const swalButtonMatch = document.getElementById('categoryerror');
+  if (swalButtonMatch) { // protect other pages
+      swal({
+      title: 'Category not selected',
+      icon: "error",
+      button: true,
+      closeOnClickOutside: false,
+      width: 700,
+      padding: 150,
+      });
+  }
+}
 
 
 function matchSweetAlertCheckButton() {
@@ -182,4 +196,4 @@ function signOutSweetAlertButton() {
 }
 
 
-export { deleteSweetAlertButton, matchSweetAlertCheckButton, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess,gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess,gratitudeSweetAlertButtonUpdateSuccess, gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError, cancelSweetAlertButton };
+export { deleteSweetAlertButton, matchSweetAlertCheckButton, categoryError, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess,gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess,gratitudeSweetAlertButtonUpdateSuccess, gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError, cancelSweetAlertButton };
