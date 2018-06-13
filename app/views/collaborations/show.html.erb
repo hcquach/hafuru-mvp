@@ -69,15 +69,19 @@
         </div>
        <% elsif item.matching_user_gratitude_id.nil? && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <!-- Bootstrap Modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-          <%= render partial: "gratitudes/form" ,
-            locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
         <!-- End of modal -->
       <% elsif item.matching_user_gratitude_id && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <% if item.matching_user_gratitude.user == current_user %>
@@ -85,16 +89,20 @@
           <p>please wait for your match to add his/her gratitude before adding yours </p>
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
-          <!-- Bootstrap Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-              <%= render partial: "gratitudes/form" ,
-                locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <!-- Bootstrap Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- End of modal -->
         <% end %>
 
@@ -105,17 +113,21 @@
           <p>please wait for your match to add his/her gratitude before adding yours </p>
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
-           <!-- Bootstrap Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-              <%= render partial: "gratitudes/form" ,
-                locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <!-- Bootstrap Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
               </div>
             </div>
           </div>
-          <!-- End of modal -->
+        </div>
+        <!-- End of modal -->
         <% end %>
       <% end %>
 
