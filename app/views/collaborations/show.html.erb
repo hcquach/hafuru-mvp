@@ -57,27 +57,47 @@
       <div class="card-collab-item">
 
         <% if item.matching_user_gratitude_id  && item.matched_user_gratitude_id %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
-          <div class="card-description">
-            <p><%= item.matching_user_gratitude.title  %></p>
-          </div>
+        <!-- the gratitude style index -->
+        <%= link_to gratitude_path(item.matching_user_gratitude) do %>
+        <div class="gratitude-collaboration-photo">
+            <%= cl_image_tag @collaboration.matching_gratitude.photo, height: 100, width: 150,crop: :fill, :background=>"#659DBD", :radius=>5 %>
+            <div class="gratitude-collaboration-title">
+              <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matching_user_gratitude.title %></p>
+            </div>
+            <div class="gratitude-collaboration-description overlay">
+              <p><%= item.matching_user_gratitude.description %></p>
+            </div>
         </div>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matched_gratitude.photo, crop: :fill %>');">
-          <div class="card-description">
-            <p><%= item.matched_user_gratitude.title  %></p>
+        <% end %>
+        <!-- end -->
+        <!-- the second gratitude style index -->
+        <%= link_to gratitude_path(item.matching_user_gratitude) do %>
+          <div class="gratitude-collaboration-photo">
+            <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 100, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
+            <div class="gratitude-collaboration-title">
+              <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matched_user_gratitude.title %></p>
+            </div>
+            <div class="gratitude-collaboration-description overlay">
+              <p><%= item.matched_user_gratitude.description %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
+        <!-- end -->
        <% elsif item.matching_user_gratitude_id.nil? && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <!-- Bootstrap Modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-      <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-          <%= render partial: "gratitudes/form" ,
-            locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
         <!-- End of modal -->
       <% elsif item.matching_user_gratitude_id && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <% if item.matching_user_gratitude.user == current_user %>
@@ -85,16 +105,20 @@
           <p>please wait for your match to add his/her gratitude before adding yours </p>
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
-          <!-- Bootstrap Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-              <%= render partial: "gratitudes/form" ,
-                locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <!-- Bootstrap Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- End of modal -->
         <% end %>
 
@@ -105,17 +129,21 @@
           <p>please wait for your match to add his/her gratitude before adding yours </p>
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
-           <!-- Bootstrap Modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
-          <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-              <%= render partial: "gratitudes/form" ,
-                locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+        <!-- Bootstrap Modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/form" ,
+                    locals: { collaboration_id: @collaboration.id, grat_path: [item, @gratitude] } %>
+                </div>
               </div>
             </div>
           </div>
-          <!-- End of modal -->
+        </div>
+        <!-- End of modal -->
         <% end %>
       <% end %>
 

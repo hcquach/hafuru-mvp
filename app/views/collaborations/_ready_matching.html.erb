@@ -1,9 +1,11 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @collaboration.matching_gratitude.photo, crop: :fill %>');">
-  <div class="card-category">Matching</div>
-  <div class="card-description">
-    <h2><%= item.matching_user_gratitude.title  %></h2>
-    <p><%= item.matching_user_gratitude.description  %></p>
+<%= link_to gratitude_path(item.matching_user_gratitude) do %>
+  <div class="gratitude-collaboration-photo">
+      <%= cl_image_tag @collaboration.matching_gratitude.photo, height: 100, width: 150,crop: :fill, :background=>"#659DBD", :radius=>5 %>
+      <div class="gratitude-collaboration-title">
+        <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matching_user_gratitude.title %></p>
+      </div>
+      <div class="gratitude-collaboration-description overlay">
+        <p><%= item.matching_user_gratitude.description %></p>
+      </div>
   </div>
-  <%=  item.matching_user_gratitude.user.username %>
-  <%= link_to gratitude_path(item.matching_user_gratitude), class: "card-link"  %>
-</div>
+<% end %>
