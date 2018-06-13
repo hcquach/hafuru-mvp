@@ -46,8 +46,8 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  config.action_cable.url = 'ws://hafuru.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://hafuru.com' ]
+  config.action_cable.url = 'ws://www.hafuru.com/cable'
+  config.action_cable.allowed_request_origins = [ 'http://www.hafuru.com' ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
