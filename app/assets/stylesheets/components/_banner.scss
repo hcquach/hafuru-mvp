@@ -4,13 +4,13 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   color: white;
   text-align: center;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 120px);
   width: 94vw;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 60px;
   margin-left: 3vw;
 
   .button {
@@ -61,8 +61,4 @@
   color: rgb(255, 255, 255);
   opacity: 0.6;
   margin-bottom: 30px;
-}
-
-.banner a {
-
 }

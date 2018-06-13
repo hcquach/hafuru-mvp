@@ -1,8 +1,5 @@
 <div class="collab-wrap">
   <div class="left-bar-collab">
-    <div class="left-title-collab">
-    </div>
-
     <div class="chat-collab">
       <div class="col-xs-12">
         <% @chat_room = ChatRoom.find(@collaboration.chat_room_id) %>
@@ -29,6 +26,7 @@
             { channel: 'ChatRoomsChannel', chat_room_id: <%= @chat_room.id %> },
             {
               received: (data) => {
+                scrollLastMessageIntoView();
                 if (data.current_user_id !== <%= current_user.id %>) {
                   const messagesContainer = document.querySelector('.messages');
                   messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
@@ -58,34 +56,41 @@
 
         <% if item.matching_user_gratitude_id  && item.matched_user_gratitude_id %>
         <!-- the gratitude style index -->
-        <%= link_to gratitude_path(item.matching_user_gratitude) do %>
         <div class="gratitude-collaboration-photo">
-            <%= cl_image_tag @collaboration.matching_gratitude.photo, height: 100, width: 150,crop: :fill, :background=>"#659DBD", :radius=>5 %>
+            <%= cl_image_tag @collaboration.matching_gratitude.photo, height: 200, width: 150,crop: :fill, :background=>"#659DBD", :radius=>5 %>
             <div class="gratitude-collaboration-title">
               <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matching_user_gratitude.title %></p>
             </div>
             <div class="gratitude-collaboration-description overlay">
               <p><%= item.matching_user_gratitude.description %></p>
+              <% if @collaboration.matching_gratitude.user == current_user %>
+                <div class="collab-item-edit-btn">EDIT</div>
+              <% end %>
             </div>
         </div>
-        <% end %>
         <!-- end -->
         <!-- the second gratitude style index -->
-        <%= link_to gratitude_path(item.matching_user_gratitude) do %>
           <div class="gratitude-collaboration-photo">
-            <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 100, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
+            <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 200, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
             <div class="gratitude-collaboration-title">
               <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matched_user_gratitude.title %></p>
             </div>
             <div class="gratitude-collaboration-description overlay">
               <p><%= item.matched_user_gratitude.description %></p>
+              <% if @collaboration.matched_gratitude.user == current_user %>
+                <div class="collab-item-edit-btn">EDIT</div>
+              <% end %>
             </div>
           </div>
-        <% end %>
         <!-- end -->
        <% elsif item.matching_user_gratitude_id.nil? && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <!-- Bootstrap Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+        <div class="gratitude-collaboration-photo">
+          <div class=" add-new-collab">
+            <button type="button" class="button new-quote animated" data-toggle="modal" data-target=".bs-example-modal-lg">Add</button>
+          </div>
+        </div>
+
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -106,7 +111,13 @@
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
         <!-- Bootstrap Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+
+         <div class="gratitude-collaboration-photo">
+          <div class=" add-new-collab">
+            <button type="button" class="button new-quote animated" data-toggle="modal" data-target=".bs-example-modal-lg">Add</button>
+          </div>
+        </div>
+
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -130,7 +141,13 @@
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
         <!-- Bootstrap Modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Add More</button>
+
+         <div class="gratitude-collaboration-photo">
+          <div class=" add-new-collab">
+            <button type="button" class="button new-quote animated" data-toggle="modal" data-target=".bs-example-modal-lg">Add</button>
+          </div>
+        </div>
+
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -158,12 +175,8 @@
 
 </div>
 
-<div class="buttons-collaborations">
+<!-- <div class="buttons-collaborations">
   <a id="delete-sweet" class="btn btn-danger" href="#">Delete</a>
-  <%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, remote: false, style: "display: none;", id: "delete-hidden"%>
-</div>
-<div class="buttons-collaborations">
-  <%= link_to "All my Colaborations", collaborations_path, class: "btn btn-success" %>
-</div>
-
-<%= console  %>
+<<<<<<< HEAD
+  <#%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, remote: false, style: "display: none;", id: "delete-hidden"%>
+</div> -->

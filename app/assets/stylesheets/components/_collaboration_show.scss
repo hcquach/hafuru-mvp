@@ -22,7 +22,7 @@
   .photos-container {
     margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .chat-header {
@@ -42,15 +42,14 @@
     opacity: 0.8;
   }
 
-  .chat-collab {
-    height: 100vh;
-  }
-
   .left-bar-collab {
     display: flex;
     flex-direction: column;
     width: 40%;
     margin-left: 20px;
+    height: 100vh;
+    position: sticky !important;
+    top: 0 !important;
   }
 
   .collab-items-container {
@@ -64,6 +63,7 @@
   .card-collab-item {
     display: flex;
     position: relative;
+    margin: 10px;
 
     .top-left {
       position: absolute;
@@ -109,15 +109,16 @@
   color: white;
   opacity: 0.8;
   width: 150px;
-  height: 100px;
+  height: 200px;
   margin-bottom: 20px;
   border-radius: 2px;
 }
+
 .gratitude-collaboration-title {
   color: white;
   position: absolute;
   width: 100%;
-  bottom: 0px;
+  bottom: 10px;
 }
 .overlay {
   position: absolute;
@@ -130,6 +131,63 @@
   opacity: 0;
   transition: .5s ease;
   background-color: $first-global-color;
+}
+
+.add-new-collab {
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+
+  .button.new-quote.animated {
+    opacity: 0.7;
+  }
+
+  .button {
+  display: inline-block;
+  background: none;
+  border: 0;
+  font: 300 81.25%/1 Open Sans, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.17em;
+  padding: 16px 24px;
+  background-color: #ccc;
+  color: white;
+  border-radius: 3px;
+  }
+
+  .button.new-quote {
+    background-color: white;
+    color: $body-bg;
+  }
+
+  a, a:visited {
+    display: inline-block;
+    padding: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    color: #8aa651;
+    opacity: 0.9;
+  }
+
+  a:hover, .button.new-quote.animated:hover {
+    opacity: 1;
+  }
+
+  .animated {
+    transition: all 500ms ease;
+  }
+
+}
+
+.collab-item-edit-btn {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: white;
+  font: 300 81.25%/1 Open Sans, sans-serif;
+  color: $body-bg;
+  border-radius: 2px;
+  bottom: 10px;
+  right: 10px;
 }
 
 .gratitude-collaboration-description {
