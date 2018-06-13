@@ -4,7 +4,7 @@ class CollaborationItem < ApplicationRecord
   belongs_to :matched_user_gratitude, class_name: :Gratitude, foreign_key: :matched_user_gratitude_id, optional: true
 
 
-  before_create :update_collaboration_status
+  after_create :update_collaboration_status
 
   def update_collaboration_status
     if collaboration.collaboration_items.count >= 30

@@ -1,9 +1,17 @@
 import "bootstrap";
-import { addSweetAlertButton, editSweetAlertButton , deleteSweetAlertButton, matchSweetAlertButton } from '../components/sweetalerts';
-addSweetAlertButton();
-editSweetAlertButton();
+import { deleteSweetAlertButton, matchSweetAlertCheckButton, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess, gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess, gratitudeSweetAlertButtonUpdateSuccess,gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError } from '../components/sweetalerts';
 deleteSweetAlertButton();
+matchSweetAlertCheckButton();
 matchSweetAlertButton();
+signInSweetAlertButton();
+signOutSweetAlertButton();
+matchSweetAlertButtonSuccess();
+gratitudeSweetAlertButtonError();
+gratitudeSweetAlertButtonSuccess();
+gratitudeSweetAlertButtonUpdateSuccess();
+gratitudeSweetAlertButtonUpdateError();
+collaborationItemSweetAlertButtonUpdateSuccess();
+collaborationItemSweetAlertButtonUpdateError();
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();

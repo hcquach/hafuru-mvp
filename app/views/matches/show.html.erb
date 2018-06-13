@@ -70,7 +70,8 @@
       <%= link_to "Collaborate", collaboration_path(@match.collaboration), class: "button new-quote animated" %>
     </div>
     <div class="cta">
-    <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match), method: :delete, class: "button animated button-cancel", :data => {:confirm => 'Are you sure?'}%>
+      <a id="delete-sweet" class="button animated button-cancel" href="#">Cancel</a>
+      <%= link_to "Cancel", gratitude_match_path(matching_gratitude, @match), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
     </div>
   </div>
 

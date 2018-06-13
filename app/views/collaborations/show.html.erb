@@ -129,7 +129,8 @@
 </div>
 
 <div class="buttons-collaborations">
-  <%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, class: "btn btn-danger", :data => {:confirm => 'All your gratitude collaborations will be deleted,do you still want to delete?'}%>
+  <a id="delete-sweet" class="btn btn-danger" href="#">Delete</a>
+  <%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, remote: false, style: "display: none;", id: "delete-hidden"%>
 </div>
 <div class="buttons-collaborations">
   <%= link_to "All my Colaborations", collaborations_path, class: "btn btn-success" %>

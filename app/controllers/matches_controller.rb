@@ -22,16 +22,16 @@ class MatchesController < ApplicationController
     @match.matching_gratitude = @gratitude
     @match.matched_gratitude = matched_gratitude_pg.first
     sleep(3)
-    if @match.matched_gratitude.category == @category && @match.save
+    unless @match.matched_gratitude
+      redirect_to gratitudes_path
+      flash[:alertmatch] = "Yo"
+    else @match.matched_gratitude.category == @category && @match.save
       @match.matched_gratitude.match_status = true
       @match.matched_gratitude.save!
       @match.matching_gratitude.match_status = true
       @match.matching_gratitude.save!
       redirect_to match_path(@match)
-      flash[:notice] = "You have a match"
-    else
-      redirect_to gratitudes_path
-      flash[:alert] = "No Match, try another Gratitude"
+      flash[:noticematch] = "Yo"
     end
     authorize @match
   end
