@@ -29,6 +29,7 @@ function matchSweetAlertCheckButton() {
       swal({
       title: 'Matching....',
       icon: "info",
+      button: false,
       closeOnClickOutside: false,
       width: 700,
       padding: 150,
