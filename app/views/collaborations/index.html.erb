@@ -23,7 +23,8 @@
         </div>
 
         <div class="collab-delete">
-          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, data: { sweet_confirm: "Are you sure?" } %>
+          <a id="delete-sweet" href="#">Delete</a>
+          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
         </div>
       </div>
     </div>
@@ -49,7 +50,9 @@
         </div>
 
         <div class="collab-delete">
-          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, data: { sweet_confirm: "Are you sure?" } %>
+          <a id="delete-sweet" href="#">Delete</a>
+          <%= link_to "Delete", collaboration_path(collaboration), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
+
         </div>
       </div>
     </div>

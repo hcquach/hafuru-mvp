@@ -13,12 +13,17 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
     current_or_guest_user
+    flash[:signed_in] = "Signed In"
+    # respond_to do |format|
+    #   format.js { render :js => "signInSweetAlertButton();" }
+    # end
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    super
+    flash[:signed_out] = "Sign Out"
+  end
 
   # protected
 
