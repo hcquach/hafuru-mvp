@@ -11,7 +11,8 @@
 <div class="match-container">
 
   <div class="match-title text-center">
-    <h1>You've got a match on #<%= category_m.name %>!</h1>
+    <h1>You've matched on #<%= category_m.name %>!</h1>
+    <h2>Start a collab and share a common board on the same gratitude category</h2>
   </div>
 
   <div class="match-cards">
@@ -67,7 +68,7 @@
 
   <div class="match-buttons">
     <div class="cta">
-      <%= link_to "Collaborate", collaboration_path(@match.collaboration), class: "button new-quote animated" %>
+      <%= link_to "Collab", collaboration_path(@match.collaboration), class: "button new-quote animated" %>
     </div>
     <div class="cta">
       <a id="delete-sweet" class="button animated button-cancel" href="#">Cancel</a>
