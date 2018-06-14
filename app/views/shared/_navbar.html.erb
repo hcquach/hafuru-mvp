@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Add Gratitude", new_gratitude_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Grateful Board", gratitudes_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Grateful Board", gratitudes_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My Collabs", collaborations_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
 <!--       <#%= link_to "My Matches", "#", class: "navbar-wagon-item navbar-wagon-link" %>
@@ -69,13 +69,25 @@
         <% if user_signed_in? %>
          <!-- If user is signed in mobile view -->
         <li>
+          <%= link_to new_gratitude_path do %>
+            <i class="fa fa-plus"></i> <%= t(".gratitude", default: "Add Gratitude") %>
+          <% end %>
+
+          <%= link_to gratitudes_path do %>
+            <i class="fa fa-calendar"></i> <%= t(".board", default: " My Grateful Board") %>
+          <% end %>
+
+          <%= link_to collaborations_path do %>
+            <i class="fa fa-user-friends"></i> <%= t(".collab", default: " My Collabs") %>
+          <% end %>
+
           <%= link_to edit_user_registration_path do %>
             <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
           <% end %>
         </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <i class="fa fa-sign-out-alt"></i>  <%= t(".sign_out", default: "Log out") %>
           <% end %>
         </li>
         <% else %>
