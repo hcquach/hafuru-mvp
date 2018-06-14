@@ -56,7 +56,7 @@ function collaborationItemSweetAlertButtonUpdateError() {
   const swalButtonMatch = document.getElementById('alertcollaborationitem');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'No new challenge have been added',
+      title: 'No new challenge has been added',
       icon: "error",
       timer: 1500,
       button: true,
@@ -71,7 +71,7 @@ function collaborationItemSweetAlertButtonUpdateSuccess() {
   const swalButtonMatch = document.getElementById('noticecollaborationitem');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'New challenge is added',
+      title: 'New challenge has been created',
       icon: "success",
       timer: 1200,
       closeOnClickOutside: false,
@@ -85,10 +85,10 @@ function gratitudeSweetAlertButtonUpdateError() {
   const swalButtonMatch = document.getElementById('alertupdategratitude');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'Gratitude was not updated',
+      title: 'Title missing',
       icon: "error",
       timer: 1500,
-      button: true,
+      button: false,
       closeOnClickOutside: false,
       width: 700,
       padding: 150,
@@ -100,9 +100,10 @@ function gratitudeSweetAlertButtonUpdateSuccess() {
   const swalButtonMatch = document.getElementById('noticeupdategratitude');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'Gratitude Updated successfully',
+      title: 'Gratitude updated successfully',
       icon: "success",
       timer: 1000,
+      button: false,
       closeOnClickOutside: false,
       width: 700,
       padding: 150,
@@ -114,10 +115,10 @@ function gratitudeSweetAlertButtonError() {
   const swalButtonMatch = document.getElementById('alertgratitude');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'Gratitude was not added',
+      title: 'Title missing',
       icon: "error",
       timer: 1500,
-      button: true,
+      button: false,
       closeOnClickOutside: false,
       width: 700,
       padding: 150,
@@ -129,8 +130,9 @@ function gratitudeSweetAlertButtonSuccess() {
   const swalButtonMatch = document.getElementById('noticegratitude');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'Gratitude Added successfully',
+      title: 'Gratitude added successfully',
       icon: "success",
+      button: false,
       timer: 1000,
       closeOnClickOutside: false,
       width: 700,
@@ -143,9 +145,10 @@ function matchSweetAlertButtonSuccess() {
   const swalButtonMatch = document.getElementById('noticematch');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'You have got Match',
+      title: 'You have a match!',
       icon: "success",
-      button: true,
+      button: false,
+      timer: 3000,
       closeOnClickOutside: false,
       width: 700,
       padding: 150,
@@ -157,7 +160,7 @@ function matchSweetAlertButton() {
   const swalButtonMatch = document.getElementById('alertmatch');
   if (swalButtonMatch) { // protect other pages
       swal({
-      title: 'No Match found',
+      title: 'No match found',
       icon: "warning",
       closeOnClickOutside: false,
       width: 700,
@@ -171,7 +174,7 @@ function signInSweetAlertButton() {
   const swalButtonSignIn = document.getElementById('signed_in_alert');
   if (swalButtonSignIn) { // protect other pages
     swal({
-      title: 'Signed In',
+      title: 'Signed in',
       icon: "success",
       button: false,
       timer: 1500,
@@ -186,7 +189,7 @@ function signOutSweetAlertButton() {
   const swalButtonSignOut = document.getElementById('signed_out_alert');
   if (swalButtonSignOut) { // protect other pages
     swal({
-      title: 'Signed Out',
+      title: 'Signed out',
       icon: "success",
       button: false,
       timer: 1500,
