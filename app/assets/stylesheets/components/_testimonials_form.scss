@@ -1,9 +1,8 @@
 .container-testimonials-form {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: row;
-  margin-top: 50px;
-  margin-left: 3vw;
+  margin: 50px;
 
   blockquote,p,cite {
     display: block;
@@ -116,8 +115,12 @@
   padding: 25px 20px;
   text-align: center;
   font-style: oblique;
-  width: 40%;
   opacity: 0.8;
+  margin: 10px 50px;
+}
+
+.home-form.text-center {
+   margin: 10px 50px;
 }
 
 .quote-hafuru-footer {
@@ -128,6 +131,5 @@
   }
 
 .gratitude-form {
-  width: 60%;
   margin: 20px;
 }

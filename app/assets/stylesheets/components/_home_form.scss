@@ -5,7 +5,11 @@
   flex-direction: column;
   color: white;
   background-color: white;
-  width: 40%;
+
+  .form-inner-container {
+    width: 100%;
+  }
+
 }
 
 .quote-self-footer {
