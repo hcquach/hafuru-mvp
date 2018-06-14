@@ -27,8 +27,10 @@ class CollaborationGratitudesController < ApplicationController
   end
 
   def update
+    @collaboration = @gratitude.collaboration
     if @gratitude.update(gratitude_params)
-      redirect_to gratitude_path(@gratitude)
+      flash[:noticeupdategratitude] = "Yo"
+      redirect_to collaboration_path(@collaboration)
     else
       render :edit
     end
