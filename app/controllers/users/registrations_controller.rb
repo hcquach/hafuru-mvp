@@ -22,9 +22,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    flash[:userupdated] = "updated"
+  end
 
   # DELETE /resource
   # def destroy
