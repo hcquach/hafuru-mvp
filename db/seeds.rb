@@ -270,7 +270,7 @@ puts "Category Added completed"
 url_thirtyone = "https://images.unsplash.com/photo-1508381601116-bf2b0a707e81?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=501cd8775b8569ac90dda5aef2ad9812&auto=format&fit=crop&w=800&q=60"
 category_thirtyone = Category.new(name: "Passion")
 category_thirtyone.remote_photo_url = url_thirtyone
-category_thirty.icon = "fa-heartbeat"
+category_thirtyone.icon = "fa-heartbeat"
 category_thirtyone.save
 puts
 puts "Category Added completed"
