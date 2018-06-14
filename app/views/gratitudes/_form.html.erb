@@ -1,16 +1,23 @@
-<%= simple_form_for( grat_path, html: {class: 'form-horizontal' }) do |f| %>
-  <div class="collab-show">
-    <div class="title-description">
-      <%= f.input :title, class: "label-input" %>
-      <%= f.input :description, :as => :text, :input_html => { :rows => 1 }, class: "label-input" %>
+<%= simple_form_for( grat_path, html: {class: 'form-inline' }) do |f| %>
+  <div class="form-container">
+    <div class="title-description-photo">
+      <div class="form-group">
+        <div class="gratitude-form-title text-left">
+          <%= f.input :title, :as => :text, class: "label-input", label: "I'm grateful for" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="gratitude-form-description text-left">
+          <%= f.input :description, :as => :text, :input_html => { :rows => 2 }, class: "label-input", label: "because" %>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="cat-photo-create">
-    <%#= f.association :category, collection: Category.order(:name), prompt: "Choose a Category", class: "label-input" %>
-    <%= f.input :photo, class: "label-input" %>
-    <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
-    <div class="create-btn">
-      <%= f.submit "Save", class: "btn btn-primary btn-lg btn-block", id: "create-sweet-alert", remote: true %>
+    <div class="text-center" style="margin-top: 20px;">
+      <%= f.input :photo, class: "label-input" %>
+      <%= f.input :photo_cache, as: :hidden, class: "label-input" %>
+    </div>
+    <div class="create-edit-btn">
+      <%= f.submit "ADD", class: "button new-quote animated", id: "create-sweet-alert", remote: true %>
     </div>
   </div>
 <% end %>
