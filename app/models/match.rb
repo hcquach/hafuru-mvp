@@ -17,9 +17,13 @@ class Match < ApplicationRecord
   end
 
   def turn_off_match_status
-    matching_gratitude.match_status = false
-    matching_gratitude.save
-    matched_gratitude.match_status = false
-    matched_gratitude.save
+    if matching_gratitude
+      matching_gratitude.match_status = false
+      matching_gratitude.save
+    end
+    if matched_gratitude
+      matched_gratitude.match_status = false
+      matched_gratitude.save
+    end
   end
 end
