@@ -17,10 +17,19 @@
     align-items: center;
     justify-content: center;
   }
-
-  .simple_form label, textarea, input {
+  label {
     color: white;
+  }
+
+  form-control {
+  border: 1px solid #ccc;
+  }
+
+  form-control, textarea, input {
+    color: white;
+    background-color: #8a79af;
     margin: 0px 5px;
+    border: 1px solid #ccc;
   }
 
   .simple_form input {
@@ -48,6 +57,9 @@
 
   a:hover {
     text-decoration: underline;
+  }
+  #user_photo {
+    color: white;
   }
 
 }
