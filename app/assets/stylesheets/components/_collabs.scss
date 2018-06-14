@@ -4,8 +4,16 @@
   justify-content: space-around;
   margin-top: 100px;
 
-  h1, p {
+  h1, h2 {
     color: white;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .collab-title {
+    color: $body-bg;
   }
 
   .collabs-wrapper {
@@ -32,14 +40,63 @@
     color: white;
     text-align: center;
 
-    .top-right {
+   .category-title {
+      color: white;
       position: absolute;
-      top: 0px;
-      right: 40px;
+      width: 94%;
+      text-align: center;
+      bottom: 10px;
     }
+
+    .delete-opt {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    a {
+      opacity: 0.8;
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
   }
-  .collab-delete {
+
+  }
+  .collab-go {
     text-align: right;
     margin-right: 15px;
   }
+
+  .button {
+        display: inline-block;
+        background: none;
+        border: 0;
+        font: 300 81.25%/1 Open Sans, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.17em;
+        padding: 16px 24px;
+        background-color: #ccc;
+        color: white;
+        border-radius: 3px;
+      }
+
+      a, a:visited {
+        display: inline-block;
+        padding: 1px;
+        text-decoration: none;
+        border-bottom: 1px solid;
+        opacity: 0.9;
+      }
+
+      a:hover {
+        opacity: 1;
+      }
+
+      .animated {
+        transition: all 500ms ease;
+      }
 }

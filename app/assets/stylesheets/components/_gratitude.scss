@@ -48,13 +48,30 @@
     right: 10px;
   }
 
+  .edit-delete-opt {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    a {
+      opacity: 0.8;
+      color: white;
+      text-decoration: none;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+
+  }
+
   .gratitude-button-container {
     display: flex;
     margin: 20px;
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
-    width: 15%;
+    width: 20%;
 
     .gratitude-button {
       color: white;
@@ -64,6 +81,61 @@
     .gratitude-options {
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
+
+      .button {
+        display: inline-block;
+        background: none;
+        border: 0;
+        font: 300 81.25%/1 Open Sans, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.17em;
+        padding: 16px 24px;
+        background-color: #ccc;
+        color: white;
+        border-radius: 3px;
+      }
+
+      a, a:visited {
+        display: inline-block;
+        padding: 1px;
+        text-decoration: none;
+        border-bottom: 1px solid;
+        opacity: 0.9;
+      }
+
+      a:hover {
+        opacity: 1;
+      }
+
+      .animated {
+        transition: all 500ms ease;
+      }
+
+      .btn-board {
+        background-color: #d9faff;
+        color: $body-bg;
+        text-align: center;
+        opacity: 0.8;
+        margin: 5px;
+      }
+
+      .btn-remember {
+        background-color:#00204a;
+        text-align: center;
+        color: $body-bg;
+        opacity: 0.8;
+        margin: 5px;
+      }
+
+      .btn-match {
+        background-color: #fd5f00;
+        text-align: center;
+        color: white;
+        opacity: 0.8;
+        margin: 5px;
+      }
+
     }
 
     .edit-delete-options {
@@ -78,11 +150,7 @@
   }
 
   .gratitude-description {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
     color: white;
-    text-align: center;
   }
 
   #day {
