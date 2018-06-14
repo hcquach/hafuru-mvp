@@ -25,7 +25,7 @@ luca = User.create(username: "gianluca24", email: "luca@gmail.com", password:  "
 puts
 puts "User Added completed"
 
-url_one = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSppXjS1d-gR8a7HVtK-1IDof0oGYTWL0-zvphvnDo0A8MEd_n2"
+url_one = "https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/uNu-e7x/jacuzzibathroom-bathtub-jacuzzi-bubbles-bubbles-water-bubble-bath-jacuzzi-spa-bathroom-tiles-bathroom-interio_eychoinc__F0000.png"
 category_one = Category.new(name: "Bubble Bath")
 category_one.remote_photo_url = url_one
 category_one.icon = "fa-bath"
@@ -33,7 +33,7 @@ category_one.save
 puts
 puts "Category Added completed"
 
-url_second = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSma4vlQEg10k9xmpOQlXEUjuDhthtpoVOXiIZa2O7lS8PMMLBEmw"
+url_second = "https://foodimentaryguy.files.wordpress.com/2016/12/chocolate.jpg"
 category_second = Category.new(name: "Chocolate")
 category_second.remote_photo_url = url_second
 category_second.icon = "fa-utensil-spoon"
