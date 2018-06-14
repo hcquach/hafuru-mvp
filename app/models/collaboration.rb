@@ -18,7 +18,9 @@ class Collaboration < ApplicationRecord
 
   def set_collaboration_id_to_gratitudes
     matched_gratitude.collaboration = self
+    matched_gratitude.save
     matching_gratitude.collaboration = self
+    matching_gratitude.save
   end
 
 end
