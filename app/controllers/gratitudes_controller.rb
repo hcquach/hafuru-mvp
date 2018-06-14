@@ -3,7 +3,7 @@ class GratitudesController < ApplicationController
   skip_before_action :authenticate_user!, only: :create
 
   def index
-    @gratitudes = policy_scope(Gratitude).order(created_at: :desc)
+    @gratitudes = policy_scope(Gratitude.where(collaboration_id: nil)).order(created_at: :desc)
   end
 
   def new
