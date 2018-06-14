@@ -3,12 +3,11 @@
 .banner {
   color: white;
   text-align: center;
-  height: calc(100vh - 120px);
+  height: 90vh;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 60px 20px;
 
   .button {
   display: inline-block;
