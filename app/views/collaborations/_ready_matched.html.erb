@@ -1,6 +1,6 @@
-<%= link_to gratitude_path(item.matching_user_gratitude) do %>
+<%= link_to gratitude_path(item.matched_user_gratitude) do %>
   <div class="gratitude-collaboration-photo">
-    <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 100, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
+    <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 200, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
     <div class="gratitude-collaboration-title">
       <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= item.matched_user_gratitude.title %></p>
     </div>
