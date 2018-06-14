@@ -51,7 +51,11 @@ class GratitudesController < ApplicationController
     end
     if @gratitude.update(gratitude_params)
       flash[:noticeupdategratitude] = "Yo"
-      redirect_to gratitude_path(@gratitude)
+      if @gratitude.collaboration_id
+        redirect_to collaboration_path(@gratitude.collaboration)
+      else
+        redirect_to gratitude_path(@gratitude)
+      end
     else
       flash[:alertupdategratitude] = "Yo"
       render :edit

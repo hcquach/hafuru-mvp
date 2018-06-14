@@ -64,11 +64,27 @@
             <div class="gratitude-collaboration-description overlay">
               <p><%= item.matching_user_gratitude.description %></p>
               <% if @collaboration.matching_gratitude.user == current_user %>
-                <div class="collab-item-edit-btn">EDIT</div>
+              <!-- edit modal button -->
+
+                <button type="button" class="collab-item-edit-btn" data-toggle="modal" data-target=".bs-edit-matching-gratitude-modal-lg">EDIT</button>
+              <!-- end Edit Button Modal -->
               <% end %>
             </div>
         </div>
-        <!-- end -->
+
+        <div id="bs-edit-matching-gratitude-modal-lg" class="modal fade bs-edit-matching-gratitude-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-8 ">
+              <%= render partial: "gratitudes/edit" ,
+                                    locals: { gratitude: item.matching_user_gratitude } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- end -->
         <!-- the second gratitude style index -->
           <div class="gratitude-collaboration-photo">
             <%= cl_image_tag @collaboration.matched_gratitude.photo, height: 200, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
@@ -78,20 +94,45 @@
             <div class="gratitude-collaboration-description overlay">
               <p><%= item.matched_user_gratitude.description %></p>
               <% if @collaboration.matched_gratitude.user == current_user %>
-                <div class="collab-item-edit-btn">EDIT</div>
+              <!-- Edit Button Modal-->
+
+
+
+                      <button type="button" class="collab-item-edit-btn" data-toggle="modal" data-target=".bs-edit-matched-gratitude-modal-lg">EDIT</button>
+
+
+
+
+              <!-- end Edit Button Modal -->
               <% end %>
             </div>
           </div>
+
+          <div class="modal fade bs-edit-matched-gratitude-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="row">
+                              <div class="col-md-8 ">
+                                <%= render partial: "gratitudes/edit" ,
+                                    locals: { gratitude: item.matched_user_gratitude } %>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
         <!-- end -->
        <% elsif item.matching_user_gratitude_id.nil? && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <!-- Bootstrap Modal -->
         <div class="gratitude-collaboration-photo">
           <div class=" add-new-collab">
-            <button type="button" class="button new-quote animated" data-toggle="modal" data-target=".bs-example-modal-lg">Add</button>
+            <button type="button" class="button new-quote animated" data-toggle="modal" data-target=".bs-example1-modal-lg">Add</button>
           </div>
         </div>
 
-        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal fade bs-example1-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="row">
@@ -107,7 +148,9 @@
       <% elsif item.matching_user_gratitude_id && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <% if item.matching_user_gratitude.user == current_user %>
           <%= render partial: "ready_matching", locals: {item: item} %>
+          <div class="waiting-div">
           <p>please wait for your match to add his/her gratitude before adding yours </p>
+          </div>
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
         <!-- Bootstrap Modal -->
@@ -137,7 +180,9 @@
 
         <% if item.matched_user_gratitude.user == current_user %>
           <%= render partial: "ready_matched", locals: {item: item} %>
+          <div class="waiting-div">
           <p>please wait for your match to add his/her gratitude before adding yours </p>
+          </div>
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
         <!-- Bootstrap Modal -->
