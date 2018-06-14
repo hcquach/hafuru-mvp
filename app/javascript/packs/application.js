@@ -1,7 +1,8 @@
 import "bootstrap";
-import { deleteSweetAlertButton, matchSweetAlertCheckButton, categoryError, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess, gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess, gratitudeSweetAlertButtonUpdateSuccess,gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError } from '../components/sweetalerts';
+import { deleteSweetAlertButton, userUpdatedSweetAlertButton, matchSweetAlertCheckButton, categoryError, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess, gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess, gratitudeSweetAlertButtonUpdateSuccess,gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError } from '../components/sweetalerts';
 deleteSweetAlertButton();
 matchSweetAlertCheckButton();
+userUpdatedSweetAlertButton();
 categoryError();
 matchSweetAlertButton();
 signInSweetAlertButton();

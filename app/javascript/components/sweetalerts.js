@@ -21,6 +21,8 @@ function deleteSweetAlertButton() {
   }
 }
 
+
+
 function categoryError() {
   const swalButtonMatch = document.getElementById('categoryerror');
   if (swalButtonMatch) { // protect other pages
@@ -182,6 +184,21 @@ function signInSweetAlertButton() {
   }
 }
 
+function userUpdatedSweetAlertButton() {
+  const swalButtonSignIn = document.getElementById('userupdated');
+  if (swalButtonSignIn) { // protect other pages
+    swal({
+      title: 'Updated',
+      icon: "success",
+      button: false,
+      timer: 1500,
+      width: 700,
+      padding: 150,
+
+    });
+  }
+}
+
 function signOutSweetAlertButton() {
   const swalButtonSignOut = document.getElementById('signed_out_alert');
   if (swalButtonSignOut) { // protect other pages
@@ -197,4 +214,4 @@ function signOutSweetAlertButton() {
 }
 
 
-export { deleteSweetAlertButton, matchSweetAlertCheckButton, categoryError, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess,gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess,gratitudeSweetAlertButtonUpdateSuccess, gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError, cancelSweetAlertButton };
+export { deleteSweetAlertButton, userUpdatedSweetAlertButton, matchSweetAlertCheckButton, categoryError, matchSweetAlertButton, signInSweetAlertButton, signOutSweetAlertButton, matchSweetAlertButtonSuccess,gratitudeSweetAlertButtonError,gratitudeSweetAlertButtonSuccess,gratitudeSweetAlertButtonUpdateSuccess, gratitudeSweetAlertButtonUpdateError, collaborationItemSweetAlertButtonUpdateSuccess, collaborationItemSweetAlertButtonUpdateError, cancelSweetAlertButton };
