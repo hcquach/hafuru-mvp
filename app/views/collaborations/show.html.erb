@@ -46,6 +46,17 @@
     </div>
     <div class="collab-subtitle">
       <h2><%= @collaboration.match.matching_gratitude.user.username.capitalize %> X <%= @collaboration.match.matched_gratitude.user.username.capitalize %></h2>
+      <!-- reward stars -->
+      <% @collaboration.status.times do %>
+        <span class="fa fa-star checked"></span>
+      <% end %>
+      <% (5 - @collaboration.status).times do %>
+        <span class="fa fa-star"></span>
+      <% end %>
+      <!-- end reward stars -->
+
+
+
     </div>
 
     <div class="photos-container">
@@ -150,7 +161,8 @@
         <% if item.matching_user_gratitude.user == current_user %>
           <%= render partial: "ready_matching", locals: {item: item} %>
           <div class="waiting-div">
-          <p>please wait for your match to add his/her gratitude before adding yours </p>
+            <i class="fas fa-hourglass-half"></i>
+          <p>Waiting for your buddy's upload</p>
           </div>
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
@@ -182,7 +194,8 @@
         <% if item.matched_user_gratitude.user == current_user %>
           <%= render partial: "ready_matched", locals: {item: item} %>
           <div class="waiting-div">
-          <p>please wait for your match to add his/her gratitude before adding yours </p>
+            <i class="fas fa-hourglass-half"></i>
+          <p>Waiting for your buddy's upload</p>
           </div>
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
@@ -226,3 +239,4 @@
 <<<<<<< HEAD
   <#%= link_to "Delete", collaboration_path(@collaboration) ,method: :delete, remote: false, style: "display: none;", id: "delete-hidden"%>
 </div> -->
+
