@@ -42,7 +42,8 @@
   }
 
   .form-control.text {
-    color: black;
+    color: white;
+    background-color: rgba(10, 10, 10, 0.2);
   }
 
   .gratitude-form-title {
@@ -122,5 +123,7 @@
   }
 }
 
-
+#gratitude_photo {
+  color: white;
+}
 

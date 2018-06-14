@@ -21,7 +21,7 @@ class CollaborationsController < ApplicationController
     authorize @collaboration
     if @collaboration.match.matching_gratitude.user == current_user || @collaboration.match.matched_gratitude.user == current_user
       @collaboration.destroy
-      redirect_to gratitudes_path
+      redirect_to collaborations_path
     end
   end
 
