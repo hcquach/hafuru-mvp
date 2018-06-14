@@ -1,5 +1,7 @@
 .chat-collab {
-   position: fixed;
+  position: fixed;
+  width: 40%;
+  margin: 0 20px;
 }
 
 .collab-wrap {
@@ -39,7 +41,6 @@
     background-image: url('http://wallvie.com/wp-content/uploads/2017/02/best-free-background-wallpaper-widescreen-high-quality-for-laptop-.jpg');
     background-size: cover;
     opacity: 0.8;
-    height: 90vh;
     border: none;
   }
 
@@ -52,7 +53,7 @@
     flex-direction: column;
     width: 40%;
     margin-left: 20px;
-    height: 100vh;
+    height: 90vh;
     position: sticky !important;
     top: 0 !important;
     align-items: center;

@@ -4,7 +4,7 @@
       <div class="col-xs-12">
         <% @chat_room = ChatRoom.find(@collaboration.chat_room_id) %>
         <div class="chat-header text-center">
-          <h4>Collaborate with
+          <h4>Collab with
             <%= @collaboration.match.matching_gratitude.user == current_user ? @collaboration.match.matched_gratitude.user.username.capitalize : @collaboration.match.matching_gratitude.user.username.capitalize %>
           </h4>
         </div>
@@ -34,7 +34,6 @@
               }
 
             });
-
         </script>
       <% end %>
     </div>
