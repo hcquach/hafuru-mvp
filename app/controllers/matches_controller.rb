@@ -30,6 +30,7 @@ class MatchesController < ApplicationController
       @match.matched_gratitude.save!
       @match.matching_gratitude.match_status = true
       @match.matching_gratitude.save!
+      @match.save!
       redirect_to match_path(@match)
       flash[:noticematch] = "Yo"
     end
