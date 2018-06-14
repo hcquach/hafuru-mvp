@@ -16,3 +16,12 @@
 .alert-warning {
   background: $red;
 }
+
+.swal-modal {
+  padding-bottom: 50px;
+  padding-top: 30px;
+  border: 1px solid #3e549a;
+  .swal-button-container{
+    left: -112px;
+  }
+}

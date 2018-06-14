@@ -177,6 +177,7 @@ function signInSweetAlertButton() {
       timer: 1500,
       width: 700,
       padding: 150,
+
     });
   }
 }
