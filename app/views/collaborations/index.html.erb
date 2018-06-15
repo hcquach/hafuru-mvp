@@ -7,58 +7,57 @@
 
   <div class="collabs-wrapper">
 
-  <% @matching_collaborations.each do |collaboration| %>
-    <% gratitude = collaboration.matching_gratitude %>
-    <div class="col-xs-12 col-md-4">
-      <div class="single-collab-container">
-        <div class="collab-photo">
-          <%= link_to collaboration_path(collaboration) do %>
-            <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
-            <div class="category-title">
-            <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= gratitude.title %></p>
-          </div>
-          <div class="delete-opt">
-            <a id="delete-sweet" class="collab-button" href="#"><i class="fas fa-trash-alt"></i></a>
-            <%= link_to "Delete", collaboration_path(collaboration), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
-            </div>
-          <% end %>
-        </div>
-    <div class="collab-title">
-      Collab<br><%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
-    </div>
-    <div class="collab-go">
-      <%= link_to "Go", collaboration_path(collaboration), class: "button new-quote animated btn-match" %>
-    </div>
-  </div>
-  </div>
-  <% end %>
-
-  <% @matched_collaborations.each do |collaboration| %>
-    <% gratitude = collaboration.matched_gratitude %>
-    <div class="col-xs-12 col-md-4">
-      <div class="single-collab-container">
-        <div class="collab-photo">
-            <%= link_to collaboration_path(collaboration) do %>
-              <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
-              <div class="category-title">
+      <% @matching_collaborations.each do |collaboration| %>
+        <% gratitude = collaboration.matching_gratitude %>
+        <div class="col-xs-12 col-md-4">
+          <div class="single-collab-container">
+            <div class="collab-photo">
+              <%= link_to collaboration_path(collaboration) do %>
+                <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+                <div class="category-title">
                 <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= gratitude.title %></p>
               </div>
               <div class="delete-opt">
                 <a id="delete-sweet" class="collab-button" href="#"><i class="fas fa-trash-alt"></i></a>
                 <%= link_to "Delete", collaboration_path(collaboration), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
-              </div>
-            <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="collab-title">
+              Collab<br><%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
+            </div>
+            <div class="collab-go">
+              <%= link_to "Go", collaboration_path(collaboration), class: "button new-quote animated btn-match" %>
+            </div>
+          </div>
         </div>
-        <div class="collab-title">
-          Collab<br><%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
+      <% end %>
+
+      <% @matched_collaborations.each do |collaboration| %>
+        <% gratitude = collaboration.matched_gratitude %>
+        <div class="col-xs-12 col-md-4">
+          <div class="single-collab-container">
+            <div class="collab-photo">
+                <%= link_to collaboration_path(collaboration) do %>
+                  <%= cl_image_tag gratitude.category.photo, height: 200, width: 300, crop: :fill %>
+                  <div class="category-title">
+                    <p style="background-color: rgba(10, 10, 10, 0.3); padding: 5px 5px; margin: 5px 0px; border-radius: 2px">#<%= gratitude.title %></p>
+                  </div>
+                  <div class="delete-opt">
+                    <a id="delete-sweet" class="collab-button" href="#"><i class="fas fa-trash-alt"></i></a>
+                    <%= link_to "Delete", collaboration_path(collaboration), method: :delete, remote: false, style: "display: none;", id: "delete-hidden" %>
+                  </div>
+                <% end %>
+            </div>
+            <div class="collab-title">
+              Collab<br><%= collaboration.matching_gratitude.user.username %> X <%= collaboration.matched_gratitude.user.username %>
+            </div>
+            <div class="collab-go">
+              <%= link_to "Go", collaboration_path(collaboration), class: "button new-quote animated btn-match" %>
+            </div>
+          </div>
         </div>
-        <div class="collab-go">
-          <%= link_to "Go", collaboration_path(collaboration), class: "button new-quote animated btn-match" %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+      <% end %>
 
   </div>
-
 </div>
