@@ -2,7 +2,6 @@
   height: 100vh;
   width: 100vw;
   background-color: $body-bg;
-
 }
 
 .home-container-black {
@@ -11,4 +10,47 @@
 
 .home-container-red {
   background-color: #F51054;
+}
+
+.home-description-main {
+  height: 60vh;
+  width: 100vw;
+  background-color: $body-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-left, .landing-right {
+  color: white;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    font-size: 35px;
+  }
+}
+
+.landing-left {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/336999/shinokubo_test.jpg);
+  background-size: cover;
+  opacity: 0.9;
+  position: relative;
+}
+
+
+.landing-right {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent), url(https://s3-us-west-1.amazonaws.com/ubiome-assets/wp-content/uploads/2017/12/08221228/unnamed-1-1.jpg);
+  background-size: cover;
+  opacity: 0.9;
+  position: relative;
+}
+
+.description-go-down {
+  position: absolute;
+  bottom: 20px;
 }
