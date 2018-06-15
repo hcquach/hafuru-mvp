@@ -38,7 +38,7 @@ Hafuru - #Grateful
       <div class="gratitude-options">
         <%= link_to "Board", gratitudes_path, class: "button new-quote animated btn-board" %>
         <%= link_to "Remember", gratitude_path(@gratitudes.sample), class: "button new-quote animated btn-remember" %>
-        <% unless @gratitude.match_status %>
+        <% if !@gratitude.match_status && @gratitude.collaboration_id.nil? %>
           <%= link_to "Match", gratitude_matches_path(@gratitude), method: :create, class: "button new-quote animated btn-match", id: "match-sweet" %>
         <% end %>
       </div>
