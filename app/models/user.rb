@@ -14,6 +14,10 @@ class User < ApplicationRecord
   # Upload photo
   mount_uploader :photo, PhotoUploader
 
+  def self.hafuru
+    @user = User.find(1000)
+  end
+
   def matching_collaborations
     Collaboration.where("match_id in (?)", Match.where("matching_gratitude_id in (?)", gratitudes.map(&:id)).select(:id))
   end

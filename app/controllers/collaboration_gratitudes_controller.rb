@@ -8,6 +8,10 @@ class CollaborationGratitudesController < ApplicationController
     @gratitude.collaboration_id = @collaboration.id
     @gratitude.category = @collaboration.matching_gratitude.category
     @gratitude.user = current_user
+    if @gratitude.photo.blank?
+      @gratitude.remote_photo_url = @gratitude.category.photo_url
+    end
+    @gratitude.save
     if @gratitude.save
       if current_user == @collaboration.match.matching_gratitude.user
         @collaboration_item.matching_user_gratitude_id = @gratitude.id

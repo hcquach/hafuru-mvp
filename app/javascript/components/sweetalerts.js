@@ -1,10 +1,16 @@
 import swal from 'sweetalert';
 
 function deleteSweetAlertButton() {
-  const swalButtonDelete = document.getElementById('delete-sweet');
-  const deleteButton = document.getElementById('delete-hidden');
+  const deleteopt = document.querySelectorAll('a[id=delete-sweet]');
+  // const deleteopt = document.querySelectorAll('.delete-opt #delete-sweet #delete-hidden');
+  deleteopt.forEach((swalButtonDelete) => {
+    console.log(swalButtonDelete)
+  // let swalButtonDelete = optionDelete.getElementById('delete-sweet');
+  // let deleteButton = optionDelete.getElementById('delete-hidden');
   if (swalButtonDelete) { // protect other pages
-     swalButtonDelete.addEventListener('click', () => {
+     swalButtonDelete.addEventListener('click', (e) => {
+
+    console.log("sss")
       swal("Are you sure?", {
       buttons: {
         cancel: "Cancel",
@@ -14,11 +20,13 @@ function deleteSweetAlertButton() {
     .then((value) => {
       switch (value) {
         case "delete":
+        const deleteButton = swalButtonDelete.parentElement.querySelector('a[id=delete-hidden]');
         deleteButton.click();
       }
     });
     });
   }
+});
 }
 
 

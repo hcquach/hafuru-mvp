@@ -17,10 +17,13 @@
     align-items: center;
     justify-content: center;
   }
-
-  .simple_form label, textarea, input {
+  label {
+    color: white;
+  }
+  .simple_form textarea, input {
     color: white;
     margin: 0px 5px;
+    background-color: #8a79af;
   }
 
   .simple_form input {

@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 100px;
+  margin: 10px 0px;
+  height: 100vh;
 
   h1, h2 {
     color: white;
@@ -18,8 +19,9 @@
 
   .collabs-wrapper {
     display: flex;
-    justify-content: space-around;
-    margin: 0px 40px;
+    justify-content: space-evenly;
+    margin: 10px 40px;
+    flex-wrap: wrap;
   }
 
   .single-collab-container {
@@ -30,7 +32,6 @@
     border-radius: 2px;
     padding: 5px;
     text-align: center;
-    height: 60vh;
     margin: 20px;
   }
 
@@ -72,31 +73,32 @@
   }
 
   .button {
-        display: inline-block;
-        background: none;
-        border: 0;
-        font: 300 81.25%/1 Open Sans, sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 0.17em;
-        padding: 16px 24px;
-        background-color: #ccc;
-        color: white;
-        border-radius: 3px;
-      }
+    margin: 10px 0px;
+    display: inline-block;
+    background: none;
+    border: 0;
+    font: 300 81.25%/1 Open Sans, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.17em;
+    padding: 10px 15px;
+    background-color: #ccc;
+    color: white;
+    border-radius: 3px;
+  }
 
-      a, a:visited {
-        display: inline-block;
-        padding: 1px;
-        text-decoration: none;
-        border-bottom: 1px solid;
-        opacity: 0.9;
-      }
+  a, a:visited {
+    display: inline-block;
+    padding: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    opacity: 0.9;
+  }
 
-      a:hover {
-        opacity: 1;
-      }
+  a:hover {
+    opacity: 1;
+  }
 
-      .animated {
-        transition: all 500ms ease;
-      }
+  .animated {
+    transition: all 500ms ease;
+  }
 }
