@@ -5,6 +5,12 @@ class CollaborationItem < ApplicationRecord
 
 
   after_create :update_collaboration_status
+  # before_create :checking_last_item
+
+  # def checking_last_item?
+  #   if (collaboration.collaboration_items.last.created_at.time - self.created_at.time) >= 1
+  #   end
+  # end
 
   def update_collaboration_status
     if collaboration.collaboration_items.count >= 30
