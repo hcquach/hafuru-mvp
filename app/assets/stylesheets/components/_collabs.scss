@@ -20,7 +20,8 @@
   .collabs-wrapper {
     display: flex;
     justify-content: space-evenly;
-    margin: 0px 40px;
+    margin: 10px 40px;
+    flex-wrap: wrap;
   }
 
   .single-collab-container {
@@ -31,7 +32,7 @@
     border-radius: 2px;
     padding: 5px;
     text-align: center;
-    margin: 0px 20px;
+    margin: 20px;
   }
 
   .collab-photo {
