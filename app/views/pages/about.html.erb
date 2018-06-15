@@ -1,38 +1,51 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-10 col-lg-10 wrap">
-      <div class="about">
+    <div class="wrap">
+      <div class="col-md-4">
         <h1>Our Mission</h1>
-        <p>Providing clarity through the things we are most grateful for.</p>
-        <h2>About</h2>
-        <div class="col-xs-12 col-md-12 about">
-        <p>Hafuru seeks to inspire individuals to connect with others through the things they are most grateful for, and we need more filler here so I'm just going to type a bunch of random text so that this appears longer than it actually does.</p>
+        <p>Hafuru is for the open-minded people to have a place to enter their ambitions and have a way to connect with others that share the same values.</p>
+      </div>
+      <div class="col-md-4">
+          <h1>About</h1>
+          <p>Having a way to think more positive in this negative world. The team came together and in two weeks we now have Hafuru.</p>
+      </div>
+      <div class="col-md-4">
+          <h1>Goals</h1>
+          <p>Create a new way of sharing and connecting.</p>
+      </div>
+        <div class="member-page">
+          <h1 class="text-center">#HafuruTeam</h1>
         </div>
-      </div>
-      <div class="col-xs-12 col-md-4 col-md-offset-4 team">
-        <h2>The Team</h2>
-      </div>
-      <div class="col-xs-12 col-md-6 member">
-        <img src="https://orig00.deviantart.net/3b61/f/2013/328/2/d/profile_picture_by_anycartoonrp_zim-d6vhg0s.jpg" class= "img-circle img-fluid m-x-auto m-b" style= "width: 112px" alt="HC">
-        <h3>HC</h3>
-        <p>Lead Developer</p>
-      </div>
-      <div class="col-xs-12 col-md-6 member">
-        <img src="https://www.ienglishstatus.com/wp-content/uploads/2018/04/Anonymous-Whatsapp-profile-picture.jpg" class= "img-circle img-fluid m-x-auto m-b" style= "width: 112px" alt="Reyes">
-        <h3>Reyes</h3>
-        <p>Back-end guy</p>
-      </div>
-      <div class="col-xs-12 col-md-6 member">
-        <img src="https://pbs.twimg.com/profile_images/623359332877365248/ee4ISVLy_400x400.png" class= "img-circle img-fluid m-x-auto m-b" style= "width: 112px" alt="Oussama">
-        <h3>Oussama</h3>
-        <p>Back-end guy</p>
-      </div>
-      <div class="col-xs-12 col-md-6 member">
-        <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/zcscud-profile_image-13388d4a946a2a6b-300x300.jpeg" class= "img-circle img-fluid m-x-auto m-b" style= "width: 112px" alt="Luca">
-        <h3>Luca</h3>
-        <p>Intern</p>
-      </div>
+
+        <div class="team-member">
+            <div class="member">
+            <%= image_tag "hc", class: 'team_image' %>
+            <h4>Hien-Chanh</h4>
+            <h5>Lead/Front End Developer</h5>
+            <p>From Paris, France <br>Grateful: Le Wagon & Life</p>
+            </div>
+
+            <div class="member">
+            <%= image_tag "oussama", class: 'team_image' %>
+            <h4>Oussama</h4>
+            <h5>Backend Developer</h5>
+            <p>From Tunis, Tunisia <br>Grateful: Le Wagon & Family </p>
+            </div>
+
+            <div class="member">
+            <%= image_tag "rey", class: 'team_image' %>
+            <h4>Rey</h4>
+            <h5>Full-stack Developer</h5>
+            <p>From Fresno, USA <br>Grateful: Le Wagon & Food!</p>
+            </div>
+            <div class="member">
+            <%= image_tag "luca", class: 'team_image' %>
+            <h4>Luca</h4>
+            <h5>Support Developer</h5>
+            <p>From Manila, Philippines<br>Grateful: Le Wagon & Video Games</p>
+          </div>
+        </div>
     </div>
   </div>
 </div>
