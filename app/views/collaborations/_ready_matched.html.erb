@@ -1,4 +1,4 @@
-<%= link_to gratitude_path(item.matched_user_gratitude) do %>
+
   <div class="gratitude-collaboration-photo">
     <%= cl_image_tag item.matched_user_gratitude.photo, height: 200, width: 150, crop: :fill, :background=>"#659DBD", :radius=>5 %>
     <div class="gratitude-collaboration-title">
@@ -6,6 +6,10 @@
     </div>
     <div class="gratitude-collaboration-description overlay">
       <p><%= item.matched_user_gratitude.description %></p>
+        <button type="button" class="collab-item-edit-btn" data-toggle="modal" data-target=".bs-edit-matched-gratitude-modal-lg">EDIT</button>
+
     </div>
-  </div>
-<% end %>
+     </div>
+
+
+
