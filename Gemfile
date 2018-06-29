@@ -26,6 +26,8 @@ gem 'carrierwave', '~> 1.2'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
 
+gem 'postmark-rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
