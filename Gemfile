@@ -18,14 +18,15 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'postmark-rails'
 
 gem "pundit"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
-gem 'sprockets', '>= 3.0.0'
+gem 'sprockets', '>= 3.7.1'
 gem 'sprockets-es6'
+
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
