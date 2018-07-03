@@ -1,6 +1,6 @@
 Rails.application.configure do
   config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_key: ENV['117c2480-5113-4113-b64b-e72dd1e5ea6f'] }
+  config.action_mailer.postmark_settings = { :api_token => "117c2480-5113-4113-b64b-e72dd1e5ea6f" }
   config.action_mailer.default_url_options = { host: "www.hafuru.com" }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
