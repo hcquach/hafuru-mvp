@@ -64,6 +64,11 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+
+  .fa.fa-bars.dropdown-toggle {
+    color: white;
+  }
+
 }
 
 /* Navbar link */

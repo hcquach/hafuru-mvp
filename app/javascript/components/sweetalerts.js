@@ -31,6 +31,7 @@ function deleteSweetAlertButton() {
 
 
 
+
 function categoryError() {
   const swalButtonMatch = document.getElementById('categoryerror');
   if (swalButtonMatch) { // protect other pages

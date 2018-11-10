@@ -1,5 +1,7 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings = { :api_token => "117c2480-5113-4113-b64b-e72dd1e5ea6f" }
+  config.action_mailer.default_url_options = { host: "www.hafuru.com" }
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   # Settings specified here will take precedence over those in config/application.rb.
@@ -50,7 +52,7 @@ Rails.application.configure do
   config.action_cable.allowed_request_origins = [ 'http://www.hafuru.com' ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

@@ -74,3 +74,43 @@
   position: absolute;
   bottom: 20px;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .img-fluid {
+    height: 75%;
+    width: 75%;
+  }
+
+  #banner-typed-text {
+    font-size: 15px;
+  }
+
+  .home-description-main {
+    h2 {
+      font-size: 20px !important;
+    }
+    p {
+      font-size: 15px !important;
+    }
+  }
+
+  .container-testimonials-form {
+    p {
+      font-size: 10px !important;
+    }
+    select {
+      width: 70%;
+    }
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+}
+
+@media only screen and (min-width: 1800px) {
+
+}
+
