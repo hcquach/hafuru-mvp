@@ -13,22 +13,16 @@ class CollaborationGratitudesController < ApplicationController
     if @gratitude.photo.blank?
       @gratitude.remote_photo_url = @gratitude.category.photo_url
     end
+    @gratitude.save
 
 
     if @gratitude.save
-
-      case current_user
-
-        when @collaboration.match.matching_gratitude.user
-          @collaboration_item.matching_user_gratitude_id = @gratitude.id
-
-        when @collaboration.match.matched_gratitude.user
-          @collaboration_item.matched_user_gratitude_id = @gratitude.id
-
+      if current_user == @collaboration.match.matching_gratitude.user
+        @collaboration_item.matching_user_gratitude_id = @gratitude.id
+      else
+        @collaboration_item.matched_user_gratitude_id = @gratitude.id
       end
-
       @collaboration_item.save
-
       if @collaboration_item.matching_user_gratitude && @collaboration_item.matched_user_gratitude
         CollaborationItem.create!(collaboration: @collaboration)
         flash[:noticecollaborationitem] = "Yo"

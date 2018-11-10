@@ -149,10 +149,54 @@
         <!-- End of modal -->
       <% elsif item.matching_user_gratitude_id && item.matched_user_gratitude_id.nil? && @collaboration.collaboration_items.count < 30 %>
         <% if item.matching_user_gratitude.user == current_user %>
+        <%= link_to gratitude_path(item.matching_user_gratitude) do %>
           <%= render partial: "ready_matching", locals: {item: item} %>
+
+
+          <div class="modal fade bs-edit-matching-gratitude-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/tokyo'); background-size: cover;">
+      <div class="row">
+        <div class="col-md-8 ">
+      <%= render partial: "gratitudes/edit" ,
+                            locals: { gratitude: item.matching_user_gratitude } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          <% end %>
+
+
+
+
+
+
+
+
           <div class="waiting-div">
             <i class="fas fa-hourglass-half"></i>
           <p>Waiting for your buddy's upload</p>
+          <!-- edit again matching -->
+          <button type="button" class="collab-item-edit-btn" data-toggle="modal" data-target=".bs-edit-matching-gratitude-modal-lg">EDIT</button>
+          <div class="modal fade bs-edit-matching-gratitude-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/tokyo'); background-size: cover;">
+              <div class="row">
+                <div class="col-md-8 ">
+              <%= render partial: "gratitudes/edit" ,
+                                    locals: { gratitude: item.matching_user_gratitude } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end -->
+
+
+
+
+
           </div>
         <% else %>
           <%= render partial: "ready_matching", locals: {item: item} %>
@@ -181,10 +225,42 @@
       <% elsif item.matching_user_gratitude_id == nil && item.matched_user_gratitude_id && @collaboration.collaboration_items.count < 30 %>
 
         <% if item.matched_user_gratitude.user == current_user %>
+        <%= link_to gratitude_path(item.matched_user_gratitude) do %>
           <%= render partial: "ready_matched", locals: {item: item} %>
+          <!-- modal -->
+          <div class="modal fade bs-edit-matched-gratitude-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/tokyo'); background-size: cover;">
+              <div class="row">
+                <div class="col-md-8 ">
+                  <%= render partial: "gratitudes/edit" ,
+                      locals: { gratitude: item.matched_user_gratitude } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <% end %>
+
+
+          <!-- end modal -->
+
+
+
+
           <div class="waiting-div">
             <i class="fas fa-hourglass-half"></i>
           <p>Waiting for your buddy's upload</p>
+          <!-- edit again matched -->
+
+
+          <!-- end -->
+
+
+
+
+
+
           </div>
         <% else %>
           <%= render partial: "ready_matched", locals: {item: item} %>
