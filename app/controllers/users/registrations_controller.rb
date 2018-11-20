@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    UserMailer.welcome(current_or_guest_user).deliver_now
+    # UserMailer.welcome(current_or_guest_user).deliver_now
     current_or_guest_user
   end
 
